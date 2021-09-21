@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": "./",
+    "declaration": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "forceConsistentCasingInFileNames": false,
+    "incremental": true,
+    "module": "commonjs",
+    "noFallthroughCasesInSwitch": false,
+    "noImplicitAny": false,
+    "outDir": "./dist",
+    "paths": {
+      "@/*": ["src/*"],
+      "@entity/*": ["src/database/entities/*"],
+      "@migrate/*": ["src/database/migrations/*"],
+      "@repo/*": ["src/database/repositories/*"],
+      "@sub/*": ["src/database/subscribers/*"]
+    },
+    "removeComments": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "strictBindCallApply": false,
+    "strictNullChecks": false,
+    "target": "es2017"
+  }
+}
