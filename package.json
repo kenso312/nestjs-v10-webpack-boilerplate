@@ -12,11 +12,15 @@
     "start:prod": "node dist/main",
     "dev": "yarn start:dev",
     "prod": "yarn start:prod",
+    "typeorm:cli": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli -f ./src/ormConfig.ts",
+    "migration:run": "npm run typeorm:cli -- migration:run",
+    "migration:create": "npm run typeorm:cli -- migration:create --name",
+    "migration:make": "npm run typeorm:cli -- migration:generate --pretty --name",
     "lint": "eslint . --ext ts --ext js --fix",
     "test": "yarn test:unit && yarn test:e2e",
     "test:unit": "jest",
     "test:e2e": "jest --config ./test/jest.e2e.config.js --passWithNoTests",
-    "new": "node ./src/_templete/init.js"
+    "make": "node ./.template/init.js"
   },
   "dependencies": {
     "@nestjs/common": "^8.0.0",
@@ -27,11 +31,12 @@
     "@nestjs/typeorm": "^8.0.2",
     "class-transformer": "^0.4.0",
     "class-validator": "^0.13.1",
+    "mysql": "^2.18.1",
     "nestjs-i18n": "^8.1.6",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^7.2.0",
-    "typeorm": "^0.2.37"
+    "typeorm": "^0.2.38"
   },
   "devDependencies": {
     "@commitlint/cli": "^13.1.0",
