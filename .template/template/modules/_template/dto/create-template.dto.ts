@@ -1,6 +1,6 @@
 // import { IsNotEmpty, IsNumber } from 'class-validator';
 
-// export class UpdateTempleteDto {
+// export class CreateTemplateDto {
 //   @IsNotEmpty()
 //   @IsNumber()
 //   readonly id: number;

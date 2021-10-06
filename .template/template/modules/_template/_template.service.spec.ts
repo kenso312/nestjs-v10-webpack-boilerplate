@@ -1,17 +1,17 @@
 // import { I18nRequestScopeService } from 'nestjs-i18n';
-// import { TempleteRepository } from '@repo/_templete.repository';
-// import { TempleteService } from './_templete.service';
+// import { TemplateRepository } from '@repo/_template.repository';
+// import { TemplateService } from './_template.service';
 // import { Test, TestingModule } from '@nestjs/testing';
 // import { getRepositoryToken } from '@nestjs/typeorm';
 
-// describe('TempleteService', () => {
-//   let service: TempleteService;
-//   let repo: TempleteRepository;
+// describe('TemplateService', () => {
+//   let service: TemplateService;
+//   let repo: TemplateRepository;
 
 //   beforeEach(async () => {
 //     const module: TestingModule = await Test.createTestingModule({
 //       providers: [
-//         TempleteService,
+//         TemplateService,
 //         {
 //           provide: I18nRequestScopeService,
 //           useValue: {
@@ -20,15 +20,15 @@
 //           },
 //         },
 //         {
-//           provide: getRepositoryToken(TempleteRepository),
-//           useClass: TempleteRepository,
+//           provide: getRepositoryToken(TemplateRepository),
+//           useClass: TemplateRepository,
 //         },
 //       ],
 //     }).compile();
 
-//     service = module.get<TempleteService>(TempleteService);
-//     repo = module.get<TempleteRepository>(
-//       getRepositoryToken(TempleteRepository)
+//     service = module.get<TemplateService>(TemplateService);
+//     repo = module.get<TemplateRepository>(
+//       getRepositoryToken(TemplateRepository)
 //     );
 //   });
 
