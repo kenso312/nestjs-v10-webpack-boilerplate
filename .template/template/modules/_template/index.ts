@@ -1,3 +1,3 @@
-// export { TempleteService } from './_templete.service';
-// export { TempleteModule } from './_templete.module';
-// export { TempleteController } from './_templete.controller';
+// export { TemplateService } from './_template.service';
+// export { TemplateModule } from './_template.module';
+// export { TemplateController } from './_template.controller';
