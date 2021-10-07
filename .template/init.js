@@ -117,7 +117,7 @@ const generateUtilsTemplate = (utilType) => {
       generateUtilsTemplate('enums');
       break;
     case 'type':
-      generateUtilsTemplate('type');
+      generateUtilsTemplate('types');
       break;
     case 'entity':
       generateObjectTemplate(path.join('database', 'entities'));
