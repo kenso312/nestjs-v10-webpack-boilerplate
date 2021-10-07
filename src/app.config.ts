@@ -1,8 +1,32 @@
-import { NodeEnv } from '@/utils/enums';
+import * as path from 'path';
+import { HeaderResolver, I18nJsonParser, I18nOptions } from 'nestjs-i18n';
+import { NodeEnv } from '@/utils/enums/_index';
+import { ThrottlerModuleOptions } from '@nestjs/throttler';
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 
 export class AppConfig {
+  public static getI18nConfig(): I18nOptions {
+    return {
+      fallbackLanguage: 'en',
+      parser: I18nJsonParser,
+      parserOptions: {
+        path: path.join(__dirname, '/i18n/'),
+      },
+      resolvers: [{ use: HeaderResolver, options: ['lang', 'locale'] }],
+    };
+  }
+
+  public static getThrottlerConfig(): ThrottlerModuleOptions {
+    return {
+      ttl: 60,
+      limit: 5,
+    };
+  }
+
   public static getTypeOrmConfig(): TypeOrmModuleOptions {
+    const entitiesDir = 'src/database/entities';
+    const migrationsDir = 'src/database/migrations';
+    const subscribersDir = 'src/database/subscribers';
     return {
       type: process.env.DB_TYPE as any,
       host: process.env.DB_HOST,
@@ -13,16 +37,12 @@ export class AppConfig {
       logging: process.env.DEBUG === 'true',
       debug: process.env.DEBUG === 'true',
       synchronize: process.env.NODE_ENV === NodeEnv.LOCAL,
-      entities: [`${__dirname}/database/entities/*.entity{.ts,.js}`],
-      migrations: [`${__dirname}/database/migrations/*.migration{.ts,.js}`],
-      subscribers: [`${__dirname}/database/subscribers/*.subscriber{.ts,.js}`],
-      cli: {
-        migrationsDir: `${__dirname}/database/migrations`,
-        entitiesDir: `${__dirname}/database/entities`,
-        subscribersDir: `${__dirname}/database/subscribers`,
-      },
+      entities: [`${entitiesDir}/*.entity{.ts,.js}`],
+      migrations: [`${migrationsDir}/*.migration{.ts,.js}`],
+      subscribers: [`${subscribersDir}/*.subscriber{.ts,.js}`],
+      cli: { entitiesDir, migrationsDir, subscribersDir },
       extra: {
-        // For SQL Server that has self signed certificate error, uncomment below setting
+        // For SQL Server that has self signed certificate error, enable below setting
         // trustServerCertificate: true,
       },
     };

@@ -10,9 +10,10 @@ module.exports = {
   testEnvironment: 'node',
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/$1',
-    '^@entity/(.*)$': ['<rootDir>/database/entities/$1'],
-    '^@migrate/(.*)$': ['<rootDir>/database/migrations/$1'],
-    '^@repo/(.*)$': ['<rootDir>/database/repositories/$1'],
-    '^@sub/(.*)$': ['<rootDir>/database/subscribers/$1'],
+    '^@entity/(.*)$': '<rootDir>/database/entities/$1',
+    '^@migrate/(.*)$': '<rootDir>/database/migrations/$1',
+    '^@repo/(.*)$': '<rootDir>/database/repositories/$1',
+    '^@sub/(.*)$': '<rootDir>/database/subscribers/$1',
+    '^@util/(.*)$': '<rootDir>/utils/$1',
   },
 };

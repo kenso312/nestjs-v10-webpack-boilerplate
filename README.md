@@ -25,7 +25,7 @@ $ yarn test:unit
 $ yarn test:e2e
 
 # create a new module with defined templete
-$ yarn new [module name]
+$ yarn make module [module name]
 ```
 
 **Running the app for development**
@@ -157,7 +157,8 @@ In the tsconfig.json file, there has a 'paths' attribute that can setup alias pa
     "@entity/*": ["src/database/entities/*"],
     "@migrate/*": ["src/database/migrations/*"],
     "@repo/*": ["src/database/repositories/*"],
-    "@sub/*": ["src/database/subscribers/*"]
+    "@sub/*": ["src/database/subscribers/*"],
+    "@util/*": ["src/utils/*"]
   },
   ...
 }
@@ -168,10 +169,11 @@ For Jest, it does not recognize tsconfig.json, so we have declare the alias path
 ```js
 moduleNameMapper: {
   '^@/(.*)$': '<rootDir>/$1',
-  '^@entity/(.*)$': ['<rootDir>/database/entities/$1'],
-  '^@migrate/(.*)$': ['<rootDir>/database/migrations/$1'],
-  '^@repo/(.*)$': ['<rootDir>/database/repositories/$1'],
-  '^@sub/(.*)$': ['<rootDir>/database/subscribers/$1'],
+  '^@entity/(.*)$': '<rootDir>/database/entities/$1',
+  '^@migrate/(.*)$': '<rootDir>/database/migrations/$1',
+  '^@repo/(.*)$': '<rootDir>/database/repositories/$1',
+  '^@sub/(.*)$': '<rootDir>/database/subscribers/$1',
+  '^@util/(.*)$': '<rootDir>/utils/$1',
 },
 ```
 

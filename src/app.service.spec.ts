@@ -13,7 +13,6 @@ describe('AppController', () => {
         {
           provide: I18nRequestScopeService,
           useValue: {
-            translate: () => '',
             t: () => '',
           },
         },

@@ -72,7 +72,7 @@ const generateObjectTemplate = (PARENT_FOLDER) => {
 };
 
 const modifyIndex = (source) => {
-  const INDEX_FILE = path.join(source, 'index.ts');
+  const INDEX_FILE = path.join(source, '_index.ts');
   const BUFFER = `export { ${MODULE_NAME.capitalize()} } from './${MODULE_NAME}';\n`;
   fs.readFile(INDEX_FILE, 'utf8', function (err, data) {
     fs.writeFile(INDEX_FILE, BUFFER, { flag: 'a' }, function (err, result) {
@@ -93,6 +93,7 @@ const generateModuleTemplate = () => {
     console.log('Module Already Exist!');
     process.exit(0);
   }
+  fs.mkdirSync(destFolder);
 
   generateObjectTemplate(path.join('modules', '_template'));
   generateObjectTemplate(path.join('database', 'entities'));
@@ -116,9 +117,9 @@ const generateUtilsTemplate = (utilType) => {
     case 'enums':
       generateUtilsTemplate('enums');
       break;
-    case 'type':
-      generateUtilsTemplate('types');
-      break;
+    // case 'type':
+    //   generateUtilsTemplate('types');
+    //   break;
     case 'entity':
       generateObjectTemplate(path.join('database', 'entities'));
       generateObjectTemplate(path.join('database', 'repositories'));
