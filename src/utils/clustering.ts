@@ -1,6 +1,6 @@
 import * as _cluster from 'cluster';
 import * as os from 'os';
-import { AppConfig } from '@/app.config';
+import { AppConfig } from '@mod/app/app.config';
 import { PinoLogger } from 'nestjs-pino';
 
 const cluster = _cluster as unknown as _cluster.Cluster;

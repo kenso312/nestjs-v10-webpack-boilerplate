@@ -1,6 +1,6 @@
 import * as fs from 'fs';
-import { AppConfig } from '@/app.config';
-import { AppModule } from '@/app.module';
+import { AppConfig } from '@mod/app/app.config';
+import { AppModule } from '@mod/app/app.module';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { NestFactory } from '@nestjs/core';
 import { NestFastifyApplication } from '@nestjs/platform-fastify';
@@ -35,11 +35,14 @@ import 'tsconfig-paths/register';
       .setTitle(npm_package_name)
       .setDescription(npm_package_description)
       .setVersion(npm_package_version)
+      .addServer('http://localhost:3000', 'Localhost')
       .build()
   );
 
-  // Wrap Google JSON style response + error to Swagger document
-  // This method is a bit hacky but should be the only method for now
+  /**
+   * Here we used a hacky way to wrap data object into all schema that end with 'Res'
+   * Since it is the most efficient way to make all dto fit the Google JSON style response
+   */
   const { schemas } = swaggerDoc.components;
   const schemaList = Object.entries(schemas);
   for (let i = 0; i < schemaList.length; i += 1) {
@@ -48,12 +51,6 @@ import 'tsconfig-paths/register';
       schemas[key] = {
         properties: { data: value },
         required: ['data'],
-        type: 'object',
-      };
-    } else if (key.match(/(.*)Error/)) {
-      schemas[key] = {
-        properties: { error: value },
-        required: ['error'],
         type: 'object',
       };
     }

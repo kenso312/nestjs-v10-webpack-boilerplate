@@ -1,10 +1,5 @@
+import { FailResponse, HttpFailResponse } from '@share/interfaces';
 import { HttpException, HttpStatus } from '@nestjs/common';
-import { HttpFailResponse } from '@share/interfaces';
-
-interface NormalExceptionReponse {
-  message: string;
-  code: number;
-}
 
 export class NormalException extends HttpException {
   constructor(message: string, code: number) {
@@ -32,7 +27,7 @@ export class NormalException extends HttpException {
   };
 
   toJSON(): HttpFailResponse {
-    const response = <NormalExceptionReponse>this.getResponse();
+    const response = <FailResponse>this.getResponse();
     return {
       error: {
         message: response.message,
@@ -42,7 +37,7 @@ export class NormalException extends HttpException {
   }
 
   // @Override
-  getResponse(): NormalExceptionReponse {
-    return <NormalExceptionReponse>super.getResponse();
+  getResponse(): FailResponse {
+    return <FailResponse>super.getResponse();
   }
 }

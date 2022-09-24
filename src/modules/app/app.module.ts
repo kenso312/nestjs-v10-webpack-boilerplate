@@ -4,9 +4,9 @@ import {
   NormalExceptionFilter,
   ValidationExceptionFilter,
 } from '@/filter';
-import { AppConfig } from '@/app.config';
-import { AppController } from '@/app.controller';
-import { AppService } from '@/app.service';
+import { AppConfig } from './app.config';
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import { LoggerModule } from 'nestjs-pino';
 import { Module, ValidationError, ValidationPipe } from '@nestjs/common';

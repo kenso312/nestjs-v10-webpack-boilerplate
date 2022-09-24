@@ -1,5 +1,5 @@
 import * as request from 'supertest';
-import { AppModule } from '@/app.module';
+import { AppModule } from '@mod/app/app.module';
 import {
   FastifyAdapter,
   NestFastifyApplication,

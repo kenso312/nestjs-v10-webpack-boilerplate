@@ -1,5 +1,5 @@
-import { AppConfig } from '@/app.config';
-import { AppModule } from '@/app.module';
+import { AppConfig } from '@mod/app/app.config';
+import { AppModule } from '@mod/app/app.module';
 import { Logger, PinoLogger } from 'nestjs-pino';
 import { NestFactory } from '@nestjs/core';
 import { NestFastifyApplication } from '@nestjs/platform-fastify';
@@ -19,6 +19,9 @@ const bootstrap = async () => {
   );
 
   app.enableVersioning();
+
+  // Enable CORS by default because Swagger UI required
+  app.enableCors();
 
   app.setGlobalPrefix(BASE_PATH);
 
