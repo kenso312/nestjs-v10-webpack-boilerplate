@@ -1,5 +1,6 @@
 import { AppService } from './app.service';
 import { Test, TestingModule } from '@nestjs/testing';
+import { VersionRes } from './dto';
 
 describe('AppService', () => {
   let service: AppService;
@@ -14,7 +15,10 @@ describe('AppService', () => {
 
   describe('get the app version number', () => {
     it('should return version number', async () => {
-      expect(service.getVersion()).toEqual(process.env.npm_package_version);
+      const result: VersionRes = {
+        version: process.env.npm_package_version,
+      };
+      expect(service.getVersion()).toEqual(result);
     });
   });
 

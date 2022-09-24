@@ -6,6 +6,8 @@ import {
 } from '@nestjs/platform-fastify';
 import { INestApplication } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
+import { VersionRes } from '@/modules/app/dto';
+import { wrapDataObj } from './common';
 
 describe('AppController (e2e)', () => {
   let app: INestApplication;
@@ -26,17 +28,23 @@ describe('AppController (e2e)', () => {
     await app.close();
   });
 
-  it('/version (GET)', () => {
+  const versionPath = '/version';
+  it(`${versionPath} (GET)`, () => {
+    const result: VersionRes = {
+      version: process.env.npm_package_version,
+    };
+
     return request(app.getHttpServer())
-      .get('/version')
+      .get(versionPath)
       .expect(200)
-      .expect({ data: process.env.npm_package_version });
+      .expect(wrapDataObj(result));
   });
 
-  it('/healthz (GET)', () => {
+  const healthPath = '/healthz';
+  it(`${healthPath} (GET)`, () => {
     return request(app.getHttpServer())
-      .get('/healthz')
+      .get(healthPath)
       .expect(200)
-      .expect({ data: 'OK' });
+      .expect(wrapDataObj('OK'));
   });
 });
