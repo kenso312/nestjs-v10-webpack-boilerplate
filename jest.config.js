@@ -1,19 +1,16 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+const { pathsToModuleNameMapper } = require('ts-jest');
+const { compilerOptions } = require('./tsconfig.json');
+
 module.exports = {
   moduleFileExtensions: ['js', 'json', 'ts'],
-  rootDir: 'src',
+  moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, {
+    prefix: '<rootDir>/',
+  }),
+  rootDir: '.',
   testRegex: '.*\\.spec\\.ts$',
   transform: {
     '^.+\\.(t|j)s$': 'ts-jest',
   },
-  collectCoverageFrom: ['**/*.(t|j)s'],
-  coverageDirectory: '../coverage',
   testEnvironment: 'node',
-  moduleNameMapper: {
-    '^@/(.*)$': '<rootDir>/$1',
-    '^@entity/(.*)$': '<rootDir>/database/entities/$1',
-    '^@migrate/(.*)$': '<rootDir>/database/migrations/$1',
-    '^@repo/(.*)$': '<rootDir>/database/repositories/$1',
-    '^@sub/(.*)$': '<rootDir>/database/subscribers/$1',
-    '^@util/(.*)$': '<rootDir>/utils/$1',
-  },
 };

@@ -13,14 +13,11 @@
     "outDir": "./dist",
     "paths": {
       "@/*": ["src/*"],
-      "@entity/*": ["src/database/entities/*"],
-      "@migrate/*": ["src/database/migrations/*"],
-      "@repo/*": ["src/database/repositories/*"],
-      "@sub/*": ["src/database/subscribers/*"],
+      "@mod/*": ["src/modules/*"],
+      "@share/*": ["src/shared/*"],
       "@util/*": ["src/utils/*"]
     },
     "removeComments": true,
-    "resolveJsonModule": true,
     "skipLibCheck": true,
     "sourceMap": true,
     "strictBindCallApply": false,

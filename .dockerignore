@@ -1,0 +1,11 @@
+# Ignore everything
+*
+
+# Allow files and directories
+!src
+!nest-cli.json
+!package.json
+!pnpm-lock.yaml
+!tsconfig.build.json
+!tsconfig.json
+!webpack.config.js

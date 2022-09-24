@@ -1,29 +1,27 @@
-import {
-  ArgumentsHost,
-  BadRequestException,
-  Catch,
-  ExceptionFilter,
-} from '@nestjs/common';
+import { ArgumentsHost, Catch, ExceptionFilter, Logger } from '@nestjs/common';
 import { FastifyReply } from 'fastify';
-import { HttpFailResponse } from './all-exception.filter';
+import { NormalException } from '@/exception/normal.exception';
+import { ValidationError } from 'class-validator';
 
-interface ValidatorFailResponse {
-  statusCode: number;
-  message: string[];
-  error: string;
-}
-
-@Catch(BadRequestException)
+// Re-format error response of class-validator
+@Catch(ValidationError)
 export class ValidationExceptionFilter implements ExceptionFilter {
-  catch(exception: BadRequestException, host: ArgumentsHost) {
-    const validatorResponse = <ValidatorFailResponse>exception.getResponse();
-    const finalResponse: HttpFailResponse = {
-      error: {
-        code: 20002,
-        message: validatorResponse.message[0],
-      },
-    };
-    const response = host.switchToHttp().getResponse<FastifyReply>();
-    response.status(422).send(finalResponse); // Unprocessable Entity
+  private readonly logger = new Logger(ValidationExceptionFilter.name);
+
+  catch(exception: ValidationError, host: ArgumentsHost) {
+    this.logger.error(exception);
+
+    const ctx = host.switchToHttp();
+    const response = ctx.getResponse<FastifyReply>();
+
+    const errorMsg = exception.constraints
+      ? exception.constraints
+      : exception.children[0].constraints;
+
+    response
+      .status(422)
+      .send(
+        NormalException.VALIDATION_ISSUE(Object.values(errorMsg)[0]).toJSON()
+      ); // Unprocessable Entity
   }
 }

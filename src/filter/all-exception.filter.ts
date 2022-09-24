@@ -1,23 +1,25 @@
-import { ArgumentsHost, Catch, ExceptionFilter } from '@nestjs/common';
+import {
+  ArgumentsHost,
+  Catch,
+  ExceptionFilter,
+  HttpException,
+  Logger,
+} from '@nestjs/common';
 import { FastifyReply } from 'fastify';
-
-export interface HttpFailResponse {
-  error: {
-    message: string;
-    code: number;
-  };
-}
+import { NormalException } from '@/exception/normal.exception';
 
 @Catch()
 export class AllExceptionFilter implements ExceptionFilter {
-  catch(exception: Error, host: ArgumentsHost) {
-    const response = host.switchToHttp().getResponse<FastifyReply>();
-    const data: HttpFailResponse = {
-      error: {
-        message: exception.message,
-        code: 20000,
-      },
-    };
-    response.status(400).send(data); // Bad Request
+  private readonly logger = new Logger(AllExceptionFilter.name);
+
+  catch(exception: HttpException, host: ArgumentsHost) {
+    this.logger.error(exception.stack);
+
+    const ctx = host.switchToHttp();
+    const response = ctx.getResponse<FastifyReply>();
+
+    response
+      .status(exception?.getStatus?.() || 400)
+      .send(NormalException.UNEXPECTED(exception?.message).toJSON());
   }
 }

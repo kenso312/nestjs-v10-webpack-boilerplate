@@ -1,17 +1,27 @@
+import { ApiOperation, ApiTags } from '@nestjs/swagger';
 import { AppService } from '@/app.service';
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Controller, Get } from '@nestjs/common';
 
+@ApiTags('System')
 @Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
+  @ApiOperation({
+    description: 'Get the app version',
+    summary: AppController.prototype.getVersion.name,
+  })
   @Get('version')
-  async getVersion() {
+  getVersion() {
     return this.appService.getVersion();
   }
 
-  @Post('test')
-  async test(@Body() _body: any) {
-    return 'Hello';
+  @ApiOperation({
+    description: 'For metrics server health checking',
+    summary: AppController.prototype.healthz.name,
+  })
+  @Get('healthz')
+  healthz() {
+    return this.appService.healthz();
   }
 }

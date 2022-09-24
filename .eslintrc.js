@@ -12,15 +12,15 @@ module.exports = {
     'prettier',
   ],
   extends: [
-    // NestJS default extends: https://git.io/JYeMX
+    // NestJS default extends
     'plugin:@typescript-eslint/recommended',
     // Airbnb-base depended plugin
     'plugin:import/recommended',
-    // Support typescript [Import]
+    // Support TypeScript [Import]
     'plugin:import/typescript',
-    // If don't need React support, use base: https://git.io/JzGXV
+    // If don't need React support, use base
     'airbnb-base',
-    // Support Typescript [Airbnb]: https://git.io/JzGXb
+    // Support TypeScript [Airbnb]
     'airbnb-typescript/base',
     // IMPORTANT: add this to the last of the extends to override ESLint rules
     'plugin:prettier/recommended',
@@ -44,6 +44,14 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': 'off',
     // Allow underscore for special purpose
     'no-underscore-dangle': 'off',
+    // Set the whitelist to allow reassign props since some case we must to reassign props
+    'no-param-reassign': [
+      'error',
+      {
+        props: true,
+        ignorePropertyModificationsFor: ['_opts'],
+      },
+    ],
     // Varialbes / Types naming rules
     '@typescript-eslint/naming-convention': [
       'error',
@@ -52,6 +60,10 @@ module.exports = {
         selector: 'variableLike',
         format: ['camelCase'],
         leadingUnderscore: 'allow',
+        filter: {
+          regex: '^npm_',
+          match: false,
+        },
       },
       // Enforce that boolean variables are prefixed with 'is' or 'has'
       // when added prefix, ESLint will trim the prefix and check the format, so PascalCase needed
@@ -66,8 +78,12 @@ module.exports = {
       {
         selector: 'variable',
         modifiers: ['const'],
-        format: ['camelCase', 'UPPER_CASE'],
+        format: ['camelCase', 'UPPER_CASE', 'PascalCase'],
         leadingUnderscore: 'allow',
+        filter: {
+          regex: '^npm_',
+          match: false,
+        },
       },
       // Enforce that class, interface, type and enum  follow are PascalCase
       { selector: 'typeLike', format: ['PascalCase'] },

@@ -4,13 +4,10 @@ import {
   Injectable,
   NestInterceptor,
 } from '@nestjs/common';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { HttpSuccessResponse } from '@share/interfaces';
+import { Observable, map } from 'rxjs';
 
-interface HttpSuccessResponse<T> {
-  data: T;
-}
-
+// Re-format all non-error response
 @Injectable()
 export class ResponseInterceptor<T>
   implements NestInterceptor<T, HttpSuccessResponse<T>>

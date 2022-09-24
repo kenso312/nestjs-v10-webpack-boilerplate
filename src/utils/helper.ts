@@ -1,0 +1,1 @@
+// Centralized all pure function

@@ -1,43 +1,29 @@
-import {
-  AllExceptionFilter,
-  ThrottlerExceptionFilter,
-  ValidationExceptionFilter,
-} from './filter/_index';
+import { AppConfig } from '@/app.config';
 import { AppModule } from '@/app.module';
-import {
-  FastifyAdapter,
-  NestFastifyApplication,
-} from '@nestjs/platform-fastify';
+import { Logger, PinoLogger } from 'nestjs-pino';
 import { NestFactory } from '@nestjs/core';
-import { ResponseInterceptor } from '@/interceptor/response.interceptor';
-import { ValidationPipe } from '@nestjs/common';
+import { NestFastifyApplication } from '@nestjs/platform-fastify';
+import { clusterize } from '@util/clustering';
 
-(async () => {
+const { BASE_PATH, CLUSTERING, PORT } = process.env;
+
+const bootstrap = async () => {
+  const INADDR_ANY = '0.0.0.0';
+
   const app = await NestFactory.create<NestFastifyApplication>(
     AppModule,
-    new FastifyAdapter({ logger: process.env.DEBUG === 'true' })
+    AppConfig.getFastifyInstance(),
+    // this logger instance only for logging the app init message (e.g. InstanceLoader),
+    // since before booting the app, LoggerModule is not loaded yet
+    { logger: new Logger(new PinoLogger(AppConfig.getLoggerConfig()), {}) }
   );
 
-  // https://docs.nestjs.com/techniques/versioning#versioning
   app.enableVersioning();
 
-  // Enable this if you have CORS issue in local development
-  // app.enableCors();
+  app.setGlobalPrefix(BASE_PATH);
 
-  app.setGlobalPrefix('api');
-
-  // Allowing to do validation through DTO
-  app.useGlobalPipes(new ValidationPipe());
-
-  app.useGlobalFilters(
-    new AllExceptionFilter(),
-    new ThrottlerExceptionFilter(),
-    new ValidationExceptionFilter()
-  );
-
-  app.useGlobalInterceptors(new ResponseInterceptor());
-
-  // Setup alternative port to -1 to ensure the app can read the env data.
   // By default, Fastify only listens localhost, so we should to specify '0.0.0.0'
-  await app.listen(process.env.PORT || -1, '0.0.0.0');
-})();
+  app.listen(PORT, INADDR_ANY);
+};
+if (CLUSTERING === 'true') clusterize(bootstrap);
+else bootstrap();
