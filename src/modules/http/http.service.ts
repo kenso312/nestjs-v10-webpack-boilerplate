@@ -30,7 +30,7 @@ export class HttpService {
       },
       // Do something with request error
       (error: AxiosError) => {
-        this.logger.error(error.response.data);
+        this.logger.error(error.response || String(undefined));
         return Promise.resolve(error);
       }
     );
@@ -38,7 +38,7 @@ export class HttpService {
     this.instance.interceptors.response.use(
       // Any status code that lie within the range of 2xx cause this function to trigger
       (response: AxiosResponse) => {
-        this.logger.debug(response.data);
+        this.logger.debug(response);
         return response;
       },
       // Any status codes that falls outside the range of 2xx cause this function to trigger
@@ -46,7 +46,7 @@ export class HttpService {
         if (error.code === ECONNREFUSED)
           throw NormalException.HTTP_REQUEST_TIMEOUT();
 
-        this.logger.error(error.response.data);
+        this.logger.error(error.response || String(undefined));
         return error.response;
       }
     );
