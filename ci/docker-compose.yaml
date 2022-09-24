@@ -1,6 +1,6 @@
-# For local testing docker environment
-# docker build . -t "nestjs-v9-webpack-boilerplate:latest" -f ci/Dockerfile
-# docker-compose -p "nftiv" -f ci/docker-compose.yaml up
+# Useful Command:
+# docker build . -t nestjs-v9-webpack-boilerplate:latest -f ci/Dockerfile
+# docker-compose -p nest -f ci/docker-compose.yaml up
 
 version: '3.9'
 
