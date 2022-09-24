@@ -1,6 +1,5 @@
 import * as fs from 'fs';
-import { AppConfig } from '@mod/app/app.config';
-import { AppModule } from '@mod/app/app.module';
+import { AppConfig, AppModule } from '@mod/app';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { NestFactory } from '@nestjs/core';
 import { NestFastifyApplication } from '@nestjs/platform-fastify';
