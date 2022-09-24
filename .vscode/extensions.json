@@ -1,9 +1,10 @@
 {
   "recommendations": [
+    "DavidAnson.vscode-markdownlint",
     "EditorConfig.EditorConfig",
+    "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode",
-    "Gruntfuggly.todo-tree",
     "richie5um2.vscode-sort-json",
-    "dbaeumer.vscode-eslint"
+    "timonwong.shellcheck"
   ]
 }
