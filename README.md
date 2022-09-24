@@ -184,13 +184,17 @@ _Reference:_
 
 ### Pino Logger
 
+We used [nestjs-pino](https://github.com/iamolegga/nestjs-pino) to auto log every request metadata and response time. We also centrlized pino config in `app.config.ts` for `main.js` reuse it.
+
 ### Swagger
 
-[@nestjs/swagger](https://github.com/nestjs/swagger) allow you to auto-generate the API document, but here we have an offline script to generate JSON schema only but not hosting the document directly on the service.
+[@nestjs/swagger](https://github.com/nestjs/swagger) allow you to auto-generate the API document, but here we decouple the document and the service. You can run `pnpm swagger` to generate the schema and put into [Swagger UI](https://github.com/swagger-api/swagger-ui) to host your API document as a static page. We also have two example in `app.controller.ts` to show you how to integrate Google JSON response format.
+
+![Swagger UI Final Output](https://gateway.pinata.cloud/ipfs/QmWVxHGQCJsHER1HLiNpMod67Qys96xN8vULhroFWfXv7v)
 
 ### Clustering
 
-We also configured the clustering feature for the service to import performance. All you need to do is just config the environment variable `CLUSTERING=true`.
+We also configured the clustering feature for the service to improve performance. All you need to do is just config the environment variable `CLUSTERING=true`.
 
 ## ☑️ Naming Convention
 
