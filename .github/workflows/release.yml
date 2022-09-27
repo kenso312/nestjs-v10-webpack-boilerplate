@@ -14,7 +14,6 @@ jobs:
           token: ${{ secrets.RELEASE_TOKEN }}
           pull-request-title-pattern: 'chore(release): bump version to ${version}'
           component: nestjs
-          release-as: 2.1.0
           changelog-types: |
             [
               {
