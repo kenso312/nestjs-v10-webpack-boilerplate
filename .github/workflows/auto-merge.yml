@@ -1,7 +1,9 @@
-name: Auto Merge
+name: Merge to Main Branch
 
 on:
   pull_request:
+    branches:
+      - main
     types:
       - labeled
       - unlabeled
@@ -20,8 +22,8 @@ jobs:
   auto-merge:
     runs-on: ubuntu-latest
     steps:
-      - name: Automerge
+      - name: Merging to Main Branch
         uses: 'pascalgn/automerge-action@v0.15.3'
         env:
-          GITHUB_TOKEN: '${{ secrets.RELEASE_TOKEN }}'
+          GITHUB_TOKEN: '${{ secrets.PERSONAL_ACCESS_TOKEN }}'
           MERGE_LABELS: 'autorelease: pending'
