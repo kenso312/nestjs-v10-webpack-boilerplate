@@ -1,8 +1,6 @@
 name: Analyse Code
 
 on:
-  push:
-    branches: [dev]
   schedule:
     - cron: '0 0 * * 0'
 
