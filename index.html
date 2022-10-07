@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <link rel="shortcut icon" href="favicon.png" />
+    <script src="https://unpkg.com/swagger-ui-dist@4.14.2/swagger-ui-bundle.js"></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://unpkg.com/swagger-ui-dist@4.14.2/swagger-ui.css"
+    />
+    <title>Swagger API Document</title>
+  </head>
+  <body>
+    <div id="swagger-ui"></div>
+    <script>
+      window.onload = function () {
+        const ui = SwaggerUIBundle({
+          url: 'swagger.json',
+          dom_id: '#swagger-ui',
+          deepLinking: true,
+          requestSnippetsEnabled: true,
+          presets: [
+            SwaggerUIBundle.presets.apis,
+            SwaggerUIBundle.SwaggerUIStandalonePreset,
+          ],
+          plugins: [SwaggerUIBundle.plugins.DownloadUrl],
+        });
+        window.ui = ui;
+      };
+    </script>
+  </body>
+</html>
