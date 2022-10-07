@@ -14,9 +14,9 @@ jobs:
         with:
           release-type: node
           token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-          pull-request-title-pattern: 'chore(release): bump version to ${version}'
-          component: nestjs
-          default-branch: main
+          pull-request-title-pattern: 'chore${scope}: bump version to ${version}'
+          component: nestjs-boilerplate
+          default-branch: release
           changelog-types: |
             [
               {
