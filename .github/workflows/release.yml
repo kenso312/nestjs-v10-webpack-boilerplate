@@ -3,7 +3,7 @@ name: Create Release
 on:
   push:
     branches:
-      - release
+      - main
 
 jobs:
   create-release:
@@ -14,8 +14,8 @@ jobs:
         with:
           release-type: node
           token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-          pull-request-title-pattern: 'chore(release): bump version to ${version}'
-          component: nestjs
+          pull-request-title-pattern: 'chore${scope}: bump version to ${version}'
+          component: nestjs-boilerplate
           default-branch: main
           changelog-types: |
             [
