@@ -1,5 +1,22 @@
 # Changelog
 
+## [2.1.1](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/compare/v2.1.0...v2.1.1) (2022-10-07)
+
+
+### Documentation
+
+* update README.md ([70aa529](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/70aa529cb186c8ab78762affb9e51f153ef860fd))
+
+
+### Continuous Integration
+
+* added swagger + test workflow ([efda677](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/efda677762c7a6180552e47ac6d043353be8c7c4))
+* changed code analysis to cron job only ([f4705ed](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/f4705ed3360185fff9073300ec9a1607912fc26e))
+* remove git checkout HEAD^2 for code analysis script (recommend) ([6bdde61](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/6bdde61624f8c3ee715ad11059dcd9e79d808f5f))
+* remove release-as attribute (for first release only) ([f9aa833](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/f9aa8332d448c4d1337442c5af64174f95bd56fc))
+* update pull request title pattern ([f65c2fd](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/f65c2fdfc9c38b8f80e3baf271eda05ebcb92d9c))
+* update workflow jobs + variables naming ([d3c7ed4](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/d3c7ed4a3527b7a7be5750e2e71ff65f5c1e1173))
+
 ## [2.1.0](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/compare/v2.0.0...v2.1.0) (2022-09-27)
 
 
