@@ -1,21 +1,37 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
 const { IgnorePlugin } = require('webpack');
-const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+
+const tsConfigFile = 'tsconfig.json';
 
 module.exports = {
-  entry: path.resolve('src', 'main'),
-  target: 'node',
+  entry: './src/main',
   externals: {},
-  module: { rules: [{ test: /\.ts$/, loader: 'ts-loader' }] },
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: '[name].js',
+  module: {
+    rules: [{ test: /\.ts$/, loader: 'ts-loader' }],
   },
-  resolve: {
-    extensions: ['.js', '.json', '.ts'],
-    plugins: [new TsconfigPathsPlugin()],
+  node: {
+    __filename: false,
+    __dirname: false,
+  },
+  optimization: {
+    nodeEnv: false,
+    minimize: true,
+    minimizer: [
+      new TerserPlugin({
+        terserOptions: {
+          keep_classnames: true,
+          keep_fnames: true,
+        },
+      }),
+    ],
+  },
+  output: {
+    path: path.resolve(__dirname, 'dist/'),
+    filename: '[name].js',
   },
   plugins: [
     new IgnorePlugin({
@@ -30,6 +46,7 @@ module.exports = {
           'amqp-connection-manager',
           'amqplib',
           'cache-manager',
+          'cache-manager/package.json',
           'class-transformer/storage',
           'hbs',
           'ioredis',
@@ -50,4 +67,10 @@ module.exports = {
     }),
     new ForkTsCheckerWebpackPlugin(),
   ],
+  resolve: {
+    extensions: ['.js', '.json', '.ts'],
+    mainFields: ['main'],
+    plugins: [new TsconfigPathsPlugin({ configFile: tsConfigFile })],
+  },
+  target: 'node',
 };
