@@ -1,29 +1,19 @@
 name: Merge to Main Branch
 
 on:
-  pull_request:
+  pull_request_target:
     branches:
       - main
-    types:
-      - labeled
-      - unlabeled
-      - synchronize
-      - opened
-      - edited
-      - ready_for_review
-      - reopened
-      - unlocked
-  pull_request_review:
-    types:
-      - submitted
-  status: {}
 
 jobs:
-  auto-merge:
+  merge-to-main-branch:
     runs-on: ubuntu-latest
     steps:
-      - name: Merging to Main Branch
-        uses: 'pascalgn/automerge-action@v0.15.3'
+      - id: merge
+        name: Merging to Main Branch
+        uses: pascalgn/automerge-action@v0.15.5
         env:
-          GITHUB_TOKEN: '${{ secrets.PERSONAL_ACCESS_TOKEN }}'
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           MERGE_LABELS: 'autorelease: pending'
+          MERGE_DELETE_BRANCH: true
+          MERGE_DELETE_BRANCH_FILTER: release-please--branches

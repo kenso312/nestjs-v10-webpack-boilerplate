@@ -1,9 +1,11 @@
 name: Generate / Update Swagger API Schema
 
 on:
-  push:
-    branches:
-      - main
+  workflow_run:
+    workflows:
+      - Merge to Main Branch
+    types:
+      - completed
 
 jobs:
   generate-or-update-swagger-api-schema:
@@ -12,21 +14,21 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Setup pnpm
+      - name: Setting Up Pnpm
         uses: pnpm/action-setup@v2
         with:
-          version: 7.12.2
+          version: 7
 
-      - name: Setup Node
+      - name: Setting Up Node
         uses: actions/setup-node@v3
         with:
           node-version: 16
-          cache: 'pnpm'
+          cache: pnpm
 
       - name: Installing Project Dependencies
         run: pnpm install
 
-      - name: Set Up Environment File
+      - name: Setting Up Environment File
         uses: SpicyPizza/create-envfile@v1.3
         with:
           envkey_BASE_PATH: /api
@@ -38,14 +40,14 @@ jobs:
         run: pnpm swagger
 
       - name: Updating API Documentation
-        uses: dmnemec/copy_file_to_another_repo_action@main
+        uses: dmnemec/copy_file_to_another_repo_action@v1.1.1
         env:
-          API_TOKEN_GITHUB: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          API_TOKEN_GITHUB: ${{ github.token }}
         with:
-          source_file: 'swagger.json'
-          destination_repo: 'kenso312/nestjs-v9-webpack-boilerplate'
-          destination_branch: 'docs/swagger'
-          destination_folder: '/'
-          user_email: 'bot@github.com'
-          user_name: 'GitHub Bot'
-          commit_messaGitHubcs: 'docs: update Swagger schema'
+          source_file: swagger.json
+          destination_repo: ${{ github.repository }}
+          destination_branch: docs/swagger
+          destination_folder: /
+          user_email: github-actions[bot]@users.noreply.github.com
+          user_name: github-actions[bot]
+          commit_message: 'docs: update schema'

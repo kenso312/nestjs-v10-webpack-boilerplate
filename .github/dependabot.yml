@@ -1,15 +1,17 @@
 version: 2
 updates:
-  - package-ecosystem: 'github-actions'
-    directory: '/'
+  - package-ecosystem: github-actions
+    target-branch: dev
+    directory: /
     schedule:
-      interval: 'weekly'
-  - package-ecosystem: npm
-    directory: '/'
-    schedule:
-      interval: 'weekly'
-    open-pull-requests-limit: 10
-    versioning-strategy: increase-if-necessary
+      interval: weekly
     labels:
-      - 'dependencies'
-      - 'npm'
+      - github_actions
+  - package-ecosystem: npm
+    target-branch: dev
+    directory: /
+    schedule:
+      interval: weekly
+    labels:
+      - dependencies
+      - npm

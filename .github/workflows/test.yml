@@ -12,16 +12,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Setup pnpm
+      - name: Setting Up Pnpm
         uses: pnpm/action-setup@v2
         with:
-          version: 7.12.2
+          version: 7
 
-      - name: Setup Node
+      - name: Setting Up Node
         uses: actions/setup-node@v3
         with:
           node-version: 16
-          cache: 'pnpm'
+          cache: pnpm
 
       - name: Installing Project Dependencies
         run: pnpm install
@@ -29,7 +29,7 @@ jobs:
       - name: Building Project
         run: pnpm build
 
-      - name: Set Up Environment File
+      - name: Setting Up Environment File
         uses: SpicyPizza/create-envfile@v1.3
         with:
           envkey_BASE_PATH: /api

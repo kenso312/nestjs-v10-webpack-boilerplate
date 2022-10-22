@@ -1,0 +1,24 @@
+name: Push Back to Dev Branch
+
+on:
+  workflow_run:
+    workflows:
+      - Merge to Main Branch
+    types:
+      - completed
+
+jobs:
+  push-back-to-dev-branch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+        with:
+          ref: dev
+      - name: Pushing Back to Dev Branch
+        run: |
+          git fetch $URL main:main
+          git rebase main
+          git push $URL dev
+        env:
+          URL: 'https://${{ github.repository_owner }}:${{ github.token }}@github.com/${{ github.repository }}'
