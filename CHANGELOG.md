@@ -1,5 +1,23 @@
 # Changelog
 
+## [2.1.2](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/compare/v2.1.1...v2.1.2) (2022-10-22)
+
+
+### Documentation
+
+* improve documents ([57b17e9](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/57b17e9d37480c64add7a79e5200cff90796425a))
+
+
+### Chores
+
+* **deps:** upgrade dependency packages ([05e4578](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/05e4578c254164fbaf7fa370bcb9f58bf7d6cd79))
+* optimized webpack config + added terser to minimize bundle size ([73f9a58](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/73f9a588199c434cb1aece9e08d1a607bbf4368e))
+
+
+### Continuous Integration
+
+* optimize workflow script ([cdd016d](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/cdd016d4bf76774c3ae846ce3f2ca1bd9bd9e03d))
+
 ## [2.1.1](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/compare/v2.1.0...v2.1.1) (2022-10-07)
 
 
