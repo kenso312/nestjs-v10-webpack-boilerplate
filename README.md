@@ -133,7 +133,7 @@ To synchronize the end-of-line of the git repository.
 
 ### Webpack
 
-We overwrite the default `webpack.config.js` so that the production build can bundle all required libraries in `main.js`. For the configuration, we ignored a list of the nestjs-buildin library so that we could build it without error. If you need these libraries for your development, you can comment it in the lazy imports list.
+We overwrite the default `webpack.config.js` so that the production build can bundle all required libraries in `main.ts`. For the configuration, we ignored a list of the nestjs-buildin library so that we could build it without error. If you need these libraries for your development, you can comment it in the lazy imports list.
 
 ### Alias Path
 
@@ -197,7 +197,7 @@ _Reference:_
 
 ### Pino Logger
 
-We used [nestjs-pino](https://github.com/iamolegga/nestjs-pino) to auto-log every request metadata and response time. We also centralized Pino config in `app.config.ts` for `main.js` reuse it.
+We used [nestjs-pino](https://github.com/iamolegga/nestjs-pino) to auto-log every request metadata and response time. We also centralized Pino config in `app.config.ts` for `main.ts` reuse it.
 
 ### Swagger
 

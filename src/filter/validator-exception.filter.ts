@@ -3,7 +3,7 @@ import { FastifyReply } from 'fastify';
 import { NormalException } from '@/exception/normal.exception';
 import { ValidationError } from 'class-validator';
 
-// Re-format error response of class-validator
+// Re-format error response of class-validator to fit Google JSON style
 @Catch(ValidationError)
 export class ValidationExceptionFilter implements ExceptionFilter {
   private readonly logger = new Logger(ValidationExceptionFilter.name);
