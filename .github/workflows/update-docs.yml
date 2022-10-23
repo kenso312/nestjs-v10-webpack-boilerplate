@@ -1,4 +1,4 @@
-name: Generate / Update Swagger API Schema
+name: Update Swagger API Schema
 
 on:
   workflow_run:
@@ -8,7 +8,7 @@ on:
       - completed
 
 jobs:
-  generate-or-update-swagger-api-schema:
+  update-swagger-api-schema:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -22,8 +22,8 @@ jobs:
       - name: Setting Up Node
         uses: actions/setup-node@v3
         with:
-          node-version: 16
           cache: pnpm
+          node-version: 16
 
       - name: Installing Project Dependencies
         run: pnpm install
@@ -33,8 +33,8 @@ jobs:
         with:
           envkey_BASE_PATH: /api
           envkey_CLUSTERING: false
-          envkey_PORT: 3000
           envkey_NODE_ENV: production
+          envkey_PORT: 3000
 
       - name: Exporting API JSON
         run: pnpm swagger
@@ -42,12 +42,12 @@ jobs:
       - name: Updating API Documentation
         uses: dmnemec/copy_file_to_another_repo_action@v1.1.1
         env:
-          API_TOKEN_GITHUB: ${{ github.token }}
+          API_TOKEN_GITHUB: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
         with:
-          source_file: swagger.json
-          destination_repo: ${{ github.repository }}
+          commit_message: 'docs: update schema'
           destination_branch: docs/swagger
           destination_folder: /
+          destination_repo: ${{ github.repository }}
+          source_file: swagger.json
           user_email: github-actions[bot]@users.noreply.github.com
           user_name: github-actions[bot]
-          commit_message: 'docs: update schema'

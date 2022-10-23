@@ -10,9 +10,9 @@ permissions:
 jobs:
   analyse-code:
     permissions:
-      security-events: write
       actions: read
       contents: read
+      security-events: write
     name: Analysing Code
     runs-on: ubuntu-latest
     steps:
@@ -22,8 +22,8 @@ jobs:
       - name: Initializing CodeQL
         uses: github/codeql-action/init@v2
         with:
-          queries: +security-extended
           languages: javascript
+          queries: +security-extended
 
       - name: Auto Build
         uses: github/codeql-action/autobuild@v2

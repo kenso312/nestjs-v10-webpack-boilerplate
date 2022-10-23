@@ -12,11 +12,6 @@ jobs:
       - name: Creating Pull Request
         uses: google-github-actions/release-please-action@v3
         with:
-          release-type: node
-          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
-          pull-request-title-pattern: 'chore${scope}: bump version to ${version}'
-          component: nestjs-boilerplate
-          default-branch: main
           changelog-types: |
             [
               {
@@ -56,3 +51,8 @@ jobs:
                 "section": "Documentation"
               }
             ]
+          component: nestjs-boilerplate
+          default-branch: main
+          pull-request-title-pattern: 'chore${scope}: bump version to ${version}'
+          release-type: node
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}

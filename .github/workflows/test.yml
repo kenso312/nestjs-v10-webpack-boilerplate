@@ -20,8 +20,8 @@ jobs:
       - name: Setting Up Node
         uses: actions/setup-node@v3
         with:
-          node-version: 16
           cache: pnpm
+          node-version: 16
 
       - name: Installing Project Dependencies
         run: pnpm install
@@ -34,8 +34,8 @@ jobs:
         with:
           envkey_BASE_PATH: /api
           envkey_CLUSTERING: false
-          envkey_PORT: 3000
           envkey_NODE_ENV: production
+          envkey_PORT: 3000
 
       - name: Running Test
         run: pnpm test
