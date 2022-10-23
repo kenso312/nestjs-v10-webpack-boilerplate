@@ -11,29 +11,40 @@ module.exports = {
   entry: './src/main',
   externals: {},
   module: {
-    rules: [{ test: /\.ts$/, loader: 'ts-loader' }],
+    rules: [
+      {
+        loader: 'ts-loader',
+        options: {
+          experimentalWatchApi: true,
+          transpileOnly: true,
+        },
+        test: /\.ts$/,
+      },
+    ],
   },
   node: {
-    __filename: false,
     __dirname: false,
+    __filename: false,
   },
   optimization: {
-    nodeEnv: false,
     minimize: true,
     minimizer: [
       new TerserPlugin({
+        extractComments: false,
         terserOptions: {
           keep_classnames: true,
           keep_fnames: true,
         },
       }),
     ],
+    nodeEnv: false,
   },
   output: {
-    path: path.resolve(__dirname, 'dist/'),
     filename: '[name].js',
+    path: path.resolve(__dirname, 'dist/'),
   },
   plugins: [
+    new ForkTsCheckerWebpackPlugin(),
     new IgnorePlugin({
       checkResource(resource) {
         const lazyImports = [
@@ -65,7 +76,6 @@ module.exports = {
         return false;
       },
     }),
-    new ForkTsCheckerWebpackPlugin(),
   ],
   resolve: {
     extensions: ['.js', '.json', '.ts'],
