@@ -12,7 +12,7 @@ const bootstrap = async () => {
   const app = await NestFactory.create<NestFastifyApplication>(
     AppModule,
     AppConfig.getFastifyInstance(),
-    // this logger instance only for logging the app init message (e.g. InstanceLoader),
+    // This logger instance only for logging the app init message (e.g. InstanceLoader),
     // since before booting the app, LoggerModule is not loaded yet
     { logger: new Logger(new PinoLogger(AppConfig.getLoggerConfig()), {}) }
   );

@@ -12,7 +12,7 @@ import { wrapDataObj } from './common';
 describe('AppController (e2e)', () => {
   let app: INestApplication;
 
-  beforeEach(async () => {
+  beforeAll(async () => {
     const moduleFixture: TestingModule = await Test.createTestingModule({
       imports: [AppModule],
     }).compile();
@@ -24,10 +24,6 @@ describe('AppController (e2e)', () => {
     await app.getHttpAdapter().getInstance().ready();
   });
 
-  afterEach(async () => {
-    await app.close();
-  });
-
   const versionPath = '/version';
   it(`${versionPath} (GET)`, () => {
     const result: VersionRes = {
@@ -36,15 +32,17 @@ describe('AppController (e2e)', () => {
 
     return request(app.getHttpServer())
       .get(versionPath)
-      .expect(200)
-      .expect(wrapDataObj(result));
+      .expect(200, wrapDataObj(result));
   });
 
   const healthPath = '/healthz';
   it(`${healthPath} (GET)`, () => {
     return request(app.getHttpServer())
       .get(healthPath)
-      .expect(200)
-      .expect(wrapDataObj('OK'));
+      .expect(200, wrapDataObj('OK'));
+  });
+
+  afterAll(async () => {
+    await app.close();
   });
 });

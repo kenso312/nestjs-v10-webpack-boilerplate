@@ -1,4 +1,4 @@
-# Useful Command:
+# Useful Commands:
 # docker build . -t nestjs-v9-webpack-boilerplate:latest -f ci/Dockerfile
 # docker-compose -p nest -f ci/docker-compose.yaml up
 
