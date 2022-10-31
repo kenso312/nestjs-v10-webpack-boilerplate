@@ -1,21 +1,22 @@
 import * as Joi from 'joi';
+import { AppController } from './app.controller';
 import { ConfigModuleOptions } from '@nestjs/config';
 import { FastifyAdapter } from '@nestjs/platform-fastify';
-import { FastifyError } from 'fastify';
+import { FastifyError, FastifyReply, FastifyRequest } from 'fastify';
 import { IncomingMessage, ServerResponse } from 'http';
 import { LogLevel, NodeEnv } from '@share/enums';
 import { NormalException } from '@/exception/normal.exception';
 import { Params } from 'nestjs-pino';
+import { RequestMethod } from '@nestjs/common';
 
 export class AppConfig {
   public static getFastifyInstance(): FastifyAdapter {
     const fastifyAdapter = new FastifyAdapter({ logger: false });
 
     // Since NestJS filter cannot catch JSON parse error in request body [Fastify layer catch this error]
-    // but Fastify's error response format do not match our format here
-    // so we have to do extra step here to sync error response format
+    // but Fastify's error response format do not match Google JSON style, so we have to re-format here
     fastifyAdapter.setErrorHandler(
-      (error: FastifyError, request: any, reply: any) => {
+      (error: FastifyError, _request: FastifyRequest, reply: FastifyReply) => {
         reply.send(
           error instanceof SyntaxError
             ? NormalException.REQUEST_BODY_CANNOT_PARSE().toJSON()
@@ -27,43 +28,44 @@ export class AppConfig {
   }
 
   public static getInitConifg(): ConfigModuleOptions {
-    const validNodeEnvList = Object.keys(NodeEnv).map((key) => NodeEnv[key]);
     const validLogLevelList = Object.keys(LogLevel).map((key) => LogLevel[key]);
+    const validNodeEnvList = Object.keys(NodeEnv).map((key) => NodeEnv[key]);
 
     return {
       isGlobal: true,
       validationSchema: Joi.object(<
         { [P in keyof NodeJS.ProcessEnv]: Joi.SchemaInternals }
       >{
-        PORT: Joi.number().min(1).max(65535).required(),
-        NODE_ENV: Joi.string()
-          .valid(...validNodeEnvList)
-          .required(),
+        BASE_PATH: Joi.string().allow('').optional(),
+        CLUSTERING: Joi.boolean().required(),
         LOG_LEVEL: Joi.string()
           .allow('')
           .valid(...validLogLevelList)
           .optional(),
-        BASE_PATH: Joi.string().allow('').optional(),
-        CLUSTERING: Joi.boolean().required(),
+        NODE_ENV: Joi.string()
+          .valid(...validNodeEnvList)
+          .required(),
+        PORT: Joi.number().min(1).max(65535).required(),
       }),
     };
   }
 
   public static getLoggerConfig(): Params {
-    const { NODE_ENV, LOG_LEVEL, CLUSTERING } = process.env;
+    const { BASE_PATH, CLUSTERING, LOG_LEVEL, NODE_ENV } = process.env;
 
     return {
+      exclude: [
+        {
+          method: RequestMethod.ALL,
+          path: `${BASE_PATH}/${AppController.prototype.healthz.name}`,
+        },
+      ],
       pinoHttp: {
-        transport:
-          NODE_ENV !== NodeEnv.PRODUCTION
-            ? {
-                target: 'pino-pretty',
-                options: {
-                  translateTime: 'SYS:yyyy-mm-dd HH:MM:ss',
-                },
-              }
-            : null,
         autoLogging: true,
+        base: CLUSTERING === 'true' ? { pid: process.pid } : {},
+        customAttributeKeys: {
+          responseTime: 'timeSpent',
+        },
         level:
           LOG_LEVEL ||
           (NODE_ENV === NodeEnv.PRODUCTION ? LogLevel.INFO : LogLevel.TRACE),
@@ -82,10 +84,15 @@ export class AppConfig {
             };
           },
         },
-        customAttributeKeys: {
-          responseTime: 'timeSpent',
-        },
-        base: CLUSTERING === 'true' ? { pid: process.pid } : {},
+        transport:
+          NODE_ENV !== NodeEnv.PRODUCTION
+            ? {
+                target: 'pino-pretty',
+                options: {
+                  translateTime: 'SYS:yyyy-mm-dd HH:MM:ss',
+                },
+              }
+            : null,
       },
     };
   }

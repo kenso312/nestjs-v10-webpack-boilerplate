@@ -44,7 +44,7 @@ export class AppController {
       },
     },
   })
-  @Get('healthz')
+  @Get(AppController.prototype.healthz.name)
   healthz(): string {
     return this.appService.healthz();
   }
