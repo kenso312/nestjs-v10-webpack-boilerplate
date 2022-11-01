@@ -1,5 +1,33 @@
 # Changelog
 
+## [2.1.3](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/compare/v2.1.2...v2.1.3) (2022-11-01)
+
+
+### Performance Improvements
+
+* improve build time ([30bf2f0](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/30bf2f081c020ebfadb483a4f0e368b3c01d30ba))
+
+
+### Continuous Integration
+
+* changed merge method to rebase ([ea4f9a8](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/ea4f9a8ff48b01d5befd301d6b6d52c5889517fa))
+
+
+### Documentation
+
+* added ISSUE_TEMPLATE ([a543dad](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/a543dad7a603b64a28f4feb21bfcd9905c07d40f))
+* updated README.md ([f2f4ffe](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/f2f4ffe906ad3090c3995b7c073224cdf22decd5))
+
+
+### Chores
+
+* added CODE_OF_CONDUCT.md ([2672e4b](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/2672e4b7ca00f94e51e29e4d955c90ec579c9c57))
+* added CONTRIBUTING.md ([d1b40f0](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/d1b40f0c03cab04dbc6f6eefe8bb446c82a0564f))
+* added SECURITY.md ([d8d8787](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/d8d878748cbaef83b849168644a6f0a9a9d2e2ff))
+* **deps:** upgrade dependency packages ([194c4d9](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/194c4d99c04f0659cf1d1a7fbd0cab652d374bf9))
+* excluded health check logging ([40962c9](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/40962c9a792cf2fb775e41125b2e397577cf24ff))
+* updated commands + test case ([6fb9efe](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/6fb9efe04ac29906330e1769e3b41404e0ba21e5))
+
 ## [2.1.2](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/compare/v2.1.1...v2.1.2) (2022-10-22)
 
 
