@@ -1,5 +1,7 @@
 # NestJS v9 Webpack Boilerplate
 
+![Banner](https://gateway.pinata.cloud/ipfs/QmbGrooyAhnBN8cdor9DtTpoZTapKbcWzXQ9GWmAAT8wFb)
+
 ![Language](https://img.shields.io/github/languages/top/kenso312/nestjs-v9-webpack-boilerplate)
 ![License](https://img.shields.io/github/license/kenso312/nestjs-v9-webpack-boilerplate)
 ![Version](https://img.shields.io/github/package-json/v/kenso312/nestjs-v9-webpack-boilerplate)
@@ -13,6 +15,10 @@
 - ### ⚡ Extreme Performance Optimize
 
 - ### 📏 Fully Integrated to Coding Quality Tools
+
+### Attention
+
+There are some constraints to use Webpack bundling your code, so it is not recommended by the NestJS creator, details [here](https://github.com/nestjs/nest/issues/1706#issuecomment-579248915). Therefore, please make sure your application does not contain native bindings library, then you can enjoy the above benefits
 
 ## 📓 Commands
 
