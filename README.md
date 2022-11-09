@@ -209,6 +209,9 @@ We used [nestjs-pino](https://github.com/iamolegga/nestjs-pino) to auto-log ever
 
 [@nestjs/swagger](https://github.com/nestjs/swagger) allow you to auto-generate the API document, but here we decouple the document and the service. You can run `pnpm swagger` to generate the schema and put it into [Swagger UI](https://github.com/swagger-api/swagger-ui) to host your API document as a static page. We have two examples in `app.controller.ts` to show you how to integrate the Google JSON response format. We also have a GitHub Action example to auto-update the schema and host it to the GitHub Pages. If you do not want this setup, you can just follow [NestJS official guideline](https://docs.nestjs.com/openapi/introduction) to host your document inside the service.
 
+**Attention**:
+You do not need to wrap the data object to your DTO for every response, you only have to name your DTO end with 'Res', `swagger.ts` script will auto-wrap for you and display correctly in the Swagger UI.
+
 ![Swagger UI Final Output](https://gateway.pinata.cloud/ipfs/QmWVxHGQCJsHER1HLiNpMod67Qys96xN8vULhroFWfXv7v)
 
 ### Docker Containerization

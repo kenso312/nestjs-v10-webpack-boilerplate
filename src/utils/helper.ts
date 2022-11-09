@@ -1,8 +1,10 @@
-// Centralized all pure function
 import { ApiResponseOptions } from '@nestjs/swagger';
 import { INestApplication } from '@nestjs/common';
 import { NormalException } from '@/exception/normal.exception';
 
+/**
+ * Returns the data wrapped by an object with data key.
+ */
 export const toSwaggerError = (
   exception: NormalException,
   options?: ApiResponseOptions
@@ -13,7 +15,9 @@ export const toSwaggerError = (
   };
 };
 
-// Share the setup for bootstrap, E2E testing and swagger script
+/**
+ * Encapsulate the init setup for bootstrap, E2E testing and swagger script resued
+ */
 export const initialize = (app: INestApplication) => {
   app.enableVersioning();
 

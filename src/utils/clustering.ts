@@ -6,6 +6,9 @@ import { PinoLogger } from 'nestjs-pino';
 const cluster = _cluster as unknown as _cluster.Cluster;
 const numCPUs = os.cpus().length;
 
+/**
+ * Determine your total CPU to create certain threads to improve the performance
+ */
 export const clusterize = (callback: () => Promise<void>) => {
   const logger = new PinoLogger(AppConfig.getLoggerConfig());
   if (cluster.isPrimary) {
