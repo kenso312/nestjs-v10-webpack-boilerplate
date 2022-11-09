@@ -4,14 +4,14 @@ updates:
     target-branch: dev
     directory: /
     schedule:
-      interval: weekly
+      interval: daily
     labels:
       - github_actions
   - package-ecosystem: npm
     target-branch: dev
     directory: /
     schedule:
-      interval: weekly
+      interval: daily
     labels:
       - dependencies
       - npm
