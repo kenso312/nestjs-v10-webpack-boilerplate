@@ -3,12 +3,11 @@ import { Logger, PinoLogger } from 'nestjs-pino';
 import { NestFactory } from '@nestjs/core';
 import { NestFastifyApplication } from '@nestjs/platform-fastify';
 import { clusterize } from '@util/clustering';
+import { initialize } from '@util/helper';
 
-const { BASE_PATH, CLUSTERING, PORT } = process.env;
+const { CLUSTERING, PORT } = process.env;
 
 const bootstrap = async () => {
-  const INADDR_ANY = '0.0.0.0';
-
   const app = await NestFactory.create<NestFastifyApplication>(
     AppModule,
     AppConfig.getFastifyInstance(),
@@ -17,15 +16,10 @@ const bootstrap = async () => {
     { logger: new Logger(new PinoLogger(AppConfig.getLoggerConfig()), {}) }
   );
 
-  app.enableVersioning();
-
-  // Enable CORS by default because Swagger UI required
-  app.enableCors();
-
-  app.setGlobalPrefix(BASE_PATH);
+  initialize(app);
 
   // By default, Fastify only listens localhost, so we should to specify '0.0.0.0'
-  app.listen(PORT, INADDR_ANY);
+  app.listen(PORT, '0.0.0.0');
 };
 if (CLUSTERING === 'true') clusterize(bootstrap);
 else bootstrap();

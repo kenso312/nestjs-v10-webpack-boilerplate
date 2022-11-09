@@ -3,21 +3,15 @@ import { AppConfig, AppModule } from '@mod/app';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { NestFactory } from '@nestjs/core';
 import { NestFastifyApplication } from '@nestjs/platform-fastify';
-
-// eslint-disable-next-line import/no-extraneous-dependencies
-import 'tsconfig-paths/register';
+import { initialize } from './helper';
 
 /**
  * Generate Swagger JSON Schema offline, it used to deploy the document to other server but not the
  * current service (e.g. GitHub Pages)
  */
 (async () => {
-  const {
-    BASE_PATH,
-    npm_package_name,
-    npm_package_description,
-    npm_package_version,
-  } = process.env;
+  const { npm_package_name, npm_package_description, npm_package_version } =
+    process.env;
 
   const app = await NestFactory.create<NestFastifyApplication>(
     AppModule,
@@ -25,8 +19,7 @@ import 'tsconfig-paths/register';
     { logger: false }
   );
 
-  app.enableVersioning();
-  app.setGlobalPrefix(BASE_PATH);
+  initialize(app);
 
   const swaggerDoc = SwaggerModule.createDocument(
     app,

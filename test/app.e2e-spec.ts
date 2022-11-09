@@ -1,16 +1,16 @@
-import * as request from 'supertest';
-import { AppModule } from '@mod/app';
+import { AppModule, VersionRes } from '@mod/app';
 import {
   FastifyAdapter,
   NestFastifyApplication,
 } from '@nestjs/platform-fastify';
-import { INestApplication } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
-import { VersionRes } from '@/modules/app/dto';
+import { initialize } from '@util/helper';
 import { wrapDataObj } from './common';
 
 describe('AppController (e2e)', () => {
-  let app: INestApplication;
+  let app: NestFastifyApplication;
+
+  const { BASE_PATH, npm_package_version } = process.env;
 
   beforeAll(async () => {
     const moduleFixture: TestingModule = await Test.createTestingModule({
@@ -20,26 +20,31 @@ describe('AppController (e2e)', () => {
     app = moduleFixture.createNestApplication<NestFastifyApplication>(
       new FastifyAdapter()
     );
+
+    initialize(app);
+
     await app.init();
     await app.getHttpAdapter().getInstance().ready();
   });
 
-  const versionPath = '/version';
-  it(`${versionPath} (GET)`, () => {
-    const result: VersionRes = {
-      version: process.env.npm_package_version,
-    };
+  const versionPath = `${BASE_PATH}/version`;
+  it(`${versionPath} (GET)`, async () => {
+    const result: VersionRes = { version: npm_package_version };
 
-    return request(app.getHttpServer())
-      .get(versionPath)
-      .expect(200, wrapDataObj(result));
+    const response = await app.inject({
+      url: versionPath,
+    });
+    expect(response.statusCode).toEqual(200);
+    expect(response.json()).toEqual(wrapDataObj(result));
   });
 
-  const healthPath = '/healthz';
-  it(`${healthPath} (GET)`, () => {
-    return request(app.getHttpServer())
-      .get(healthPath)
-      .expect(200, wrapDataObj('OK'));
+  const healthPath = `${BASE_PATH}/healthz`;
+  it(`${healthPath} (GET)`, async () => {
+    const response = await app.inject({
+      url: healthPath,
+    });
+    expect(response.statusCode).toEqual(200);
+    expect(response.json()).toEqual(wrapDataObj('OK'));
   });
 
   afterAll(async () => {
