@@ -1,7 +1,7 @@
 ARG WORKDIR=/opt/app
 
 # Base Stage: Upgrade npm and install / upgrade pnpm
-FROM node:16.17-alpine3.15 AS base
+FROM node:18-alpine AS base
 LABEL builder=true
 RUN npm i -g npm pnpm
 
