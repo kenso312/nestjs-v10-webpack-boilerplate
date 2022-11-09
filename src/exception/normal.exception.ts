@@ -6,24 +6,16 @@ export class NormalException extends HttpException {
     super({ message, code }, HttpStatus.BAD_REQUEST);
   }
 
-  static REQUEST_BODY_CANNOT_PARSE = () => {
-    return new NormalException('Request Body Cannot Parse', 10001);
-  };
-
   static HTTP_REQUEST_TIMEOUT = () => {
-    return new NormalException('HTTP Request Timeout', 10002);
+    return new NormalException('HTTP Request Timeout', 10001);
   };
 
-  static VALIDATION_ISSUE = (msg?: string) => {
-    return new NormalException(msg || 'Validation Issue', 10003);
-  };
-
-  static FRAMEWORK_ISSUE = (msg?: string) => {
-    return new NormalException(msg || 'Framework Issue', 10004);
+  static VALIDATION_ERROR = (msg?: string) => {
+    return new NormalException(msg || 'Validation Error', 10002);
   };
 
   static UNEXPECTED = (msg?: string) => {
-    return new NormalException(msg || 'Unexpected Error', 10005);
+    return new NormalException(msg || 'Unexpected Error', 10003);
   };
 
   toJSON(): HttpFailResponse {

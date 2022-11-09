@@ -21,7 +21,7 @@ export class ValidationExceptionFilter implements ExceptionFilter {
     response
       .status(422)
       .send(
-        NormalException.VALIDATION_ISSUE(Object.values(errorMsg)[0]).toJSON()
+        NormalException.VALIDATION_ERROR(Object.values(errorMsg)[0]).toJSON()
       ); // Unprocessable Entity
   }
 }

@@ -2,29 +2,14 @@ import * as Joi from 'joi';
 import { AppController } from './app.controller';
 import { ConfigModuleOptions } from '@nestjs/config';
 import { FastifyAdapter } from '@nestjs/platform-fastify';
-import { FastifyError, FastifyReply, FastifyRequest } from 'fastify';
 import { IncomingMessage, ServerResponse } from 'http';
 import { LogLevel, NodeEnv } from '@share/enums';
-import { NormalException } from '@/exception/normal.exception';
 import { Params } from 'nestjs-pino';
 import { RequestMethod } from '@nestjs/common';
 
 export class AppConfig {
   public static getFastifyInstance(): FastifyAdapter {
-    const fastifyAdapter = new FastifyAdapter({ logger: false });
-
-    // Since NestJS filter cannot catch JSON parse error in request body [Fastify layer catch this error]
-    // but Fastify's error response format do not match Google JSON style, so we have to re-format here
-    fastifyAdapter.setErrorHandler(
-      (error: FastifyError, _request: FastifyRequest, reply: FastifyReply) => {
-        reply.send(
-          error instanceof SyntaxError
-            ? NormalException.REQUEST_BODY_CANNOT_PARSE().toJSON()
-            : NormalException.FRAMEWORK_ISSUE().toJSON()
-        );
-      }
-    );
-    return fastifyAdapter;
+    return new FastifyAdapter();
   }
 
   public static getInitConifg(): ConfigModuleOptions {

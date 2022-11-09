@@ -23,7 +23,7 @@ export class AppController {
     description: 'Return current version',
     type: VersionRes,
   })
-  @ApiBadRequestResponse(toSwaggerError(NormalException.FRAMEWORK_ISSUE()))
+  @ApiBadRequestResponse(toSwaggerError(NormalException.UNEXPECTED()))
   @Get('version')
   getVersion(): VersionRes {
     return this.appService.getVersion();
