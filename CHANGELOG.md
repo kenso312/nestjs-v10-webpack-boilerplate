@@ -1,5 +1,30 @@
 # Changelog
 
+## [2.1.4](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/compare/v2.1.3...v2.1.4) (2022-11-10)
+
+
+### Code Refactoring
+
+* e2e testing with better encapsulation ([8b85ece](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/8b85ece6b9b7b3df64e03fe3de0473803f2b4d91))
+
+
+### Documentation
+
+* added PULL_REQUEST_TEMPLATE.md ([fa40867](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/fa408672aac6b8605b288edaf09649c38701b4d5))
+* improve documents + comments ([75b562b](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/75b562b89ad8014f5be79131c465fc9433c2b48e))
+
+
+### Continuous Integration
+
+* changed dependabot schedule to daily ([f27c9fa](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/f27c9fa1d48e858cfda0335cee255f085416a4af))
+
+
+### Chores
+
+* **deps:** upgrade dependency packages ([c647868](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/c647868f52c27b48b98b046fc986d101605c3afe))
+* removed outdated errors ([2ecdc98](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/2ecdc98350187ddc26eb5a54409cb2646972ef31))
+* upgrade docker file node version to 18 ([34aeca0](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/34aeca0870f0830e535fe0f7dcab8badc9530b98))
+
 ## [2.1.3](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/compare/v2.1.2...v2.1.3) (2022-11-01)
 
 
