@@ -1,5 +1,6 @@
 import { ApiResponseOptions } from '@nestjs/swagger';
 import { INestApplication } from '@nestjs/common';
+import { NodeEnv } from '@share/enums';
 import { NormalException } from '@/exception/normal.exception';
 
 /**
@@ -19,10 +20,13 @@ export const toSwaggerError = (
  * Encapsulate the init setup for bootstrap, E2E testing and swagger script resued
  */
 export const initialize = (app: INestApplication) => {
+  const { BASE_PATH, NODE_ENV } = process.env;
+
   app.enableVersioning();
 
-  // Enable CORS by default because Swagger UI required
-  app.enableCors();
+  // For Swagger UI
+  if (NODE_ENV === NodeEnv.DEVELOPMENT) app.enableCors();
 
-  app.setGlobalPrefix(process.env.BASE_PATH);
+  // For convenience
+  if (BASE_PATH && NODE_ENV !== NodeEnv.TEST) app.setGlobalPrefix(BASE_PATH);
 };

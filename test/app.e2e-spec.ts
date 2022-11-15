@@ -3,14 +3,15 @@ import {
   FastifyAdapter,
   NestFastifyApplication,
 } from '@nestjs/platform-fastify';
+import { HttpSuccessResponse } from '@share/interfaces';
 import { Test, TestingModule } from '@nestjs/testing';
+import { des } from './common';
 import { initialize } from '@util/helper';
-import { wrapDataObj } from './common';
 
-describe('AppController (e2e)', () => {
+describe('AppModule', () => {
   let app: NestFastifyApplication;
 
-  const { BASE_PATH, npm_package_version } = process.env;
+  const { npm_package_version } = process.env;
 
   beforeAll(async () => {
     const moduleFixture: TestingModule = await Test.createTestingModule({
@@ -27,24 +28,26 @@ describe('AppController (e2e)', () => {
     await app.getHttpAdapter().getInstance().ready();
   });
 
-  const versionPath = `${BASE_PATH}/version`;
-  it(`${versionPath} (GET)`, async () => {
-    const result: VersionRes = { version: npm_package_version };
+  des({ url: '/version' }, async (config) => {
+    it('should return version number with 200 status code', async () => {
+      const expectedResult: VersionRes = { version: npm_package_version };
+      const response = await app.inject(config);
+      const actualResult = response.json<HttpSuccessResponse<VersionRes>>();
 
-    const response = await app.inject({
-      url: versionPath,
+      expect(response.statusCode).toEqual(200);
+      expect(actualResult.data).toEqual(expectedResult);
     });
-    expect(response.statusCode).toEqual(200);
-    expect(response.json()).toEqual(wrapDataObj(result));
   });
 
-  const healthPath = `${BASE_PATH}/healthz`;
-  it(`${healthPath} (GET)`, async () => {
-    const response = await app.inject({
-      url: healthPath,
+  des({ url: '/healthz' }, async (config) => {
+    it('should return health status with 200 status code', async () => {
+      const expectedResult = 'OK';
+      const response = await app.inject(config);
+      const actualResult = response.json<HttpSuccessResponse<string>>();
+
+      expect(response.statusCode).toEqual(200);
+      expect(actualResult.data).toEqual(expectedResult);
     });
-    expect(response.statusCode).toEqual(200);
-    expect(response.json()).toEqual(wrapDataObj('OK'));
   });
 
   afterAll(async () => {

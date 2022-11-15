@@ -13,7 +13,7 @@ describe('AppService', () => {
     service = app.get<AppService>(AppService);
   });
 
-  describe('get the app version number', () => {
+  describe('getVersion()', () => {
     it('should return version number', async () => {
       const result: VersionRes = {
         version: process.env.npm_package_version,
@@ -22,10 +22,9 @@ describe('AppService', () => {
     });
   });
 
-  describe('get the health status', () => {
-    const OK = 'OK';
-    it(`should return ${OK}`, async () => {
-      expect(service.healthz()).toEqual(OK);
+  describe('healthz()', () => {
+    it('should return health status', async () => {
+      expect(service.healthz()).toEqual('OK');
     });
   });
 });

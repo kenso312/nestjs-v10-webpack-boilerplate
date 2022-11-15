@@ -39,6 +39,7 @@ export class AppConfig {
     const { BASE_PATH, CLUSTERING, LOG_LEVEL, NODE_ENV } = process.env;
 
     return {
+      // Exclude may not work for e2e testing
       exclude: [
         {
           method: RequestMethod.ALL,

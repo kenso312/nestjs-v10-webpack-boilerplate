@@ -1,6 +1,13 @@
+import { InjectOptions } from 'fastify';
+
 /**
- * Returns an object with a 'data' key.
+ * Wrapper function for showing request URL and method in the description
  */
-export const wrapDataObj = <T = any>(data: T) => {
-  return { data };
+export const des = (
+  config: InjectOptions,
+  action: (config: InjectOptions) => Promise<void> | void
+) => {
+  describe(`${config.url}  (${config.method || 'GET'})`, () => {
+    action(config);
+  });
 };
