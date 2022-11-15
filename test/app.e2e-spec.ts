@@ -3,7 +3,7 @@ import {
   FastifyAdapter,
   NestFastifyApplication,
 } from '@nestjs/platform-fastify';
-import { HttpSuccessResponse } from '@share/interfaces';
+import { HttpFailResponse, HttpSuccessResponse } from '@share/interfaces';
 import { Test, TestingModule } from '@nestjs/testing';
 import { des } from './common';
 import { initialize } from '@util/helper';
@@ -47,6 +47,17 @@ describe('AppModule', () => {
 
       expect(response.statusCode).toEqual(200);
       expect(actualResult.data).toEqual(expectedResult);
+    });
+  });
+
+  des({ url: '/n0-th1s-path' }, async (config) => {
+    it('should return error object with 404 status code', async () => {
+      const response = await app.inject(config);
+      const actualResult = response.json<HttpFailResponse>();
+
+      expect(response.statusCode).toEqual(404);
+      expect(actualResult.error.code).toEqual(10003);
+      expect(actualResult.error.message).toContain(config.url);
     });
   });
 
