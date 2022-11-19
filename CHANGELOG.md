@@ -1,5 +1,23 @@
 # Changelog
 
+## [2.1.5](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/compare/v2.1.4...v2.1.5) (2022-11-19)
+
+
+### Continuous Integration
+
+* added build docker workflow ([2f478b6](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/2f478b63df5d3905ab98ad8231863956a56651ca))
+
+
+### Tests
+
+* added path not found test case ([c83957b](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/c83957b68c16b4edfa0b7faacab16b44bdbbc36e))
+* re-implement e2e test with standard naming and structure ([3acc187](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/3acc1879151d7c61c2d073f09d2cccc001d03f39))
+
+
+### Chores
+
+* **deps:** upgrade dependency packages ([f5f1ac7](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/f5f1ac725c036e23506f2f3caced64120c5d29c7))
+
 ## [2.1.4](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/compare/v2.1.3...v2.1.4) (2022-11-10)
 
 
