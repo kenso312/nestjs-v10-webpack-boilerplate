@@ -1,8 +1,7 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-const { pathsToModuleNameMapper } = require('ts-jest');
-const { compilerOptions } = require('../tsconfig.json');
+import { JestConfigWithTsJest, pathsToModuleNameMapper } from 'ts-jest';
+import { compilerOptions } from '../tsconfig.json';
 
-module.exports = {
+const jestConfig: JestConfigWithTsJest = {
   collectCoverage: true,
   coverageDirectory: 'coverage',
   moduleFileExtensions: ['js', 'json', 'ts'],
@@ -11,8 +10,10 @@ module.exports = {
   }),
   rootDir: '..',
   testEnvironment: 'node',
-  testRegex: '.e2e-spec.ts$',
+  testRegex: '\\.e2e-spec\\.ts$',
   transform: {
-    '^.+\\.(t|j)s$': 'ts-jest',
+    '^.+\\.[tj]s$': 'ts-jest',
   },
 };
+
+export default jestConfig;

@@ -35,7 +35,7 @@
     "start:prod": "pnpm build && NODE_ENV=production pnpm start",
     "swagger": "ts-node -r tsconfig-paths/register ./src/utils/swagger.ts",
     "test": "pnpm test:unit && pnpm test:e2e",
-    "test:e2e": "jest --config ./test/jest.e2e.config.js",
+    "test:e2e": "jest --config ./test/jest.e2e.config.ts",
     "test:unit": "jest"
   },
   "dependencies": {
