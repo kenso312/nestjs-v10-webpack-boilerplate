@@ -1,5 +1,15 @@
 # Changelog
 
+## [2.1.6](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/compare/v2.1.5...v2.1.6) (2022-12-23)
+
+
+### Chores
+
+* **deps:** upgrade dependency packages ([38725a3](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/38725a3ea99ae9199110ac237e30815cec8abb71))
+* **deps:** upgrade dependency packages ([f8f5d83](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/f8f5d83b7edf47ca966a5c98eb0866a5fa0d3375))
+* removed development node env ([31ec260](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/31ec2603a0b87198bc5102e2df5945b9c0ade290))
+* update jest config ([5deb7a2](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/5deb7a282286d3f9a8193e56febf69d57e929564))
+
 ## [2.1.5](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/compare/v2.1.4...v2.1.5) (2022-11-19)
 
 
