@@ -18,7 +18,7 @@
 
 ### Attention
 
-There are some constraints to use Webpack bundling your code, so it is not recommended by the NestJS creator, details [here](https://github.com/nestjs/nest/issues/1706#issuecomment-579248915). Therefore, please make sure your application does not contain native bindings library, then you can enjoy the above benefits
+There are some constraints to using Webpack bundling your code, so it is not recommended by the NestJS creator, details [here](https://github.com/nestjs/nest/issues/1706#issuecomment-579248915). Therefore, please make sure your application does not contain native bindings library, then you can enjoy the above benefits
 
 ## 📓 Commands
 
@@ -143,7 +143,7 @@ We overwrite the default `webpack.config.js` so that the production build can bu
 
 ### Alias Path
 
-Using alias path can prevent dirty relative path (e.g. ../../../), also it is easier to import files that in the deep directory (e.g. src/assets/img/testing/...).
+Using an alias path can prevent dirty relative paths (e.g. ../../../), also it is easier to import files in the deep directory (e.g. src/assets/img/testing/...).
 
 ```text
 # Config File
@@ -195,19 +195,19 @@ We use [Joi](https://joi.dev/) library for the validation, which is recommended 
 
 ### HTTP Request
 
-Since [@nestjs/axios](https://github.com/nestjs/axios) default return [Observable](https://rxjs.dev/guide/observable), it does not fit for the common use case (Promise based), so we use a custom module to implement secondary encapsulation of native Axios library, also extract .data from the response to prevent .data.data.data... chaining.
+Since [@nestjs/axios](https://github.com/nestjs/axios) default return [Observable](https://rxjs.dev/guide/observable), it does not fit the common use case (Promise based), so we use a custom module to implement secondary encapsulation of the native Axios library, also extract .data from the response to prevent .data.data.data... chaining.
 
 _Reference:_
 
-- [Author Recommandation](https://github.com/nestjs/nest/issues/2613#issuecomment-513141287)
+- [Author Recommendation](https://github.com/nestjs/nest/issues/2613#issuecomment-513141287)
 
 ### Pino Logger
 
-We used [nestjs-pino](https://github.com/iamolegga/nestjs-pino) to auto-log every request metadata and response time. We also centralized Pino config in `app.config.ts` for `main.ts` reuse it.
+We used [nestjs-pino](https://github.com/iamolegga/nestjs-pino) to auto-log every request metadata and response time. We also centralized Pino config in `app.config.ts` for `main.ts` to reuse it.
 
 ### Swagger
 
-[@nestjs/swagger](https://github.com/nestjs/swagger) allow you to auto-generate the API document, but here we decouple the document and the service. You can run `pnpm swagger` to generate the schema and put it into [Swagger UI](https://github.com/swagger-api/swagger-ui) to host your API document as a static page. We have two examples in `app.controller.ts` to show you how to integrate the Google JSON response format. We also have a GitHub Action example to auto-update the schema and host it to the GitHub Pages. If you do not want this setup, you can just follow [NestJS official guideline](https://docs.nestjs.com/openapi/introduction) to host your document inside the service.
+[@nestjs/swagger](https://github.com/nestjs/swagger) allows you to auto-generate the API document, but here we decouple the document and the service. You can run `pnpm swagger` to generate the schema and put it into [Swagger UI](https://github.com/swagger-api/swagger-ui) to host your API document as a static page. We have two examples in `app.controller.ts` to show you how to integrate the Google JSON response format. We also have a GitHub Action example to auto-update the schema and host it to the GitHub Pages. If you do not want this setup, you can just follow [NestJS official guideline](https://docs.nestjs.com/openapi/introduction) to host your document inside the service.
 
 **Attention**:
 You do not need to wrap the data object to your DTO for every response, you only have to name your DTO end with 'Res', `swagger.ts` script will auto-wrap for you and display correctly in the Swagger UI.
