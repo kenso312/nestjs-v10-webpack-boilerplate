@@ -17,8 +17,6 @@ jobs:
           ref: dev
       - name: Pushing Back to Dev Branch
         run: |
-          git fetch $URL main:main
-          git rebase main
-          git push $URL dev
-        env:
-          URL: 'https://${{ github.repository_owner }}:${{ github.token }}@github.com/${{ github.repository }}'
+          git fetch origin main
+          git rebase origin/main
+          git push origin dev
