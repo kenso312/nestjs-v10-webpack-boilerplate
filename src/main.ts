@@ -1,5 +1,4 @@
 import { AppConfig, AppModule } from '@mod/app';
-import { Logger, PinoLogger } from 'nestjs-pino';
 import { NestFactory } from '@nestjs/core';
 import { NestFastifyApplication } from '@nestjs/platform-fastify';
 import { clusterize } from '@util/clustering';
@@ -11,9 +10,7 @@ const bootstrap = async () => {
   const app = await NestFactory.create<NestFastifyApplication>(
     AppModule,
     AppConfig.getFastifyInstance(),
-    // This logger instance only for logging the app init message (e.g. InstanceLoader),
-    // since before booting the app, LoggerModule is not loaded yet
-    { logger: new Logger(new PinoLogger(AppConfig.getLoggerConfig()), {}) }
+    { bufferLogs: true }
   );
 
   initialize(app);

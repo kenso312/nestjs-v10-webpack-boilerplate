@@ -1,5 +1,6 @@
 import { ApiResponseOptions } from '@nestjs/swagger';
 import { INestApplication } from '@nestjs/common';
+import { Logger } from 'nestjs-pino';
 import { NodeEnv } from '@share/enums';
 import { NormalException } from '@/exception/normal.exception';
 
@@ -21,6 +22,8 @@ export const toSwaggerError = (
  */
 export const initialize = (app: INestApplication) => {
   const { BASE_PATH, NODE_ENV } = process.env;
+
+  app.useLogger(app.get(Logger));
 
   app.enableVersioning();
 
