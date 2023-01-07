@@ -3,6 +3,7 @@ import {
   Catch,
   ExceptionFilter,
   HttpException,
+  HttpStatus,
   Logger,
 } from '@nestjs/common';
 import { FastifyReply } from 'fastify';
@@ -19,7 +20,7 @@ export class AllExceptionFilter implements ExceptionFilter {
     const response = ctx.getResponse<FastifyReply>();
 
     response
-      .status(exception?.getStatus?.() || 400)
+      .status(exception?.getStatus?.() || HttpStatus.BAD_REQUEST)
       .send(NormalException.UNEXPECTED(exception?.message).toJSON());
   }
 }

@@ -1,4 +1,10 @@
-import { ArgumentsHost, Catch, ExceptionFilter, Logger } from '@nestjs/common';
+import {
+  ArgumentsHost,
+  Catch,
+  ExceptionFilter,
+  HttpStatus,
+  Logger,
+} from '@nestjs/common';
 import { FastifyReply } from 'fastify';
 import { NormalException } from '@/exception';
 import { ValidationError } from 'class-validator';
@@ -17,9 +23,9 @@ export class ValidationExceptionFilter implements ExceptionFilter {
     const errorMsg = exception.constraints || exception.children[0].constraints;
 
     response
-      .status(422)
+      .status(HttpStatus.UNPROCESSABLE_ENTITY)
       .send(
         NormalException.VALIDATION_ERROR(Object.values(errorMsg)[0]).toJSON()
-      ); // Unprocessable Entity
+      );
   }
 }

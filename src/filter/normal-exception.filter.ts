@@ -1,4 +1,10 @@
-import { ArgumentsHost, Catch, ExceptionFilter, Logger } from '@nestjs/common';
+import {
+  ArgumentsHost,
+  Catch,
+  ExceptionFilter,
+  HttpStatus,
+  Logger,
+} from '@nestjs/common';
 import { FastifyReply } from 'fastify';
 import { NormalException } from '@/exception';
 
@@ -12,6 +18,6 @@ export class NormalExceptionFilter implements ExceptionFilter {
     const ctx = host.switchToHttp();
     const response = ctx.getResponse<FastifyReply>();
 
-    response.status(400).send(exception.toJSON()); // Bad Request
+    response.status(HttpStatus.BAD_REQUEST).send(exception.toJSON());
   }
 }
