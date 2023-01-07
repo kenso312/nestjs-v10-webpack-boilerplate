@@ -1,5 +1,32 @@
 # Changelog
 
+## [2.1.7](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/compare/v2.1.6...v2.1.7) (2023-01-07)
+
+
+### Bug Fixes
+
+* prebuild lifecycle not working ([89b32df](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/89b32df3fde0d676dc6e7575d93fbddd29b9ab52))
+
+
+### Continuous Integration
+
+* update sync-dev commands ([830b7cd](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/830b7cdf35e16e248f77d7e2699428f8846a58d7))
+
+
+### Documentation
+
+* update attention part of README.md ([ca36095](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/ca36095b7654ede7cc1619ea2cf405c47713f8e7))
+* update README.md ([26d0782](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/26d07824ebc6d7cb04f6c2830b71c24a0b215bc4))
+
+
+### Chores
+
+* added barrel files for exception ([f41cdb9](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/f41cdb905778e289b295d131348239a9160b563c))
+* changed http status to nestjs enum ([803bc83](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/803bc8365eab04d60408bacf201f9da8338f9ec8))
+* changed node env from 'local' to 'development''' ([ca3dc99](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/ca3dc99eabff5860b57503cdceb924af0eeb7e48))
+* changed to bufferLogs approach in main.ts ([682fc9a](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/682fc9a6e1ba02db3552d72ee0eb4daff97703b5))
+* **deps:** upgrade dependency packages ([7f74a33](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/7f74a33102792b50264769429e221524c4b53702))
+
 ## [2.1.6](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/compare/v2.1.5...v2.1.6) (2022-12-23)
 
 
