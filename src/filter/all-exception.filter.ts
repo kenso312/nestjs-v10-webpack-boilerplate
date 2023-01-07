@@ -6,7 +6,7 @@ import {
   Logger,
 } from '@nestjs/common';
 import { FastifyReply } from 'fastify';
-import { NormalException } from '@/exception/normal.exception';
+import { NormalException } from '@/exception';
 
 @Catch()
 export class AllExceptionFilter implements ExceptionFilter {

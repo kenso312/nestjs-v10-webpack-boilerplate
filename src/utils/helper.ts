@@ -2,7 +2,7 @@ import { ApiResponseOptions } from '@nestjs/swagger';
 import { INestApplication } from '@nestjs/common';
 import { Logger } from 'nestjs-pino';
 import { NodeEnv } from '@share/enums';
-import { NormalException } from '@/exception/normal.exception';
+import { NormalException } from '@/exception';
 
 /**
  * Returns the data wrapped by an object with data key.

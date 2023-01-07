@@ -19,7 +19,7 @@ export class NormalException extends HttpException {
   };
 
   toJSON(): HttpFailResponse {
-    const response = <FailResponse>this.getResponse();
+    const response = this.getResponse();
     return {
       error: {
         message: response.message,

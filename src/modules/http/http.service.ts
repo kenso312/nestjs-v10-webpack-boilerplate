@@ -1,5 +1,5 @@
 import { Injectable, Logger } from '@nestjs/common';
-import { NormalException } from '@/exception/normal.exception';
+import { NormalException } from '@/exception';
 import axios, {
   AxiosError,
   AxiosInstance,
