@@ -14,11 +14,40 @@
 
 - ### ⚡ Extreme Performance Optimize
 
-- ### 📏 Fully Integrated to Coding Quality Tools
+- ### 📏 Fully Integrated Coding Quality Tools
 
-### Attention
+## ⚠️ Attention
 
-There are some constraints to using Webpack bundling your code, so it is not recommended by the NestJS creator, details [here](https://github.com/nestjs/nest/issues/1706#issuecomment-579248915). Therefore, please make sure your application does not contain native bindings library, then you can enjoy the above benefits
+Although there are advantages to using Webpack bundling your code (especially for serverless applications), there are some constraints, and details [here](https://github.com/nestjs/nest/issues/1706#issuecomment-579248915) (UPDATE: Both examples stated by the NestJS creator have already unblinded the native driver and are good to use now). Therefore, please make sure your application does not contain native bindings library, then you can enjoy the benefits.
+
+### Extra Configuration for Dependency Packages
+
+#### [Bull](https://docs.nestjs.com/techniques/queues)
+
+You should install `copy-webpack-plugin` and copy bull default commands to the output directory when building the code.
+
+```sh
+pnpm install -D copy-webpack-plugin
+```
+
+```javascript
+// webpack.config.js;
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+// ...
+module.exports = {
+  plugins: [
+    // ...
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          context: 'node_modules/bull/lib/commands',
+          from: '**/*.lua',
+        },
+      ],
+    }),
+  ];
+}
+```
 
 ## 📓 Commands
 
