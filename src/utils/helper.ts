@@ -28,7 +28,7 @@ export const initialize = (app: INestApplication) => {
   app.enableVersioning();
 
   // For Swagger UI
-  if (NODE_ENV === NodeEnv.LOCAL) app.enableCors();
+  if (NODE_ENV === NodeEnv.DEVELOPMENT) app.enableCors();
 
   // For convenience exclude to set base path when doing e2e test
   if (BASE_PATH && NODE_ENV !== NodeEnv.TEST) app.setGlobalPrefix(BASE_PATH);
