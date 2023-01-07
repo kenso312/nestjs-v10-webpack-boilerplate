@@ -11,8 +11,6 @@ import { initialize } from '@util/helper';
 describe('AppModule', () => {
   let app: NestFastifyApplication;
 
-  const { npm_package_version } = process.env;
-
   beforeAll(async () => {
     const moduleFixture: TestingModule = await Test.createTestingModule({
       imports: [AppModule],
@@ -30,7 +28,9 @@ describe('AppModule', () => {
 
   des({ url: '/version' }, async (config) => {
     it('should return version number with 200 status code', async () => {
-      const expectedResult: VersionRes = { version: npm_package_version };
+      const expectedResult: VersionRes = {
+        version: process.env.npm_package_version,
+      };
       const response = await app.inject(config);
       const actualResult = response.json<HttpSuccessResponse<VersionRes>>();
 

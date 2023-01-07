@@ -1,10 +1,11 @@
+import * as packageJSON from '@/../package.json';
 import { Injectable } from '@nestjs/common';
 import { VersionRes } from './dto';
 
 @Injectable()
 export class AppService {
   public getVersion(): VersionRes {
-    return { version: process.env.npm_package_version };
+    return { version: packageJSON.version };
   }
 
   public healthz(): string {

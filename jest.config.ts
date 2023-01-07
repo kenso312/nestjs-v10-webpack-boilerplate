@@ -3,7 +3,9 @@ import { compilerOptions } from './tsconfig.json';
 
 const jestConfig: JestConfigWithTsJest = {
   moduleFileExtensions: ['js', 'json', 'ts'],
-  moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths),
+  moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, {
+    prefix: '<rootDir>',
+  }),
   rootDir: '.',
   testRegex: '\\.spec\\.ts$',
   transform: {

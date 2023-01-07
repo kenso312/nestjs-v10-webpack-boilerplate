@@ -25,8 +25,7 @@ RUN pnpm build
 FROM base as runner
 ARG WORKDIR
 WORKDIR ${WORKDIR}
-COPY --from=builder ${WORKDIR}/dist dist
-COPY --from=builder ${WORKDIR}/package.json package.json
+COPY --from=builder ${WORKDIR}/dist .
 
 EXPOSE 3000
-CMD ["pnpm", "start"]
+CMD ["node", "main.js"]

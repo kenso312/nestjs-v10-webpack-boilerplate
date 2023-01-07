@@ -9,7 +9,7 @@ services:
     image: nestjs-v9-webpack-boilerplate:latest
     container_name: nestjs-v9-webpack-boilerplate
     ports:
-      - '3000:3000'
+      - 3000:3000
     env_file: ../.env
     environment:
       NODE_ENV: production
