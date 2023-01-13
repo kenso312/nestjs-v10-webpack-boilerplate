@@ -1,3 +1,4 @@
+import { ECONNREFUSED } from 'constants';
 import { Injectable, Logger } from '@nestjs/common';
 import { NormalException } from '@/exception';
 import axios, {
@@ -7,7 +8,6 @@ import axios, {
   AxiosResponse,
 } from 'axios';
 
-const ECONNREFUSED = 'ECONNREFUSED';
 @Injectable()
 export class HttpService {
   private readonly instance: AxiosInstance;
@@ -15,41 +15,48 @@ export class HttpService {
   private readonly logger = new Logger(HttpService.name);
 
   constructor() {
-    this.instance = axios.create({
+    const instance = axios.create({
       timeout: 5000,
     });
 
-    this.instance.defaults.transformResponse = (response: AxiosResponse) => {
-      return JSON.parse(String(response)).data;
+    instance.defaults.transformResponse = (response: string) => {
+      try {
+        return JSON.parse(response).data || response;
+      } catch (error) {
+        return response;
+      }
     };
 
-    this.instance.interceptors.request.use(
+    instance.interceptors.request.use(
       // Do something before request is sent
       (config: AxiosRequestConfig) => {
         return config;
       },
       // Do something with request error
       (error: AxiosError) => {
-        this.logger.error(error.response || String(undefined));
-        return Promise.resolve(error);
+        this.logger.error(error.toJSON());
       }
     );
 
-    this.instance.interceptors.response.use(
+    instance.interceptors.response.use(
       // Any status code that lie within the range of 2xx cause this function to trigger
       (response: AxiosResponse) => {
-        this.logger.debug(response);
+        if (response?.data) this.logger.debug(response.data);
+
         return response;
       },
       // Any status codes that falls outside the range of 2xx cause this function to trigger
       (error: AxiosError) => {
-        if (error.code === ECONNREFUSED)
+        if ((error as any)?.errno === ECONNREFUSED * -1)
           throw NormalException.HTTP_REQUEST_TIMEOUT();
 
-        this.logger.error(error.response || String(undefined));
-        return error.response;
+        if (error?.response?.data) this.logger.debug(error.response.data);
+
+        this.logger.error(error.toJSON());
       }
     );
+
+    this.instance = instance;
   }
 
   getInstance() {
