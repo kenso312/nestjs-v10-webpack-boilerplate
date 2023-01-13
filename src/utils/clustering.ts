@@ -1,10 +1,10 @@
-import * as _cluster from 'cluster';
-import * as os from 'os';
 import { AppConfig } from '@mod/app';
 import { PinoLogger } from 'nestjs-pino';
+import { cpus } from 'node:os';
+import cluster from 'node:cluster';
+import process from 'node:process';
 
-const cluster = _cluster as unknown as _cluster.Cluster;
-const numCPUs = os.cpus().length;
+const numCPUs = cpus().length;
 
 /**
  * Determine your total CPU to create certain threads to improve the performance

@@ -47,7 +47,6 @@
     "axios": "^1.2.2",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.0",
-    "cluster": "^0.7.7",
     "fastify": "^4.11.0",
     "joi": "^17.7.0",
     "nestjs-pino": "^3.1.2",
