@@ -166,6 +166,10 @@ To synchronize the end-of-line of the git repository.
 
 ## ⚙️ Other Configuration
 
+### Pnpm
+
+We use preinstall script forcing Pnpm as default package manager because it is a fast and disk space efficient manager compare with Npm and Yarn.
+
 ### Webpack
 
 We overwrite the default `webpack.config.js` so that the production build can bundle all required libraries in `main.ts`. For the configuration, we ignored a list of the nestjs-buildin library so that we could build it without error. If you need these libraries for your development, you can comment it in the lazy imports list.
