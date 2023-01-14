@@ -1,3 +1,3 @@
 module.exports = {
-  '{src,test}/**/*.{ts,js}': ['pnpm lint'],
+  '{src,test}/**/*.[tj]s': ['pnpm lint'],
 };
