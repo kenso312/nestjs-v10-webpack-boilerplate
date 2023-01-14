@@ -6,6 +6,7 @@ const jestConfig: JestConfigWithTsJest = {
   moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, {
     prefix: '<rootDir>',
   }),
+  modulePathIgnorePatterns: ['<rootDir>/dist/'],
   rootDir: '.',
   testRegex: '\\.spec\\.ts$',
   transform: {
