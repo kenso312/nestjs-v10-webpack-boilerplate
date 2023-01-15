@@ -1,5 +1,29 @@
 # Changelog
 
+## [2.1.8](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/compare/v2.1.7...v2.1.8) (2023-01-15)
+
+
+### Code Refactoring
+
+* http service ([0e1de77](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/0e1de77ed5196fdc05499739c4a501894b22e741))
+
+
+### Documentation
+
+* added boilerplate structure in README.md ([a79290f](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/a79290fc644188a65ac8505c04d992d70ffaf3f9))
+* updated README.md and added image location in workflow file ([8762cb4](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/8762cb44a71dbc92f43ae787c6f7952dcd9b0528))
+
+
+### Chores
+
+* change cluster to native library ([010d352](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/010d3528ef302392c49cb85e3eaf5c2394854190))
+* changed from pnpm to node when start the app in production ([3dfc6b9](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/3dfc6b955ef66ea780c5e461e7cfb53ca7c2f936))
+* **deps:** upgrade dependency packages ([b2dcf8b](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/b2dcf8b4098bf1f1bfe5203e94d33a945259152b))
+* move env.ts inside src directory ([1b276aa](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/1b276aa0d22920d76ba2e3a1fe6bd1a1e3feacf7))
+* update .env.example ([1f59e30](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/1f59e3017d253e85157445b46044d7d0ef69f974))
+* update jest config to prevent haste module naming collision ([2e45e23](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/2e45e2309f98ae296233ba226905a8dee13e7e54))
+* update lint stage regex config ([ab665ef](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/ab665efea6236674dcf7b8ae6e084affe563d1b6))
+
 ## [2.1.7](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/compare/v2.1.6...v2.1.7) (2023-01-07)
 
 
