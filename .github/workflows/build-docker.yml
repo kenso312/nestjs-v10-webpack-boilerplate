@@ -38,7 +38,7 @@ jobs:
           fallback: v1.0.0
 
       - name: Building and Pushing
-        uses: docker/build-push-action@v3
+        uses: docker/build-push-action@v4
         if: steps.get-tag.outputs.tag
         with:
           push: true
