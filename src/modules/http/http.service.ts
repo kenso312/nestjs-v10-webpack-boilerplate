@@ -5,7 +5,7 @@ import axios, {
   AxiosError,
   AxiosInstance,
   AxiosRequestConfig,
-  AxiosResponse,
+  InternalAxiosRequestConfig,
 } from 'axios';
 
 @Injectable()
@@ -30,7 +30,7 @@ export class HttpService {
 
     instance.interceptors.request.use(
       // Do something before request is sent
-      (config: AxiosRequestConfig) => {
+      (config: InternalAxiosRequestConfig) => {
         return config;
       },
       // Do something with request error
@@ -41,7 +41,7 @@ export class HttpService {
 
     instance.interceptors.response.use(
       // Any status code that lie within the range of 2xx cause this function to trigger
-      (response: AxiosResponse) => {
+      (response) => {
         if (response?.data) this.logger.debug(response.data);
 
         return response;
