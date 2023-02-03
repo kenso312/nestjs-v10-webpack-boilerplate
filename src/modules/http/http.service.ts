@@ -21,7 +21,8 @@ export class HttpService {
 
     instance.defaults.transformResponse = (response: string) => {
       try {
-        return JSON.parse(response).data || response;
+        const parsedRes = JSON.parse(response);
+        return parsedRes.data || parsedRes || {};
       } catch (error) {
         return response;
       }
@@ -46,8 +47,8 @@ export class HttpService {
         return response;
       },
       // Any status codes that falls outside the range of 2xx cause this function to trigger
-      (error: AxiosError) => {
-        if ((error as any)?.errno === ECONNREFUSED * -1)
+      (error: AxiosError & { errno?: number }) => {
+        if (error?.errno === ECONNREFUSED * -1)
           throw NormalException.HTTP_REQUEST_TIMEOUT();
 
         if (error?.response?.data) this.logger.debug(error.response.data);
