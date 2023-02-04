@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.1.9](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/compare/v2.1.8...v2.1.9) (2023-02-04)
+
+
+### Bug Fixes
+
+* http service transform response handling ([a5e9556](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/a5e95567a9c6ee2a7cdd0ead1635a186cdc31d31))
+
+
+### Chores
+
+* **deps:** upgrade dependency packages ([660b6c1](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/660b6c1d5ca3891d5b419b80380332a26ea7436c))
+
 ## [2.1.8](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/compare/v2.1.7...v2.1.8) (2023-01-15)
 
 
