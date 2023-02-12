@@ -30,10 +30,12 @@
     "prebuild": "rimraf dist",
     "preinstall": "npx only-allow pnpm",
     "prod": "pnpm start:prod",
+    "repl": "pnpm start:repl",
     "start": "node dist/main",
     "start:dev": "nest start --watch",
     "start:prod": "pnpm build && NODE_ENV=production pnpm start",
-    "swagger": "ts-node -r tsconfig-paths/register ./src/utils/swagger.ts",
+    "start:repl": "nest start --watch --entryFile ./src/utils/repl",
+    "swagger": "ts-node -r tsconfig-paths/register ./src/utils/swagger",
     "test": "pnpm test:unit && pnpm test:e2e",
     "test:e2e": "jest --config ./test/jest.e2e.config.ts",
     "test:unit": "jest"
