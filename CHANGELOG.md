@@ -1,5 +1,23 @@
 # Changelog
 
+## [2.2.0](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/compare/v2.1.9...v2.2.0) (2023-03-01)
+
+
+### Features
+
+* added repl mode ([e4ec4c5](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/e4ec4c5ae3f9e0566e2ddaccbd0729ece7bf3157))
+
+
+### Bug Fixes
+
+* removed http service transformer ([abe3603](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/abe3603442d5aee4f1f16658ece2f69886cf7692))
+
+
+### Chores
+
+* better format and commnets ([c8ed152](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/c8ed1525e3433de3bffe2d09762758cf4f0e936b))
+* **deps:** upgrade dependency packages ([b80c79c](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/b80c79c3a6c6b6ba991e7bada44e7e03723ddf45))
+
 ## [2.1.9](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/compare/v2.1.8...v2.1.9) (2023-02-04)
 
 
