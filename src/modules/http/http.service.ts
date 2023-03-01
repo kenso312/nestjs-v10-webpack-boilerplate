@@ -1,12 +1,7 @@
 import { ECONNREFUSED } from 'constants';
 import { Injectable, Logger } from '@nestjs/common';
 import { NormalException } from '@/exception';
-import axios, {
-  AxiosError,
-  AxiosInstance,
-  AxiosRequestConfig,
-  InternalAxiosRequestConfig,
-} from 'axios';
+import axios, { AxiosError, AxiosInstance, AxiosRequestConfig } from 'axios';
 
 @Injectable()
 export class HttpService {
@@ -19,18 +14,9 @@ export class HttpService {
       timeout: 5000,
     });
 
-    instance.defaults.transformResponse = (response: string) => {
-      try {
-        const parsedRes = JSON.parse(response);
-        return parsedRes.data || parsedRes || {};
-      } catch (error) {
-        return response;
-      }
-    };
-
     instance.interceptors.request.use(
       // Do something before request is sent
-      (config: InternalAxiosRequestConfig) => {
+      (config) => {
         return config;
       },
       // Do something with request error
@@ -47,8 +33,8 @@ export class HttpService {
         return response;
       },
       // Any status codes that falls outside the range of 2xx cause this function to trigger
-      (error: AxiosError & { errno?: number }) => {
-        if (error?.errno === ECONNREFUSED * -1)
+      (error: AxiosError) => {
+        if ((error as any)?.errno === ECONNREFUSED * -1)
           throw NormalException.HTTP_REQUEST_TIMEOUT();
 
         if (error?.response?.data) this.logger.debug(error.response.data);
@@ -68,19 +54,19 @@ export class HttpService {
     url: string,
     config?: AxiosRequestConfig<C>
   ): Promise<T> {
-    return this.instance.get(url, config);
+    return (await this.instance.get(url, config))?.data;
   }
 
   async head<T = any>(url: string, config?: AxiosRequestConfig): Promise<T> {
-    return this.instance.head(url, config);
+    return (await this.instance.head(url, config))?.data;
   }
 
   async delete<T = any>(url: string, config?: AxiosRequestConfig): Promise<T> {
-    return this.instance.delete(url, config);
+    return (await this.instance.delete(url, config))?.data;
   }
 
   async options<T = any>(url: string, config?: AxiosRequestConfig): Promise<T> {
-    return this.instance.options(url, config);
+    return (await this.instance.options(url, config))?.data;
   }
 
   async post<T = any, D = any>(
@@ -88,7 +74,7 @@ export class HttpService {
     data?: D,
     config?: AxiosRequestConfig
   ): Promise<T> {
-    return this.instance.post(url, data, config);
+    return (await this.instance.post(url, data, config))?.data;
   }
 
   async put<T = any, D = any>(
@@ -96,7 +82,7 @@ export class HttpService {
     data?: D,
     config?: AxiosRequestConfig
   ): Promise<T> {
-    return this.instance.put(url, data, config);
+    return (await this.instance.put(url, data, config))?.data;
   }
 
   async patch<T = any, D = any>(
@@ -104,6 +90,6 @@ export class HttpService {
     data?: D,
     config?: AxiosRequestConfig
   ): Promise<T> {
-    return this.instance.patch(url, data, config);
+    return (await this.instance.patch(url, data, config))?.data;
   }
 }
