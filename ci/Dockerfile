@@ -21,7 +21,7 @@ COPY . .
 COPY --from=dependencies ${WORKDIR}/node_modules node_modules
 RUN pnpm build
 
-# Production Stage: Copy dist and package.json from builder and start the application
+# Production Stage: Copy dist from builder and start the application
 FROM base as runner
 ARG WORKDIR
 WORKDIR ${WORKDIR}

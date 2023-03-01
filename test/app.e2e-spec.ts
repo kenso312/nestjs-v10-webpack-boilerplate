@@ -16,9 +16,7 @@ describe('AppModule', () => {
       imports: [AppModule],
     }).compile();
 
-    app = moduleFixture.createNestApplication<NestFastifyApplication>(
-      new FastifyAdapter()
-    );
+    app = moduleFixture.createNestApplication(new FastifyAdapter());
 
     initialize(app);
 
