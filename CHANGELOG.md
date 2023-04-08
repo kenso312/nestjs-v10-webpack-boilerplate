@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.2.1](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/compare/v2.2.0...v2.2.1) (2023-04-08)
+
+
+### Chores
+
+* **deps:** upgrade dependency packages ([7e06c88](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/7e06c88d4352fd0f926d06f59da0d71b6042c923))
+
 ## [2.2.0](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/compare/v2.1.9...v2.2.0) (2023-03-01)
 
 
