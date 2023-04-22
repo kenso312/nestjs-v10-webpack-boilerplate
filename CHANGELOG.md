@@ -1,5 +1,28 @@
 # Changelog
 
+## [2.2.2](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/compare/v2.2.1...v2.2.2) (2023-04-22)
+
+
+### Bug Fixes
+
+* http service to json issue when error is not axios error ([10211f0](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/10211f067fcbbf14efc6090fed422a83a8ff556d))
+* validator filter error when there are two level object ([2376083](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/2376083b37d87fcb6641cb1a7613c3181ce34700))
+
+
+### Continuous Integration
+
+* added update dependencies workflow ([f8593ef](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/f8593ef9f9a07422e3050668d27613b3d45405bd))
+
+
+### Chores
+
+* **deps:** upgrade dependency packages ([aae8f41](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/aae8f419412a98c2b5564987d1615972144100a1))
+
+
+### Documentation
+
+* update pino-pretty production configuration reminds ([b964115](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/b964115a297d5ba36f239453ef95c5a69f82a662))
+
 ## [2.2.1](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/compare/v2.2.0...v2.2.1) (2023-04-08)
 
 
