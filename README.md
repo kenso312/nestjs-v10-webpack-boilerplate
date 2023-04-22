@@ -18,7 +18,7 @@
 
 ## ⚠️ Attention
 
-Although there are advantages to using Webpack bundling your code (especially for serverless applications), there are some constraints, and details [here](https://github.com/nestjs/nest/issues/1706#issuecomment-579248915) (UPDATE: Both examples stated by the NestJS creator have already unblinded the native driver and are good to use now). Therefore, please make sure your application does not contain native bindings library, then you can enjoy the benefits.
+Although there are advantages to use Webpack bundling your code (especially for serverless applications), there are some constraints, and details [here](https://github.com/nestjs/nest/issues/1706#issuecomment-579248915) (UPDATE: Both examples stated by the NestJS creator have already unblinded the native driver and are good to use now). Therefore, please make sure your application does not contain native bindings library, then you can enjoy the benefits.
 
 ### Extra Configuration for Dependency Packages
 
@@ -47,6 +47,27 @@ module.exports = {
     }),
   ];
 }
+```
+
+#### [Pino Pretty](https://github.com/pinojs/pino-pretty)
+
+By default we assume the application will run in `production` mode after building the app, so if you still using `development` mode you will get the [error](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/issues/31) since you enable pino-pretty and it does not include in the production bundle. Therefore, if you want to use pino-pretty after bundling for any reason, you should install the `pino-webpack-plugin`.
+
+```sh
+pnpm install -D pino-webpack-plugin
+```
+
+```js
+// webpack.config.js
+const { PinoWebpackPlugin } = require('pino-webpack-plugin');
+// ...
+module.exports = {
+  // ...
+  plugins: [
+    // ...
+    new PinoWebpackPlugin({ transports: ['pino-pretty'] }),
+  ],
+};
 ```
 
 ## 📓 Commands
