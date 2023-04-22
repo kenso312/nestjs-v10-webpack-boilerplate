@@ -9,6 +9,17 @@ import { FastifyReply } from 'fastify';
 import { NormalException } from '@/exception';
 import { ValidationError } from 'class-validator';
 
+const getErrorMsg = (error: ValidationError) => {
+  let root = error;
+  while (root.children.length > 0) {
+    [root] = root.children;
+  }
+  const message = Object.values(root.constraints)[0];
+  return `${message}${
+    root.value ? ` (value: ${root.value}, type: ${typeof root.value})` : ''
+  }`;
+};
+
 // Re-format error response of class-validator to fit Google JSON style
 @Catch(ValidationError)
 export class ValidationExceptionFilter implements ExceptionFilter {
@@ -20,12 +31,8 @@ export class ValidationExceptionFilter implements ExceptionFilter {
     const ctx = host.switchToHttp();
     const response = ctx.getResponse<FastifyReply>();
 
-    const errorMsg = exception.constraints || exception.children[0].constraints;
-
-    response
+    return response
       .status(HttpStatus.UNPROCESSABLE_ENTITY)
-      .send(
-        NormalException.VALIDATION_ERROR(Object.values(errorMsg)[0]).toJSON()
-      );
+      .send(NormalException.VALIDATION_ERROR(getErrorMsg(exception)).toJSON());
   }
 }
