@@ -1,13 +1,13 @@
 import { ECONNREFUSED } from 'constants';
 import { Injectable, Logger } from '@nestjs/common';
 import { NormalException } from '@/exception';
-import axios, { AxiosError, AxiosInstance, AxiosRequestConfig } from 'axios';
+import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
 
 @Injectable()
 export class HttpService {
-  private readonly instance: AxiosInstance;
+  private instance: AxiosInstance;
 
-  private readonly logger = new Logger(HttpService.name);
+  private logger = new Logger(HttpService.name);
 
   constructor() {
     const instance = axios.create({
@@ -20,7 +20,7 @@ export class HttpService {
         return config;
       },
       // Do something with request error
-      (error: AxiosError) => {
+      (error) => {
         this.logger.error(error.toJSON());
       }
     );
@@ -33,13 +33,17 @@ export class HttpService {
         return response;
       },
       // Any status codes that falls outside the range of 2xx cause this function to trigger
-      (error: AxiosError) => {
-        if ((error as any)?.errno === ECONNREFUSED * -1)
+      (error) => {
+        if (error.errno === ECONNREFUSED * -1)
           throw NormalException.HTTP_REQUEST_TIMEOUT();
 
-        if (error?.response?.data) this.logger.debug(error.response.data);
+        if (axios.isAxiosError(error)) {
+          if (error?.response?.data) this.logger.debug(error.response.data);
+          this.logger.error(error.toJSON());
+          return;
+        }
 
-        this.logger.error(error.toJSON());
+        this.logger.error(error);
       }
     );
 
