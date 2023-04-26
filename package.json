@@ -90,6 +90,6 @@
     "tsconfig-paths": "^4.2.0",
     "tsconfig-paths-webpack-plugin": "^4.0.1",
     "typescript": "^5.0.4",
-    "webpack": "5.80.0"
+    "webpack": "5.81.0"
   }
 }
