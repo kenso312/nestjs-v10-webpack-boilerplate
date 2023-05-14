@@ -32,6 +32,7 @@ jobs:
       - name: Exporting API JSON
         run: pnpm swagger
         env:
+          NODE_ENV: production
           CLUSTERING: false
           PORT: 3000
 
