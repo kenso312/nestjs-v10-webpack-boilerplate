@@ -11,6 +11,7 @@ jobs:
     steps:
       - name: Creating Pull Request
         uses: google-github-actions/release-please-action@v3
+        timeout-minutes: 3
         with:
           changelog-types: |
             [

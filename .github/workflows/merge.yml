@@ -8,6 +8,7 @@ on:
 jobs:
   merge-to-main-branch:
     runs-on: ubuntu-latest
+    timeout-minutes: 3
     steps:
       - id: merge
         name: Merging to Main Branch
