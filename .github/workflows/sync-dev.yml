@@ -1,4 +1,4 @@
-name: Push Back to Dev Branch
+name: Rebase Dev Branch
 
 on:
   workflow_run:
@@ -8,7 +8,7 @@ on:
       - completed
 
 jobs:
-  push-back-to-dev-branch:
+  rebase-dev-branch:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
