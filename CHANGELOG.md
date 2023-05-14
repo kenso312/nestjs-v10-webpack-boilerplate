@@ -1,5 +1,23 @@
 # Changelog
 
+## [2.2.3](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/compare/v2.2.2...v2.2.3) (2023-05-14)
+
+
+### Chores
+
+* **deps:** upgrade dependency packages ([27c792b](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/27c792b41e0f2046e09275c8509ec02a90aa345d))
+
+
+### Continuous Integration
+
+* added clean template workflow ([dc4fe7b](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/dc4fe7b9830e98b60cdb064d8b2967bc36e16327))
+* added matrix testing approach ([7671646](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/7671646bf26ff9fc89aab03e0a75b929613e619c))
+* added timeout ([95b3fce](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/95b3fce288bd24757b1a0fe3c45346747c5a87cc))
+* optimize workflow script ([4a6fd1c](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/4a6fd1c686b19c69e917a99e12795c03806e6063))
+* remove create env action ([5a00322](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/5a00322e95d645c87c9ab800fb8ebc33b2dee0fc))
+* remove dependabot npm checking ([df3f4df](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/df3f4df1f9a4a7644c643d5b643b98949b28dd93))
+* upgrade node version to 18 and pnpm version to 8 ([63e7540](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/63e75402434a42062a2379e5f628117e4ddef16d))
+
 ## [2.2.2](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/compare/v2.2.1...v2.2.2) (2023-04-22)
 
 
