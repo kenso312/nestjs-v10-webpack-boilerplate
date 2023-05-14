@@ -28,16 +28,11 @@ jobs:
       - name: Installing Project Dependencies
         run: pnpm install
 
-      - name: Setting Up Environment File
-        uses: SpicyPizza/create-envfile@v1.3
-        with:
-          envkey_BASE_PATH: /api
-          envkey_CLUSTERING: false
-          envkey_NODE_ENV: production
-          envkey_PORT: 3000
-
       - name: Exporting API JSON
         run: pnpm swagger
+        env:
+          CLUSTERING: false
+          PORT: 3000
 
       - name: Updating API Documentation
         uses: dmnemec/copy_file_to_another_repo_action@v1.1.1

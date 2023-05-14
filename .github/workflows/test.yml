@@ -34,13 +34,8 @@ jobs:
       - name: Building Project
         run: pnpm build
 
-      - name: Setting Up Environment File
-        uses: SpicyPizza/create-envfile@v1.3
-        with:
-          envkey_BASE_PATH: /api
-          envkey_CLUSTERING: false
-          envkey_NODE_ENV: production
-          envkey_PORT: 3000
-
       - name: Running Test
         run: pnpm test
+        env:
+          CLUSTERING: false
+          PORT: 3000
