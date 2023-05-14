@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Creating Pull Request
+        if: github.event.commits[0].message != 'Initial commit'
         uses: google-github-actions/release-please-action@v3
         timeout-minutes: 3
         with:
