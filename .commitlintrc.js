@@ -1,3 +1,2 @@
-// https://www.conventionalcommits.org/en/v1.0.0
-
+/** @type {import('@commitlint/types/lib').UserConfig} */
 module.exports = { extends: ['@commitlint/config-conventional'] };

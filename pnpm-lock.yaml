@@ -54,6 +54,9 @@ devDependencies:
   '@commitlint/config-conventional':
     specifier: ^17.6.3
     version: 17.6.3
+  '@commitlint/types':
+    specifier: ^17.4.4
+    version: 17.4.4
   '@nestjs/cli':
     specifier: ^9.4.2
     version: 9.4.2
