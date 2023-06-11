@@ -8,6 +8,7 @@ services:
   nestjs-v9-webpack-boilerplate:
     image: nestjs-v9-webpack-boilerplate:latest
     container_name: nestjs-v9-webpack-boilerplate
+    user: node:node
     ports:
       - 3000:3000
     env_file: ../.env
@@ -19,4 +20,3 @@ services:
       start_period: 5s
       timeout: 10s
       retries: 3
-    user: 1001:1001
