@@ -13,7 +13,7 @@ const jestConfig: JestConfigWithTsJest = {
   testEnvironment: 'node',
   testRegex: '\\.e2e-spec\\.ts$',
   transform: {
-    '^.+\\.[tj]s$': 'ts-jest',
+    '^.+\\.[jt]s$': 'ts-jest',
   },
 };
 
