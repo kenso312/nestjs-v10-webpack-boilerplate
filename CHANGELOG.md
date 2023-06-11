@@ -1,5 +1,20 @@
 # Changelog
 
+## [2.2.4](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/compare/v2.2.3...v2.2.4) (2023-06-11)
+
+
+### Continuous Integration
+
+* fix update swagger workflow error ([3ce98bc](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/3ce98bccbe5025ec5e214e50ca998bc2a466ad43))
+* optimize Dockerfile ([ba7a5c9](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/ba7a5c99f4a7f55bd6ef6b8f77b8be4f35d32d9b))
+
+
+### Chores
+
+* added types for code styling tools config file ([1b304fc](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/1b304fc15c24208016ad33fdda886b18b6bc56c4))
+* **deps:** upgrade dependency packages ([5257d4f](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/5257d4ff690fe835072ef7d2ac8a80cecb95c589))
+* optimize linter config ([94a2e3c](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/commit/94a2e3c9f3f30fb54768930eb1568aaf27b7bf2f))
+
 ## [2.2.3](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/compare/v2.2.2...v2.2.3) (2023-05-14)
 
 
