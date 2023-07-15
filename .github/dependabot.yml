@@ -7,12 +7,11 @@ updates:
       interval: daily
     labels:
       - github_actions
-  # Not support Pnpm https://github.com/dependabot/dependabot-core/issues/1736#issuecomment-888874962
-  # - package-ecosystem: npm
-  #   target-branch: dev
-  #   directory: /
-  #   schedule:
-  #     interval: daily
-  #   labels:
-  #     - dependencies
-  #     - npm
+  - package-ecosystem: pnpm
+    target-branch: dev
+    directory: /
+    schedule:
+      interval: daily
+    labels:
+      - dependencies
+      - npm
