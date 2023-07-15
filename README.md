@@ -1,10 +1,10 @@
-# NestJS v9 Webpack Boilerplate
+# NestJS v10 Webpack Boilerplate
 
 ![Banner](https://gateway.pinata.cloud/ipfs/QmbGrooyAhnBN8cdor9DtTpoZTapKbcWzXQ9GWmAAT8wFb)
 
-![Language](https://img.shields.io/github/languages/top/kenso312/nestjs-v9-webpack-boilerplate)
-![License](https://img.shields.io/github/license/kenso312/nestjs-v9-webpack-boilerplate)
-![Version](https://img.shields.io/github/package-json/v/kenso312/nestjs-v9-webpack-boilerplate)
+![Language](https://img.shields.io/github/languages/top/kenso312/nestjs-v10-webpack-boilerplate)
+![License](https://img.shields.io/github/license/kenso312/nestjs-v10-webpack-boilerplate)
+![Version](https://img.shields.io/github/package-json/v/kenso312/nestjs-v10-webpack-boilerplate)
 
 ## 🔥 Features
 
@@ -51,7 +51,7 @@ module.exports = {
 
 #### [Pino Pretty](https://github.com/pinojs/pino-pretty)
 
-By default we assume the application will run in `production` mode after building the app, so if you still using `development` mode you will get the [error](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/issues/31) since you enable pino-pretty and it does not include in the production bundle. Therefore, if you want to use pino-pretty after bundling for any reason, you should install the `pino-webpack-plugin`.
+By default we assume the application will run in `production` mode after building the app, so if you still using `development` mode you will get the [error](https://github.com/kenso312/nestjs-v10-webpack-boilerplate/issues/31) since you enable pino-pretty and it does not include in the production bundle. Therefore, if you want to use pino-pretty after bundling for any reason, you should install the `pino-webpack-plugin`.
 
 ```sh
 pnpm install -D pino-webpack-plugin

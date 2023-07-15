@@ -26,9 +26,11 @@ import { ResponseInterceptor } from '@/interceptor/response.interceptor';
     { provide: APP_FILTER, useClass: NormalExceptionFilter },
     { provide: APP_FILTER, useClass: ValidationExceptionFilter },
     {
-      // Allowing to do validation through DTO
-      // Since class-validator library default throw BadRequestException, here we use exceptionFactory to throw
-      // their internal exception so that filter can recognize it
+      /**
+       * Allowing to do validation through DTO
+       * since class-validator library default throw BadRequestException, here we use exceptionFactory to throw
+       * their internal exception so that filter can recognize it
+       */
       provide: APP_PIPE,
       useFactory: () =>
         new ValidationPipe({

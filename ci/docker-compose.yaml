@@ -1,13 +1,13 @@
 # Useful Commands:
-# docker build . -t nestjs-v9-webpack-boilerplate:latest -f ci/Dockerfile
+# docker build . -t nestjs-v10-webpack-boilerplate:latest -f ci/Dockerfile
 # docker-compose -p nest -f ci/docker-compose.yaml up
 
 version: '3.9'
 
 services:
-  nestjs-v9-webpack-boilerplate:
-    image: nestjs-v9-webpack-boilerplate:latest
-    container_name: nestjs-v9-webpack-boilerplate
+  nestjs-v10-webpack-boilerplate:
+    image: nestjs-v10-webpack-boilerplate:latest
+    container_name: nestjs-v10-webpack-boilerplate
     user: node:node
     ports:
       - 3000:3000

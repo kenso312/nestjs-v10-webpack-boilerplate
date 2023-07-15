@@ -1,7 +1,7 @@
 {
-  "name": "nestjs-v9-webpack-boilerplate",
+  "name": "nestjs-v10-webpack-boilerplate",
   "version": "2.2.4",
-  "description": "Boilerplate for NestJS v9 with Webpack, Pnpm, Fastify, Swagger, Pino Logger, Airbnb JavaScript Guide, Google JSON Style, ESLint, Prettier, Editorconfig, Husky, Lint-Staged, Commitlint, Axios, Docker, Alias Path, Error Handling and Clustering",
+  "description": "Boilerplate for NestJS v10 with Webpack, Pnpm, Fastify, Swagger, Pino Logger, Airbnb JavaScript Guide, Google JSON Style, ESLint, Prettier, Editorconfig, Husky, Lint-Staged, Commitlint, Axios, Docker, Alias Path, Error Handling and Clustering",
   "author": "Ken So",
   "license": "MIT",
   "keywords": [
@@ -17,10 +17,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/kenso312/nestjs-v9-webpack-boilerplate.git"
+    "url": "https://github.com/kenso312/nestjs-v10-webpack-boilerplate.git"
   },
   "bugs": {
-    "url": "https://github.com/kenso312/nestjs-v9-webpack-boilerplate/issues"
+    "url": "https://github.com/kenso312/nestjs-v10-webpack-boilerplate/issues"
   },
   "scripts": {
     "build": "nest build --webpack --webpackPath ./webpack.config.js",

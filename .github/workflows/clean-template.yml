@@ -10,7 +10,7 @@ permissions: write-all
 jobs:
   purge-boilerplate:
     runs-on: ubuntu-latest
-    if: github.repository != 'kenso312/nestjs-v9-webpack-boilerplate'
+    if: github.repository != 'kenso312/nestjs-v10-webpack-boilerplate'
     timeout-minutes: 3
     steps:
       - name: Checkout Repository

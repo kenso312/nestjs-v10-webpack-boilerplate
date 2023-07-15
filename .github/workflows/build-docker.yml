@@ -1,7 +1,7 @@
 name: Build and Push Docker Image
 
 # Image Repository:
-# https://hub.docker.com/repository/docker/kenso312/nestjs-v9-webpack-boilerplate
+# https://hub.docker.com/repository/docker/kenso312/nestjs-v10-webpack-boilerplate
 
 on:
   workflow_run:
