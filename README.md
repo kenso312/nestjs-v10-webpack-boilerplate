@@ -190,7 +190,6 @@ $ pnpm dev
 ├── .gitattributes
 ├── .gitignore
 ├── jest.config.ts
-├── LICENSE
 ├── .lintstagedrc.js
 ├── nest-cli.json
 ├── .npmrc
@@ -198,7 +197,6 @@ $ pnpm dev
 ├── pnpm-lock.yaml
 ├── .prettierrc.js
 ├── README.md
-├── SECURITY.md
 ├── tsconfig.json
 └── webpack.config.js
 ```
@@ -270,6 +268,10 @@ To synchronize the end-of-line of the git repository.
 ```
 
 ## ⚙️ Other Configuration
+
+### SWC
+
+SWC (stands for Speedy Web Compiler) is a super-fast TypeScript / JavaScript compiler written in Rust. NestJS v10 should be officially support it now, so we replace `ts-loader` to `swc-loader` for better building performance.
 
 ### Pnpm
 

@@ -1,24 +1,24 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
 const { IgnorePlugin } = require('webpack');
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
-const TerserPlugin = require('terser-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+const SwcDefaultConfig =
+  require('@nestjs/cli/lib/compiler/defaults/swc-defaults').swcDefaultsFactory()
+    .swcOptions;
 
-const tsConfigFile = 'tsconfig.json';
-
+/** @type { import('webpack').Configuration } */
 module.exports = {
   entry: './src/main',
   externals: {},
   module: {
     rules: [
       {
-        loader: 'ts-loader',
-        options: {
-          experimentalWatchApi: true,
-          transpileOnly: true,
-        },
         test: /\.ts$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'swc-loader',
+          options: { ...SwcDefaultConfig },
+        },
       },
     ],
   },
@@ -26,25 +26,11 @@ module.exports = {
     __dirname: false,
     __filename: false,
   },
-  optimization: {
-    minimize: true,
-    minimizer: [
-      new TerserPlugin({
-        extractComments: false,
-        terserOptions: {
-          keep_classnames: true,
-          keep_fnames: true,
-        },
-      }),
-    ],
-    nodeEnv: false,
-  },
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, 'dist/'),
   },
   plugins: [
-    new ForkTsCheckerWebpackPlugin(),
     new IgnorePlugin({
       checkResource(resource) {
         const lazyImports = [
@@ -80,7 +66,7 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.json', '.ts'],
     mainFields: ['main'],
-    plugins: [new TsconfigPathsPlugin({ configFile: tsConfigFile })],
+    plugins: [new TsconfigPathsPlugin({ configFile: 'tsconfig.json' })],
   },
   target: 'node',
 };
