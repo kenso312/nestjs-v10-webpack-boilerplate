@@ -1,5 +1,28 @@
 # Changelog
 
+## [2.3.0](https://github.com/kenso312/nestjs-v10-webpack-boilerplate/compare/v2.2.4...v2.3.0) (2023-07-16)
+
+
+### Features
+
+* switch compiler from tsc to swc ([e0635ed](https://github.com/kenso312/nestjs-v10-webpack-boilerplate/commit/e0635edc58dbf3882617c1060bcd6f211c0c4951))
+
+
+### Documentation
+
+* change v9 to v10 ([ebffb3d](https://github.com/kenso312/nestjs-v10-webpack-boilerplate/commit/ebffb3d0d493a2f7b398df3786aedafb0f87b107))
+
+
+### Continuous Integration
+
+* added pnpm in the dependabot ([51f8c76](https://github.com/kenso312/nestjs-v10-webpack-boilerplate/commit/51f8c76e3506d805bf6b01b121e97dac68f93eb0))
+
+
+### Chores
+
+* **deps:** upgrade dependency packages ([271a81a](https://github.com/kenso312/nestjs-v10-webpack-boilerplate/commit/271a81ad4111ad9868b0567274d5c30515e1bd19))
+* format log level to string for better o11y compatibility ([5a90c53](https://github.com/kenso312/nestjs-v10-webpack-boilerplate/commit/5a90c5312b58da21fade20a557f99540cb1752f3))
+
 ## [2.2.4](https://github.com/kenso312/nestjs-v9-webpack-boilerplate/compare/v2.2.3...v2.2.4) (2023-06-11)
 
 
