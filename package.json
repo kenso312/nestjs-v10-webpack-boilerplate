@@ -1,6 +1,6 @@
 {
   "name": "nestjs-v10-webpack-boilerplate",
-  "version": "2.2.4",
+  "version": "2.3.0",
   "description": "Boilerplate for NestJS v10 with Webpack, Pnpm, Fastify, Swagger, Pino Logger, Airbnb JavaScript Guide, Google JSON Style, ESLint, Prettier, Editorconfig, Husky, Lint-Staged, Commitlint, Axios, Docker, Alias Path, Error Handling and Clustering",
   "author": "Ken So",
   "license": "MIT",
