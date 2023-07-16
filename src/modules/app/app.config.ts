@@ -52,6 +52,7 @@ export class AppConfig {
         customAttributeKeys: {
           responseTime: 'timeSpent',
         },
+        formatters: { level: (level) => ({ level }) },
         level:
           LOG_LEVEL ||
           (NODE_ENV === NodeEnv.PRODUCTION ? LogLevel.INFO : LogLevel.TRACE),
