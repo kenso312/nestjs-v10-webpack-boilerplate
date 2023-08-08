@@ -16,7 +16,9 @@ const getErrorMsg = (error: ValidationError) => {
   }
   const message = Object.values(root.constraints)[0];
   return `${message}${
-    root.value ? ` (value: ${root.value}, type: ${typeof root.value})` : ''
+    root.value
+      ? ` (value: ${JSON.stringify(root.value)}, type: ${typeof root.value})`
+      : ''
   }`;
 };
 
