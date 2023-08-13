@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.3.1](https://github.com/kenso312/nestjs-v10-webpack-boilerplate/compare/v2.3.0...v2.3.1) (2023-08-13)
+
+
+### Bug Fixes
+
+* add stringify for response value in validation filter ([dfd410a](https://github.com/kenso312/nestjs-v10-webpack-boilerplate/commit/dfd410ab3b8ab3a61df1bd6b6768ab67c4268f93))
+
+
+### Chores
+
+* **deps:** upgrade dependency packages ([85cc86d](https://github.com/kenso312/nestjs-v10-webpack-boilerplate/commit/85cc86d0ae704d8b4c4fdef857b9b4d0c896fe32))
+
 ## [2.3.0](https://github.com/kenso312/nestjs-v10-webpack-boilerplate/compare/v2.2.4...v2.3.0) (2023-07-16)
 
 
