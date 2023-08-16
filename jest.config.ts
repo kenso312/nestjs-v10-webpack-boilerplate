@@ -10,7 +10,7 @@ const jestConfig: JestConfigWithTsJest = {
   rootDir: '.',
   testRegex: '\\.spec\\.ts$',
   transform: {
-    '^.+\\.[jt]s$': 'ts-jest',
+    '^.+\\.(t|j)sx?$': '@swc/jest',
   },
   testEnvironment: 'node',
 };
