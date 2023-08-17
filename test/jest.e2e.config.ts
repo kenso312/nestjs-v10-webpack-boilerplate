@@ -1,5 +1,6 @@
 import { JestConfigWithTsJest, pathsToModuleNameMapper } from 'ts-jest';
 import { compilerOptions } from '../tsconfig.json';
+import { swcDefaultsFactory } from '@nestjs/cli/lib/compiler/defaults/swc-defaults';
 
 const jestConfig: JestConfigWithTsJest = {
   collectCoverage: true,
@@ -13,7 +14,7 @@ const jestConfig: JestConfigWithTsJest = {
   testEnvironment: 'node',
   testRegex: '\\.e2e-spec\\.ts$',
   transform: {
-    '^.+\\.[jt]s$': 'ts-jest',
+    '^.+\\.[jt]s$': ['@swc/jest', swcDefaultsFactory().swcOptions],
   },
 };
 
