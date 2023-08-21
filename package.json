@@ -34,7 +34,7 @@
     "start": "NODE_ENV=production node dist/main",
     "start:dev": "nest start --watch",
     "start:prod": "pnpm build && pnpm start",
-    "start:repl": "nest start --watch --entryFile ./src/utils/repl",
+    "start:repl": "node --watch -r @swc-node/register ./src/utils/repl",
     "swagger": "node -r @swc-node/register ./src/utils/swagger",
     "test": "pnpm test:unit && pnpm test:e2e",
     "test:e2e": "jest --config ./test/jest.e2e.config.ts",
