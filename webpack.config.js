@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
 const { IgnorePlugin } = require('webpack');
+const {
+  swcDefaultsFactory,
+} = require('@nestjs/cli/lib/compiler/defaults/swc-defaults');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
-const SwcDefaultConfig =
-  require('@nestjs/cli/lib/compiler/defaults/swc-defaults').swcDefaultsFactory()
-    .swcOptions;
 
 /** @type { import('webpack').Configuration } */
 module.exports = {
@@ -17,7 +17,7 @@ module.exports = {
         exclude: /node_modules/,
         use: {
           loader: 'swc-loader',
-          options: { ...SwcDefaultConfig },
+          options: swcDefaultsFactory().swcOptions,
         },
       },
     ],
