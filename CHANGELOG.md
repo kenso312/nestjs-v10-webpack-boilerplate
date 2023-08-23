@@ -1,5 +1,36 @@
 # Changelog
 
+## [2.4.0](https://github.com/kenso312/nestjs-v10-webpack-boilerplate/compare/v2.3.1...v2.4.0) (2023-08-23)
+
+
+### Features
+
+* enabled SWC compiler for tests ([6fe0a57](https://github.com/kenso312/nestjs-v10-webpack-boilerplate/commit/6fe0a5770b59d3ffb87f344641d2e2ce3e62dec0))
+* using SWC compiler for E2E tests ([341b525](https://github.com/kenso312/nestjs-v10-webpack-boilerplate/commit/341b5250452e69686d37d9932441c818b21f9070))
+
+
+### Bug Fixes
+
+* added NestJS SWC defaults ([a14a6ab](https://github.com/kenso312/nestjs-v10-webpack-boilerplate/commit/a14a6ab445b4ee4af757aa9fa799cbcd028e337c))
+* repl mode module not found issue ([3029e43](https://github.com/kenso312/nestjs-v10-webpack-boilerplate/commit/3029e43d350b8cf6e79173b774ec563dd5395d92))
+
+
+### Continuous Integration
+
+* update dependabot config ([b6634ce](https://github.com/kenso312/nestjs-v10-webpack-boilerplate/commit/b6634cec7c3c70239fedafd5ea3eb20e28a123ab))
+
+
+### Chores
+
+* add engine version in package.json ([1d4b09d](https://github.com/kenso312/nestjs-v10-webpack-boilerplate/commit/1d4b09d32b54268afcd7948d95372e2911948686))
+* **deps:** upgrade dependency packages ([b5f3306](https://github.com/kenso312/nestjs-v10-webpack-boilerplate/commit/b5f330698ed13efeb9f87a95c0512609a39a2db9))
+* remove .swcrc file + update webpack config ([936bf52](https://github.com/kenso312/nestjs-v10-webpack-boilerplate/commit/936bf52dc9071fcec8c48a1c4a8784de1817249d))
+
+
+### Documentation
+
+* update CONTRIBUTING.md ([4baf353](https://github.com/kenso312/nestjs-v10-webpack-boilerplate/commit/4baf35338ff01c8a77986de218e0236ff43099a5))
+
 ## [2.3.1](https://github.com/kenso312/nestjs-v10-webpack-boilerplate/compare/v2.3.0...v2.3.1) (2023-08-13)
 
 
