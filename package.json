@@ -22,6 +22,10 @@
   "bugs": {
     "url": "https://github.com/kenso312/nestjs-v10-webpack-boilerplate/issues"
   },
+  "engines": {
+    "node": ">=18",
+    "pnpm": ">=8"
+  },
   "scripts": {
     "build": "nest build --builder webpack",
     "dev": "pnpm start:dev",
