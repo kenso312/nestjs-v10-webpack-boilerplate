@@ -1,17 +1,15 @@
 version: 2
 updates:
-  - package-ecosystem: github-actions
-    target-branch: dev
-    directory: /
+  - package-ecosystem: npm
+    directory: '/'
     schedule:
       interval: daily
-    labels:
-      - github_actions
-  - package-ecosystem: pnpm
     target-branch: dev
-    directory: /
+    open-pull-requests-limit: 10
+
+  - package-ecosystem: 'github-actions'
+    directory: '/'
     schedule:
       interval: daily
-    labels:
-      - dependencies
-      - npm
+    target-branch: dev
+    open-pull-requests-limit: 10
