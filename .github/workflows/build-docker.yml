@@ -16,7 +16,7 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: Setting Up QEMU
-        uses: docker/setup-qemu-action@v2
+        uses: docker/setup-qemu-action@v3
 
       - name: Setting Up Docker Buildx
         uses: docker/setup-buildx-action@v2
