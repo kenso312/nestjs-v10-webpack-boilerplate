@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.4.1](https://github.com/kenso312/nestjs-v10-webpack-boilerplate/compare/v2.4.0...v2.4.1) (2023-09-24)
+
+
+### Continuous Integration
+
+* upgrade github action version ([2d20923](https://github.com/kenso312/nestjs-v10-webpack-boilerplate/commit/2d209230487d8f187157939389689d79e824a580))
+
+
+### Chores
+
+* **deps:** upgrade dependency packages ([29aeab4](https://github.com/kenso312/nestjs-v10-webpack-boilerplate/commit/29aeab493ff56aeb239947d9302060c2eac04845))
+
 ## [2.4.0](https://github.com/kenso312/nestjs-v10-webpack-boilerplate/compare/v2.3.1...v2.4.0) (2023-08-23)
 
 
