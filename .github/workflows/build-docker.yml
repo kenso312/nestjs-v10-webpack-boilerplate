@@ -16,19 +16,19 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: Setting Up QEMU
-        uses: docker/setup-qemu-action@v2
+        uses: docker/setup-qemu-action@v3
 
       - name: Setting Up Docker Buildx
-        uses: docker/setup-buildx-action@v2
+        uses: docker/setup-buildx-action@v3
 
       - name: Login to Docker Hub
-        uses: docker/login-action@v2
+        uses: docker/login-action@v3
         with:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Checkout Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0 # Required for github-action-get-previous-tag
 
@@ -39,7 +39,7 @@ jobs:
           fallback: v1.0.0
 
       - name: Building and Pushing
-        uses: docker/build-push-action@v4
+        uses: docker/build-push-action@v5
         if: steps.get-tag.outputs.tag
         with:
           push: true
