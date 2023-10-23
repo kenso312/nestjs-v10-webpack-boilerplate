@@ -23,7 +23,7 @@ jobs:
           version: 8
 
       - name: Setting Up Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           cache: pnpm
           node-version: ${{ matrix.node-version }}
