@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.5.0](https://github.com/kenso312/nestjs-v10-webpack-boilerplate/compare/v2.4.1...v2.5.0) (2023-11-12)
+
+
+### Features
+
+* added YML, JSON and Markdown ESLint rules ([b0675a7](https://github.com/kenso312/nestjs-v10-webpack-boilerplate/commit/b0675a75e19af6aaae188d46861fcf69d6632a3d))
+
+
+### Chores
+
+* **deps:** upgrade dependency packages ([1720b11](https://github.com/kenso312/nestjs-v10-webpack-boilerplate/commit/1720b116b93e966a297a9f8ddce3fe7df0c5f086))
+
 ## [2.4.1](https://github.com/kenso312/nestjs-v10-webpack-boilerplate/compare/v2.4.0...v2.4.1) (2023-09-24)
 
 
