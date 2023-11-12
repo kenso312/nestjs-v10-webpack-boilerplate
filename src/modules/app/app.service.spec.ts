@@ -1,6 +1,10 @@
+import type { TestingModule } from '@nestjs/testing';
+
+import { Test } from '@nestjs/testing';
+
+import type { VersionRes } from './dto';
+
 import { AppService } from './app.service';
-import { Test, TestingModule } from '@nestjs/testing';
-import { VersionRes } from './dto';
 
 describe('AppService', () => {
   let service: AppService;

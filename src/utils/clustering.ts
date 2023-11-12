@@ -1,7 +1,7 @@
 import { AppConfig } from '@mod/app';
 import { PinoLogger } from 'nestjs-pino';
-import { cpus } from 'node:os';
 import cluster from 'node:cluster';
+import { cpus } from 'node:os';
 import process from 'node:process';
 
 const numCPUs = cpus().length;

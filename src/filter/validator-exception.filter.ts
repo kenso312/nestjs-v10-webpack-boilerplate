@@ -1,12 +1,8 @@
-import {
-  ArgumentsHost,
-  Catch,
-  ExceptionFilter,
-  HttpStatus,
-  Logger,
-} from '@nestjs/common';
-import { FastifyReply } from 'fastify';
+import type { ArgumentsHost, ExceptionFilter } from '@nestjs/common';
+import type { FastifyReply } from 'fastify';
+
 import { NormalException } from '@/exception';
+import { Catch, HttpStatus, Logger } from '@nestjs/common';
 import { ValidationError } from 'class-validator';
 
 const getErrorMsg = (error: ValidationError) => {

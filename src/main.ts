@@ -1,6 +1,7 @@
+import type { NestFastifyApplication } from '@nestjs/platform-fastify';
+
 import { AppConfig, AppModule } from '@mod/app';
 import { NestFactory } from '@nestjs/core';
-import { NestFastifyApplication } from '@nestjs/platform-fastify';
 import { clusterize } from '@util/clustering';
 import { initialize } from '@util/helper';
 

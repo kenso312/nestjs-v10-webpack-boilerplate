@@ -1,3 +1,3 @@
 module.exports = {
-  '{src,test}/**/*.[jt]s': ['pnpm lint'],
+  '*.{js,json,json5,jsonc,md,ts,yaml,yml}': ['eslint --fix'],
 };

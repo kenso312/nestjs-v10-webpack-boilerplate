@@ -1,25 +1,28 @@
-import { APP_FILTER, APP_INTERCEPTOR, APP_PIPE } from '@nestjs/core';
+import type { ValidationError } from '@nestjs/common';
+
 import {
   AllExceptionFilter,
   NormalExceptionFilter,
   ValidationExceptionFilter,
 } from '@/filter';
+import { ResponseInterceptor } from '@/interceptor/response.interceptor';
+import { Module, ValidationPipe } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
+import { APP_FILTER, APP_INTERCEPTOR, APP_PIPE } from '@nestjs/core';
+import { LoggerModule } from 'nestjs-pino';
+
 import { AppConfig } from './app.config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { ConfigModule } from '@nestjs/config';
-import { LoggerModule } from 'nestjs-pino';
-import { Module, ValidationError, ValidationPipe } from '@nestjs/common';
-import { ResponseInterceptor } from '@/interceptor/response.interceptor';
 
 @Module({
+  controllers: [AppController],
   imports: [
     // Allow to access .env file and validate env variables
     ConfigModule.forRoot(AppConfig.getInitConifg()),
     // Logger framework that better then NestJS default logger
     LoggerModule.forRoot(AppConfig.getLoggerConfig()),
   ],
-  controllers: [AppController],
   providers: [
     AppService,
     { provide: APP_FILTER, useClass: AllExceptionFilter },

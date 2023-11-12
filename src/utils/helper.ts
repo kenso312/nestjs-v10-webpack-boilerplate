@@ -1,8 +1,9 @@
-import { ApiResponseOptions } from '@nestjs/swagger';
-import { INestApplication } from '@nestjs/common';
-import { Logger } from 'nestjs-pino';
+import type { NormalException } from '@/exception';
+import type { INestApplication } from '@nestjs/common';
+import type { ApiResponseOptions } from '@nestjs/swagger';
+
 import { NodeEnv } from '@share/enums';
-import { NormalException } from '@/exception';
+import { Logger } from 'nestjs-pino';
 
 /**
  * Returns the data wrapped by an object with data key.

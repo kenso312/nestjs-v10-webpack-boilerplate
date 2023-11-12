@@ -1,12 +1,14 @@
-import { AppModule, VersionRes } from '@mod/app';
-import {
-  FastifyAdapter,
-  NestFastifyApplication,
-} from '@nestjs/platform-fastify';
-import { HttpFailResponse, HttpSuccessResponse } from '@share/interfaces';
-import { Test, TestingModule } from '@nestjs/testing';
-import { des } from './common';
+import type { VersionRes } from '@mod/app';
+import type { NestFastifyApplication } from '@nestjs/platform-fastify';
+import type { TestingModule } from '@nestjs/testing';
+import type { HttpFailResponse, HttpSuccessResponse } from '@share/interfaces';
+
+import { AppModule } from '@mod/app';
+import { FastifyAdapter } from '@nestjs/platform-fastify';
+import { Test } from '@nestjs/testing';
 import { initialize } from '@util/helper';
+
+import { des } from './common';
 
 describe('AppModule', () => {
   let app: NestFastifyApplication;

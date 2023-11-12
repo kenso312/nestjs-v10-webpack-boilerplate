@@ -3,8 +3,8 @@ export interface HttpSuccessResponse<T> {
 }
 
 export interface FailResponse {
-  readonly message: string;
   readonly code: number;
+  readonly message: string;
 }
 
 export interface HttpFailResponse {

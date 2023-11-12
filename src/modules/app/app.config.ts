@@ -1,11 +1,13 @@
-import * as Joi from 'joi';
-import { AppController } from './app.controller';
-import { ConfigModuleOptions } from '@nestjs/config';
-import { FastifyAdapter } from '@nestjs/platform-fastify';
-import { IncomingMessage, ServerResponse } from 'http';
-import { LogLevel, NodeEnv } from '@share/enums';
-import { Params } from 'nestjs-pino';
+import type { ConfigModuleOptions } from '@nestjs/config';
+import type { IncomingMessage, ServerResponse } from 'http';
+import type { Params } from 'nestjs-pino';
+
 import { RequestMethod } from '@nestjs/common';
+import { FastifyAdapter } from '@nestjs/platform-fastify';
+import { LogLevel, NodeEnv } from '@share/enums';
+import * as Joi from 'joi';
+
+import { AppController } from './app.controller';
 
 export class AppConfig {
   public static getFastifyInstance(): FastifyAdapter {
@@ -74,10 +76,10 @@ export class AppConfig {
         transport:
           NODE_ENV !== NodeEnv.PRODUCTION
             ? {
-                target: 'pino-pretty',
                 options: {
                   translateTime: 'SYS:yyyy-mm-dd HH:MM:ss',
                 },
+                target: 'pino-pretty',
               }
             : null,
       },

@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
 const { IgnorePlugin } = require('webpack');
 const {
@@ -13,8 +12,8 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.ts$/,
         exclude: /node_modules/,
+        test: /\.ts$/,
         use: {
           loader: 'swc-loader',
           options: swcDefaultsFactory().swcOptions,

@@ -1,6 +1,7 @@
 import * as packageJSON from '@/../package.json';
 import { Injectable } from '@nestjs/common';
-import { VersionRes } from './dto';
+
+import type { VersionRes } from './dto';
 
 @Injectable()
 export class AppService {

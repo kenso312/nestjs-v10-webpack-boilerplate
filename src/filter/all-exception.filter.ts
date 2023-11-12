@@ -1,13 +1,12 @@
-import {
+import type {
   ArgumentsHost,
-  Catch,
   ExceptionFilter,
   HttpException,
-  HttpStatus,
-  Logger,
 } from '@nestjs/common';
-import { FastifyReply } from 'fastify';
+import type { FastifyReply } from 'fastify';
+
 import { NormalException } from '@/exception';
+import { Catch, HttpStatus, Logger } from '@nestjs/common';
 
 @Catch()
 export class AllExceptionFilter implements ExceptionFilter {

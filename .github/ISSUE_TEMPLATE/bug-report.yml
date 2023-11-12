@@ -1,10 +1,10 @@
-name: "\U0001F41B Bug Report"
+name: 🐛 Bug Report
 description: "If something isn't working as expected \U0001F914"
 labels: [':bug: Bug']
 body:
   - type: textarea
     attributes:
-      label: 'Steps to reproduce'
+      label: Steps to reproduce
       description: |
         How the issue manifests?
         You could leave this blank if you alread write this in your reproduction code
@@ -17,27 +17,27 @@ body:
     validations:
       required: true
     attributes:
-      label: 'Expected behavior'
-      description: 'A clear and concise description of what you expected to happend (or code)'
+      label: Expected behavior
+      description: A clear and concise description of what you expected to happend (or code)
 
   - type: textarea
     validations:
       required: true
     attributes:
-      label: 'Current behavior'
-      description: 'How the issue manifests?'
+      label: Current behavior
+      description: How the issue manifests?
 
   - type: input
     attributes:
-      label: 'Node.js version'
-      description: 'Which version of Node.js are you using?'
-      placeholder: '14.17.6'
+      label: Node.js version
+      description: Which version of Node.js are you using?
+      placeholder: 14.17.6
 
   - type: checkboxes
     validations:
       required: true
     attributes:
-      label: 'In which operating systems have you tested?'
+      label: In which operating systems have you tested?
       options:
         - label: macOS
         - label: Windows
@@ -50,7 +50,7 @@ body:
 
   - type: textarea
     attributes:
-      label: 'Other'
+      label: Other
       description: |
         Anything else relevant? eg: Logs, OS version, IDE, package manager, etc.
         **Tip:** You can attach images, recordings or log files by clicking this area to highlight it and then dragging files in

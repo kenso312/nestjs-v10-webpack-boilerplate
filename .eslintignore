@@ -1,3 +1,11 @@
-coverage/*
-node_modules/*
-dist/*
+# Folders
+!.github
+!.vscode
+coverage
+dist
+node_modules
+
+# Files
+!.*.js
+package.json
+pnpm-lock.yaml

@@ -1,4 +1,4 @@
-import { InjectOptions } from 'fastify';
+import type { InjectOptions } from 'fastify';
 
 /**
  * Wrapper function for showing request URL and method in the description

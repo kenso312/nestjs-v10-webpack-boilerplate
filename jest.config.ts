@@ -1,6 +1,9 @@
-import { JestConfigWithTsJest, pathsToModuleNameMapper } from 'ts-jest';
-import { compilerOptions } from './tsconfig.json';
+import type { JestConfigWithTsJest } from 'ts-jest';
+
 import { swcDefaultsFactory } from '@nestjs/cli/lib/compiler/defaults/swc-defaults';
+import { pathsToModuleNameMapper } from 'ts-jest';
+
+import { compilerOptions } from './tsconfig.json';
 
 const jestConfig: JestConfigWithTsJest = {
   moduleFileExtensions: ['js', 'json', 'ts'],
@@ -9,11 +12,11 @@ const jestConfig: JestConfigWithTsJest = {
   }),
   modulePathIgnorePatterns: ['<rootDir>/dist/'],
   rootDir: '.',
+  testEnvironment: 'node',
   testRegex: '\\.spec\\.ts$',
   transform: {
     '^.+\\.[jt]s$': ['@swc/jest', swcDefaultsFactory().swcOptions],
   },
-  testEnvironment: 'node',
 };
 
 export default jestConfig;

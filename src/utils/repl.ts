@@ -1,8 +1,8 @@
 import { AppModule } from '@/modules/app';
 import { Logger } from '@nestjs/common';
+import { repl } from '@nestjs/core';
 import { existsSync, mkdirSync } from 'fs';
 import { join } from 'path';
-import { repl } from '@nestjs/core';
 
 (async () => {
   const replServer = await repl(AppModule);

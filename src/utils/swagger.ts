@@ -1,8 +1,10 @@
-import * as fs from 'fs';
+import type { NestFastifyApplication } from '@nestjs/platform-fastify';
+
 import { AppConfig, AppModule } from '@mod/app';
-import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { NestFactory } from '@nestjs/core';
-import { NestFastifyApplication } from '@nestjs/platform-fastify';
+import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import * as fs from 'fs';
+
 import { initialize } from './helper';
 
 /**
@@ -10,7 +12,7 @@ import { initialize } from './helper';
  * current service (e.g. GitHub Pages)
  */
 (async () => {
-  const { npm_package_name, npm_package_description, npm_package_version } =
+  const { npm_package_description, npm_package_name, npm_package_version } =
     process.env;
 
   const app = await NestFactory.create<NestFastifyApplication>(

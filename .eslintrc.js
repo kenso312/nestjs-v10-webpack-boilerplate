@@ -1,131 +1,215 @@
+const { join } = require('path');
+
 /** @type {import('eslint').Linter.Config} */
-module.exports = {
-  parser: '@typescript-eslint/parser',
-  parserOptions: {
-    project: 'tsconfig.json',
-    sourceType: 'module',
-  },
-  plugins: [
-    '@typescript-eslint/eslint-plugin',
-    'import',
-    'unused-imports', // Auto remove unused imports
-    'sort-imports-es6-autofix', // Auto sort the import order
-    'prettier',
-  ],
+const jsRules = {
   extends: [
-    // NestJS default extends
-    'plugin:@typescript-eslint/recommended',
-    // Airbnb-base depended plugin
-    'plugin:import/recommended',
-    // Support TypeScript [Import]
-    'plugin:import/typescript',
-    // If don't need React support, use base
+    // ESLint recommended rules
+    'eslint:recommended',
+    // Airbnb JavaScript style
     'airbnb-base',
-    // Support TypeScript [Airbnb]
-    'airbnb-typescript/base',
-    // IMPORTANT: add this to the last of the extends to override ESLint rules
+    // Auto sort objects, imports, types, enums, JSX props, etc.
+    'plugin:perfectionist/recommended-natural',
+    // IMPORTANT: add this to the last of the extends to prevent conflict of ESLint rules
     'plugin:prettier/recommended',
   ],
-  root: true,
-  env: {
-    node: true,
-    jest: true,
-  },
-  ignorePatterns: ['.eslintrc.js'],
+  plugins: [
+    'unused-imports', // Auto remove unused imports
+  ],
   rules: {
-    // NestJS default rules
-    '@typescript-eslint/interface-name-prefix': 'off',
-    // NestJS default rules
-    '@typescript-eslint/explicit-function-return-type': 'off',
-    // NestJS default rules
-    '@typescript-eslint/explicit-module-boundary-types': 'off',
-    // NestJS default rules
-    '@typescript-eslint/no-explicit-any': 'off',
-    // Conflict with unused-imports plugin
-    '@typescript-eslint/no-unused-vars': 'off',
-    // Allow underscore for special purpose
-    'no-underscore-dangle': 'off',
+    // Not enforce using 'this' in a class function since some function can be a pure function
+    'class-methods-use-this': 'off',
+
+    // Conflict with alias path
+    'import/extensions': 'off',
+
+    // Conflict with perfectionist sorting
+    'import/order': 'off',
+
+    // Controversial rules: https://github.com/airbnb/javascript/issues/1365
+    'import/prefer-default-export': 'off',
+
     // Set the whitelist to allow reassign props since some case we must to reassign props
     'no-param-reassign': [
       'error',
       {
-        props: true,
         ignorePropertyModificationsFor: ['_opts'],
+        props: true,
       },
     ],
-    // Varialbes / Types naming rules
-    '@typescript-eslint/naming-convention': [
-      'error',
-      // Enforce that all variables, functions and properties follow are camelCase
-      {
-        selector: 'variableLike',
-        format: ['camelCase'],
-        leadingUnderscore: 'allow',
-        filter: {
-          regex: '^npm_',
-          match: false,
-        },
-      },
-      // Enforce that boolean variables are prefixed with 'is' or 'has'
-      // when added prefix, ESLint will trim the prefix and check the format, so PascalCase needed
-      {
-        selector: 'variable',
-        format: ['PascalCase'],
-        types: ['boolean'],
-        prefix: ['is', 'has'],
-        leadingUnderscore: 'allow',
-      },
-      // Allow that const variables can be UPPER_CASE or camelCase
-      {
-        selector: 'variable',
-        modifiers: ['const'],
-        format: ['camelCase', 'UPPER_CASE', 'PascalCase'],
-        leadingUnderscore: 'allow',
-        filter: {
-          regex: '^npm_',
-          match: false,
-        },
-      },
-      // Enforce that class, interface, type and enum  follow are PascalCase
-      { selector: 'typeLike', format: ['PascalCase'] },
-      // Enforce that interface names do not begin with an I
-      {
-        selector: 'interface',
-        format: ['PascalCase'],
-        custom: {
-          regex: '^I[A-Z]',
-          match: false,
-        },
-      },
-      { selector: 'enumMember', format: ['UPPER_CASE'] },
-    ],
-    // Example setting of unused-imports plugin
+
+    // Allow underscore for special purpose
+    'no-underscore-dangle': 'off',
+
+    // Example config of unused-imports plugin
     'unused-imports/no-unused-imports': 'warn',
+
+    // Example config of unused-imports plugin
     'unused-imports/no-unused-vars': [
       'warn',
       {
-        vars: 'all',
-        varsIgnorePattern: '^_',
         args: 'after-used',
         argsIgnorePattern: '^_',
+        vars: 'all',
+        varsIgnorePattern: '^_',
       },
     ],
-    // Conflict with sort-imports-es6 plugin
-    'import/order': 'off',
-    // Example setting of sort-imports-es6 plugin
-    'sort-imports-es6-autofix/sort-imports-es6': [
-      'warn',
-      {
-        ignoreCase: false,
-        ignoreMemberSort: false,
-        memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single'],
-      },
-    ],
-    // For Typescript, it is better not to use default export: https://stackoverflow.com/a/33307487/11440474
-    'import/prefer-default-export': 'off',
-    // Conflict with alias path
-    'import/extensions': 'off',
-    // Not enforce using 'this' in a class function since some function can be a pure function
-    'class-methods-use-this': 'off',
   },
+};
+
+/** @type {import('eslint').Linter.Config} */
+module.exports = {
+  env: {
+    jest: true,
+    node: true,
+  },
+  overrides: [
+    {
+      ...jsRules,
+      files: ['*.js'],
+    },
+    {
+      extends: [
+        ...jsRules.extends,
+        // Airbnb JavaScript style for TypeScript
+        'airbnb-typescript/base',
+        // ESLint recommended rules for TypeScript
+        'plugin:@typescript-eslint/recommended',
+        // IMPORTANT: add this to the last of the extends to prevent conflict of ESLint rules
+        'plugin:prettier/recommended',
+      ],
+      files: ['*.ts'],
+      parser: '@typescript-eslint/parser',
+      parserOptions: {
+        project: join(__dirname, 'tsconfig.json'),
+        sourceType: 'module',
+      },
+      plugins: [...jsRules.plugins],
+      rules: {
+        ...jsRules.rules,
+
+        // Better readability
+        '@typescript-eslint/consistent-type-imports': [
+          'warn',
+          {
+            disallowTypeAnnotations: false,
+          },
+        ],
+
+        // NestJS default rules
+        '@typescript-eslint/explicit-function-return-type': 'off',
+
+        // NestJS default rules
+        '@typescript-eslint/explicit-module-boundary-types': 'off',
+
+        // NestJS default rules
+        '@typescript-eslint/interface-name-prefix': 'off',
+
+        // Varialbes / Types naming rules
+        '@typescript-eslint/naming-convention': [
+          'error',
+          /**
+           * Enforce that all variables, functions and properties follow are camelCase or PascalCase
+           */
+          {
+            filter: {
+              match: false,
+              regex: '^npm_',
+            },
+            format: ['camelCase', 'PascalCase', 'UPPER_CASE'],
+            leadingUnderscore: 'allow',
+            selector: 'variableLike',
+          },
+          /**
+           * Enforce that boolean variables are prefixed with 'is' or 'has'
+           * when added prefix, ESLint will trim the prefix and check the format, so PascalCase needed
+           */
+          {
+            format: ['PascalCase'],
+            leadingUnderscore: 'allow',
+            prefix: ['is', 'has'],
+            selector: 'variable',
+            types: ['boolean'],
+          },
+          /**
+           * Enforce that class, interface, type and enum follows are PascalCase
+           */
+          { format: ['PascalCase'], selector: 'typeLike' },
+          /**
+           * Enforce that interface names do not begin with an I
+           */
+          {
+            custom: {
+              match: false,
+              regex: '^I[A-Z]',
+            },
+            format: ['PascalCase'],
+            selector: 'interface',
+          },
+          { format: ['UPPER_CASE'], selector: 'enumMember' },
+        ],
+
+        // For declaring props interface
+        '@typescript-eslint/no-empty-interface': 'off',
+
+        // NestJS default rules
+        '@typescript-eslint/no-explicit-any': 'off',
+
+        // Conflict with unused-imports plugin
+        '@typescript-eslint/no-unused-vars': 'off',
+      },
+    },
+    {
+      extends: ['plugin:jsonc/recommended-with-jsonc'],
+      files: ['*.json', '*.json5', '*.jsonc'],
+      parser: 'jsonc-eslint-parser',
+      rules: {
+        // Sort all the array values
+        'jsonc/sort-array-values': [
+          'warn',
+          {
+            order: { type: 'asc' },
+            pathPattern: '.',
+          },
+        ],
+        // Sort all the JSON key
+        'jsonc/sort-keys': [
+          'warn',
+          {
+            order: { type: 'asc' },
+            pathPattern: '.',
+          },
+        ],
+      },
+    },
+    {
+      extends: ['plugin:yml/standard'],
+      files: ['*.yaml', '*.yml'],
+      parser: 'yaml-eslint-parser',
+      parserOptions: {
+        defaultYAMLVersion: '1.2',
+      },
+      rules: {
+        // Sync with Prettier config
+        'yml/quotes': [
+          'error',
+          {
+            prefer: 'single',
+          },
+        ],
+      },
+    },
+    {
+      extends: ['plugin:markdown/recommended'],
+      files: ['*.md'],
+      processor: 'markdown/markdown',
+    },
+    {
+      files: ['**/*.md/*.js'],
+      rules: {
+        // Some example may have uninstalled import
+        'import/no-unresolved': 'off',
+      },
+    },
+  ],
+  root: true,
 };

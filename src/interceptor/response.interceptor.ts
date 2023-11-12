@@ -1,11 +1,13 @@
-import {
+import type {
   CallHandler,
   ExecutionContext,
-  Injectable,
   NestInterceptor,
 } from '@nestjs/common';
-import { HttpSuccessResponse } from '@share/interfaces';
-import { Observable, map } from 'rxjs';
+import type { HttpSuccessResponse } from '@share/interfaces';
+import type { Observable } from 'rxjs';
+
+import { Injectable } from '@nestjs/common';
+import { map } from 'rxjs';
 
 // Re-format all non-error response to fit Google JSON style
 @Injectable()

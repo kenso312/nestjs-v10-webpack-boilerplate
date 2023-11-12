@@ -1,14 +1,15 @@
+import { NormalException } from '@/exception';
+import { Controller, Get } from '@nestjs/common';
 import {
   ApiBadRequestResponse,
   ApiOkResponse,
   ApiOperation,
   ApiTags,
 } from '@nestjs/swagger';
-import { AppService } from './app.service';
-import { Controller, Get } from '@nestjs/common';
-import { NormalException } from '@/exception';
-import { VersionRes } from './dto';
 import { toSwaggerError } from '@util/helper';
+
+import { AppService } from './app.service';
+import { VersionRes } from './dto';
 
 @ApiTags('System')
 @Controller()
@@ -34,7 +35,6 @@ export class AppController {
     summary: AppController.prototype.healthz.name,
   })
   @ApiOkResponse({
-    description: 'Return OK',
     // Because only return string here, no schema, so write the example directly
     content: {
       'application/json': {
@@ -43,6 +43,7 @@ export class AppController {
         },
       },
     },
+    description: 'Return OK',
   })
   @Get(AppController.prototype.healthz.name)
   healthz(): string {
