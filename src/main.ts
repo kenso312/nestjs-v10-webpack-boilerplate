@@ -16,7 +16,7 @@ const bootstrap = async () => {
 
   initialize(app);
 
-  // By default, Fastify only listens localhost, so we should to specify '0.0.0.0'
+  // By default, Fastify only listens localhost, so we should specify '0.0.0.0'
   app.listen(PORT, '0.0.0.0');
 };
 if (CLUSTERING === 'true') clusterize(bootstrap);

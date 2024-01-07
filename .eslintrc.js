@@ -7,7 +7,7 @@ const jsRules = {
     'eslint:recommended',
     // Airbnb JavaScript style
     'airbnb-base',
-    // Auto sort objects, imports, types, enums, JSX props, etc.
+    // Auto sort objects, imports, types, enums, etc.
     'plugin:perfectionist/recommended-natural',
     // IMPORTANT: add this to the last of the extends to prevent conflict of ESLint rules
     'plugin:prettier/recommended',
