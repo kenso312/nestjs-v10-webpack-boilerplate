@@ -1,21 +1,20 @@
-name: Merge to Main Branch
+name: Merge Dependabot Pull Request to Dev Branch
 
 on:
   pull_request_target:
     branches:
-      - main
+      - dev
 
 jobs:
-  merge-to-main-branch:
+  merge-dependabot-pr-to-dev-branch:
     runs-on: ubuntu-latest
     timeout-minutes: 3
     steps:
-      - name: Merging to Main Branch
+      - name: Merge Dependabot Pull Request to Dev Branch
         uses: pascalgn/automerge-action@v0.15.6
         env:
           GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           MERGE_DELETE_BRANCH: true
-          MERGE_DELETE_BRANCH_FILTER: release-please--branches
-          MERGE_FILTER_AUTHOR: kenso312
-          MERGE_LABELS: 'autorelease: pending'
+          MERGE_FILTER_AUTHOR: dependabot[bot]
+          MERGE_LABELS: dependencies
           MERGE_METHOD: rebase
