@@ -13,10 +13,10 @@
     "noImplicitAny": false,
     "outDir": "./dist",
     "paths": {
-      "@/*": ["src/*"],
-      "@mod/*": ["src/modules/*"],
-      "@share/*": ["src/shared/*"],
-      "@util/*": ["src/utils/*"]
+      "@/*": ["./src/*"],
+      "@mod/*": ["./src/modules/*"],
+      "@share/*": ["./src/shared/*"],
+      "@util/*": ["./src/utils/*"]
     },
     "removeComments": true,
     "resolveJsonModule": true,
