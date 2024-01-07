@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.5.1](https://github.com/kenso312/nestjs-v10-webpack-boilerplate/compare/v2.5.0...v2.5.1) (2024-01-07)
+
+
+### Bug Fixes
+
+* resolving root directory issue for window ([6efbb60](https://github.com/kenso312/nestjs-v10-webpack-boilerplate/commit/6efbb608d718a0d1aab5a2155ac0b12c5ee22119))
+
 ## [2.5.0](https://github.com/kenso312/nestjs-v10-webpack-boilerplate/compare/v2.4.1...v2.5.0) (2023-11-12)
 
 
