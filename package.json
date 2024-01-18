@@ -52,7 +52,7 @@
     "class-validator": "^0.14.1",
     "cross-env": "^7.0.3",
     "fastify": "^4.25.2",
-    "joi": "^17.11.1",
+    "joi": "^17.12.0",
     "nestjs-pino": "^4.0.0",
     "pino": "^8.17.2",
     "pino-http": "^9.0.0",
