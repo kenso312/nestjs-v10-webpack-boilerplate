@@ -24,8 +24,8 @@ dependencies:
     specifier: ^0.2.31
     version: 0.2.31(@swc/core@1.3.106)
   axios:
-    specifier: ^1.6.6
-    version: 1.6.6
+    specifier: ^1.6.7
+    version: 1.6.7
   class-transformer:
     specifier: ^0.5.1
     version: 0.5.1
@@ -2418,8 +2418,8 @@ packages:
       - supports-color
     dev: false
 
-  /axios@1.6.6:
-    resolution: {integrity: sha512-XZLZDFfXKM9U/Y/B4nNynfCRUqNyVZ4sBC/n9GDRCkq9vd2mIvKjKKsbIh1WPmHmNbg6ND7cTBY3Y2+u1G3/2Q==}
+  /axios@1.6.7:
+    resolution: {integrity: sha512-/hDJGff6/c7u0hDkvkGxR/oy6CbCs8ziCsC7SqmhjfozqiJGc8Z11wrv9z9lYfY4K8l+H9TpjcMDX0xOZmx+RA==}
     dependencies:
       follow-redirects: 1.15.4
       form-data: 4.0.0
