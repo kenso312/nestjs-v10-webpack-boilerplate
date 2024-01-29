@@ -70,7 +70,7 @@
     "@swc/cli": "^0.1.65",
     "@swc/core": "1.3.106",
     "@types/jest": "^29.5.11",
-    "@types/node": "^20.11.7",
+    "@types/node": "^20.11.10",
     "@types/supertest": "^6.0.2",
     "@typescript-eslint/eslint-plugin": "^6.19.1",
     "@typescript-eslint/parser": "^6.19.1",
