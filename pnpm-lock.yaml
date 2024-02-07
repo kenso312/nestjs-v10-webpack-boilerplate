@@ -15,8 +15,8 @@ dependencies:
     specifier: ^10.3.1
     version: 10.3.1(@nestjs/common@10.3.1)(reflect-metadata@0.2.1)(rxjs@7.8.1)
   '@nestjs/platform-fastify':
-    specifier: ^10.3.1
-    version: 10.3.1(@nestjs/common@10.3.1)(@nestjs/core@10.3.1)
+    specifier: ^10.3.2
+    version: 10.3.2(@nestjs/common@10.3.1)(@nestjs/core@10.3.1)
   '@nestjs/swagger':
     specifier: ^7.2.0
     version: 7.2.0(@nestjs/common@10.3.1)(@nestjs/core@10.3.1)(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.1)
@@ -823,8 +823,8 @@ packages:
       fast-uri: 2.3.0
     dev: false
 
-  /@fastify/cors@8.5.0:
-    resolution: {integrity: sha512-/oZ1QSb02XjP0IK1U0IXktEsw/dUBTxJOW7IpIeO8c/tNalw/KjoNSJv1Sf6eqoBPO+TDGkifq6ynFK3v68HFQ==}
+  /@fastify/cors@9.0.1:
+    resolution: {integrity: sha512-YY9Ho3ovI+QHIL2hW+9X4XqQjXLjJqsU+sMV/xFsxZkE8p3GNnYVFpoOxF7SsP5ZL76gwvbo3V9L+FIekBGU4Q==}
     dependencies:
       fastify-plugin: 4.5.1
       mnemonist: 0.39.6
@@ -1333,10 +1333,10 @@ packages:
       reflect-metadata: 0.2.1
     dev: false
 
-  /@nestjs/platform-fastify@10.3.1(@nestjs/common@10.3.1)(@nestjs/core@10.3.1):
-    resolution: {integrity: sha512-JOoabswdTCa2/RcVGxANJfRTbuTBk6ukoe2Z0patCA33XVrM6bIGcRHNcUrN6hgu79cGicreH6xaJfQlHLCtvg==}
+  /@nestjs/platform-fastify@10.3.2(@nestjs/common@10.3.1)(@nestjs/core@10.3.1):
+    resolution: {integrity: sha512-VWxsB2Ew40Tb7Za/5Eo5Fc9vHT/Md34uCuehI3Si5ZU1iDG8ZzSjJuKzpXQiN9B9syyANHHJbZHnY+XXUSpleQ==}
     peerDependencies:
-      '@fastify/static': ^6.0.0
+      '@fastify/static': ^6.0.0 || ^7.0.0
       '@fastify/view': ^7.0.0 || ^8.0.0
       '@nestjs/common': ^10.0.0
       '@nestjs/core': ^10.0.0
@@ -1346,12 +1346,12 @@ packages:
       '@fastify/view':
         optional: true
     dependencies:
-      '@fastify/cors': 8.5.0
+      '@fastify/cors': 9.0.1
       '@fastify/formbody': 7.4.0
       '@fastify/middie': 8.3.0
       '@nestjs/common': 10.3.1(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.1)(rxjs@7.8.1)
       '@nestjs/core': 10.3.1(@nestjs/common@10.3.1)(reflect-metadata@0.2.1)(rxjs@7.8.1)
-      fastify: 4.25.2
+      fastify: 4.26.0
       light-my-request: 5.11.0
       path-to-regexp: 3.2.0
       tslib: 2.6.2
@@ -3892,29 +3892,6 @@ packages:
     resolution: {integrity: sha512-stRHYGeuqpEZTL1Ef0Ovr2ltazUT9g844X5z/zEBFLG8RYlpDiOCIG+ATvYEp+/zmc7sN29mcIMp8gvYplYPIQ==}
     dev: false
 
-  /fastify@4.25.2:
-    resolution: {integrity: sha512-SywRouGleDHvRh054onj+lEZnbC1sBCLkR0UY3oyJwjD4BdZJUrxBqfkfCaqn74pVCwBaRHGuL3nEWeHbHzAfw==}
-    dependencies:
-      '@fastify/ajv-compiler': 3.5.0
-      '@fastify/error': 3.4.1
-      '@fastify/fast-json-stringify-compiler': 4.3.0
-      abstract-logging: 2.0.1
-      avvio: 8.2.1
-      fast-content-type-parse: 1.1.0
-      fast-json-stringify: 5.10.0
-      find-my-way: 7.7.0
-      light-my-request: 5.11.0
-      pino: 8.18.0
-      process-warning: 3.0.0
-      proxy-addr: 2.0.7
-      rfdc: 1.3.0
-      secure-json-parse: 2.7.0
-      semver: 7.5.4
-      toad-cache: 3.4.1
-    transitivePeerDependencies:
-      - supports-color
-    dev: false
-
   /fastify@4.26.0:
     resolution: {integrity: sha512-Fq/7ziWKc6pYLYLIlCRaqJqEVTIZ5tZYfcW/mDK2AQ9v/sqjGFpj0On0/7hU50kbPVjLO4de+larPA1WwPZSfw==}
     dependencies:
@@ -4000,15 +3977,6 @@ packages:
     dependencies:
       to-regex-range: 5.0.1
     dev: true
-
-  /find-my-way@7.7.0:
-    resolution: {integrity: sha512-+SrHpvQ52Q6W9f3wJoJBbAQULJuNEEQwBvlvYwACDhBTLOTMiQ0HYWh4+vC3OivGP2ENcTI1oKlFA2OepJNjhQ==}
-    engines: {node: '>=14'}
-    dependencies:
-      fast-deep-equal: 3.1.3
-      fast-querystring: 1.1.2
-      safe-regex2: 2.0.0
-    dev: false
 
   /find-my-way@8.1.0:
     resolution: {integrity: sha512-41QwjCGcVTODUmLLqTMeoHeiozbMXYMAE1CKFiDyi9zVZ2Vjh0yz3MF0WQZoIb+cmzP/XlbFjlF2NtJmvZHznA==}
