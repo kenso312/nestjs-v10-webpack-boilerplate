@@ -62,8 +62,8 @@ devDependencies:
     specifier: ^19.0.1
     version: 19.0.1(@types/node@20.11.22)(typescript@5.3.3)
   '@commitlint/config-conventional':
-    specifier: ^18.6.2
-    version: 18.6.2
+    specifier: ^19.0.3
+    version: 19.0.3
   '@commitlint/types':
     specifier: ^19.0.3
     version: 19.0.3
@@ -593,11 +593,11 @@ packages:
       - typescript
     dev: true
 
-  /@commitlint/config-conventional@18.6.2:
-    resolution: {integrity: sha512-PcgSYg1AKGQIwDQKbaHtJsfqYy4uJTC7crLVZ83lfjcPaec4Pry2vLeaWej7ao2KsT20l9dWoMPpEGg8LWdUuA==}
+  /@commitlint/config-conventional@19.0.3:
+    resolution: {integrity: sha512-vh0L8XeLaEzTe8VCxSd0gAFvfTK0RFolrzw4o431bIuWJfi/yRCHJlsDwus7wW2eJaFFDR0VFXJyjGyDQhi4vA==}
     engines: {node: '>=v18'}
     dependencies:
-      '@commitlint/types': 18.6.1
+      '@commitlint/types': 19.0.3
       conventional-changelog-conventionalcommits: 7.0.2
     dev: true
 
@@ -727,13 +727,6 @@ packages:
     engines: {node: '>=v18'}
     dependencies:
       find-up: 7.0.0
-    dev: true
-
-  /@commitlint/types@18.6.1:
-    resolution: {integrity: sha512-gwRLBLra/Dozj2OywopeuHj2ac26gjGkz2cZ+86cTJOdtWfiRRr4+e77ZDAGc6MDWxaWheI+mAV5TLWWRwqrFg==}
-    engines: {node: '>=v18'}
-    dependencies:
-      chalk: 4.1.2
     dev: true
 
   /@commitlint/types@19.0.3:
@@ -1727,7 +1720,7 @@ packages:
   /@types/conventional-commits-parser@5.0.0:
     resolution: {integrity: sha512-loB369iXNmAZglwWATL+WRe+CRMmmBPtpolYzIebFaX4YA3x+BEfLqhUAV9WanycKI3TG1IMr5bMJDajDKLlUQ==}
     dependencies:
-      '@types/node': 20.11.20
+      '@types/node': 20.11.22
     dev: true
 
   /@types/cookiejar@2.1.5:
