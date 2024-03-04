@@ -36,8 +36,8 @@ dependencies:
     specifier: ^7.0.3
     version: 7.0.3
   fastify:
-    specifier: ^4.26.1
-    version: 4.26.1
+    specifier: ^4.26.2
+    version: 4.26.2
   joi:
     specifier: ^17.12.2
     version: 17.12.2
@@ -1982,7 +1982,7 @@ packages:
       globby: 11.1.0
       is-glob: 4.0.3
       minimatch: 9.0.3
-      semver: 7.5.4
+      semver: 7.6.0
       ts-api-utils: 1.0.3(typescript@5.3.3)
       typescript: 5.3.3
     transitivePeerDependencies:
@@ -2409,16 +2409,6 @@ packages:
     resolution: {integrity: sha512-DMD0KiN46eipeziST1LPP/STfDU0sufISXmjSgvVsoU2tqxctQeASejWcfNtxYKqETM1UxQ8sp2OrSBWpHY6sw==}
     engines: {node: '>= 0.4'}
     dev: true
-
-  /avvio@8.2.1:
-    resolution: {integrity: sha512-TAlMYvOuwGyLK3PfBb5WKBXZmXz2fVCgv23d6zZFdle/q3gPjmxBaeuC0pY0Dzs5PWMSgfqqEZkrye19GlDTgw==}
-    dependencies:
-      archy: 1.0.0
-      debug: 4.3.4
-      fastq: 1.17.1
-    transitivePeerDependencies:
-      - supports-color
-    dev: false
 
   /avvio@8.3.0:
     resolution: {integrity: sha512-VBVH0jubFr9LdFASy/vNtm5giTrnbVquWBhT0fyizuNK2rQ7e7ONU2plZQWUNqtE1EmxFEb+kbSkFRkstiaS9Q==}
@@ -3850,7 +3840,7 @@ packages:
       '@fastify/error': 3.4.1
       '@fastify/fast-json-stringify-compiler': 4.3.0
       abstract-logging: 2.0.1
-      avvio: 8.2.1
+      avvio: 8.3.0
       fast-content-type-parse: 1.1.0
       fast-json-stringify: 5.10.0
       find-my-way: 8.1.0
@@ -3866,8 +3856,8 @@ packages:
       - supports-color
     dev: false
 
-  /fastify@4.26.1:
-    resolution: {integrity: sha512-tznA/G55dsxzM5XChBfcvVSloG2ejeeotfPPJSFaWmHyCDVGMpvf3nRNbsCb/JTBF9RmQFBfuujWt3Nphjesng==}
+  /fastify@4.26.2:
+    resolution: {integrity: sha512-90pjTuPGrfVKtdpLeLzND5nyC4woXZN5VadiNQCicj/iJU4viNHKhsAnb7jmv1vu2IzkLXyBiCzdWuzeXgQ5Ug==}
     dependencies:
       '@fastify/ajv-compiler': 3.5.0
       '@fastify/error': 3.4.1
@@ -3883,7 +3873,7 @@ packages:
       proxy-addr: 2.0.7
       rfdc: 1.3.0
       secure-json-parse: 2.7.0
-      semver: 7.5.4
+      semver: 7.6.0
       toad-cache: 3.4.1
     transitivePeerDependencies:
       - supports-color
@@ -6549,6 +6539,7 @@ packages:
     hasBin: true
     dependencies:
       lru-cache: 6.0.0
+    dev: true
 
   /semver@7.6.0:
     resolution: {integrity: sha512-EnwXhrlwXMk9gKu5/flx5sv/an57AkRplG3hTK68W7FRDN+k+OWBj65M7719OkA82XLBxrcX0KSHj+X5COhOVg==}
