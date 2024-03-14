@@ -119,8 +119,8 @@ devDependencies:
     specifier: ^4.0.1
     version: 4.0.1(eslint@8.57.0)
   eslint-plugin-perfectionist:
-    specifier: ^2.6.0
-    version: 2.6.0(eslint@8.57.0)(typescript@5.4.2)
+    specifier: ^2.7.0
+    version: 2.7.0(eslint@8.57.0)(typescript@5.4.2)
   eslint-plugin-prettier:
     specifier: ^5.1.3
     version: 5.1.3(eslint-config-prettier@9.1.0)(eslint@8.57.0)(prettier@3.2.5)
@@ -3426,8 +3426,8 @@ packages:
       - supports-color
     dev: true
 
-  /eslint-plugin-perfectionist@2.6.0(eslint@8.57.0)(typescript@5.4.2):
-    resolution: {integrity: sha512-hee0Fu5825v+WTIhrRIJdWO8biUgm9O+c4Q1AEXIIGsXDHrLv5cdXfVUdnQcYgGtI/4X+tdFu69iVofHCIkvtw==}
+  /eslint-plugin-perfectionist@2.7.0(eslint@8.57.0)(typescript@5.4.2):
+    resolution: {integrity: sha512-RpSMc0T0DT9DlOj4APzwlAjCqQMxFdsIYlupe73eDkKLn1mMK7fVw2z3nj2y822szKOpvHA7bDa56ySOlr4GXw==}
     peerDependencies:
       astro-eslint-parser: ^0.16.0
       eslint: '>=8.0.0'
