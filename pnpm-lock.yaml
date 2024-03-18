@@ -74,8 +74,8 @@ devDependencies:
     specifier: ^10.1.1
     version: 10.1.1(typescript@5.4.2)
   '@nestjs/testing':
-    specifier: ^10.3.3
-    version: 10.3.3(@nestjs/common@10.3.4)(@nestjs/core@10.3.3)
+    specifier: ^10.3.4
+    version: 10.3.4(@nestjs/common@10.3.4)(@nestjs/core@10.3.3)
   '@swc-node/register':
     specifier: ^1.9.0
     version: 1.9.0(@swc/core@1.4.8)(@swc/types@0.1.5)(typescript@5.4.2)
@@ -1391,8 +1391,8 @@ packages:
       swagger-ui-dist: 5.11.2
     dev: false
 
-  /@nestjs/testing@10.3.3(@nestjs/common@10.3.4)(@nestjs/core@10.3.3):
-    resolution: {integrity: sha512-kX20GfjAImL5grd/i69uD/x7sc00BaqGcP2dRG3ilqshQUuy5DOmspLCr3a2C8xmVU7kzK4spT0oTxhe6WcCAA==}
+  /@nestjs/testing@10.3.4(@nestjs/common@10.3.4)(@nestjs/core@10.3.3):
+    resolution: {integrity: sha512-g3NQnRUFBcYF+ySkB7INg5RiV7CNfkP5zwaf3NFo0WjhBrfih9f1jMZ/19blLZ4djN/ngulYks2E3lzROAW8RQ==}
     peerDependencies:
       '@nestjs/common': ^10.0.0
       '@nestjs/core': ^10.0.0
@@ -3279,16 +3279,6 @@ packages:
   /escape-string-regexp@5.0.0:
     resolution: {integrity: sha512-/veY75JbMK4j1yjvuUxuVsiS/hr/4iHs9FTT6cgTexxdE0Ly/glccBAkloH/DofkjRbZU3bnoj38mOmhkZ0lHw==}
     engines: {node: '>=12'}
-    dev: true
-
-  /eslint-compat-utils@0.4.1(eslint@8.57.0):
-    resolution: {integrity: sha512-5N7ZaJG5pZxUeNNJfUchurLVrunD1xJvyg5kYOIVF8kg1f3ajTikmAu/5fZ9w100omNPOoMjngRszh/Q/uFGMg==}
-    engines: {node: '>=12'}
-    peerDependencies:
-      eslint: '>=6.0.0'
-    dependencies:
-      eslint: 8.57.0
-      semver: 7.6.0
     dev: true
 
   /eslint-compat-utils@0.5.0(eslint@8.57.0):
