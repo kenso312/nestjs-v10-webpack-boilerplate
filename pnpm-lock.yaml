@@ -74,8 +74,8 @@ devDependencies:
     specifier: ^10.1.1
     version: 10.1.1(typescript@5.4.3)
   '@nestjs/testing':
-    specifier: ^10.3.4
-    version: 10.3.4(@nestjs/common@10.3.4)(@nestjs/core@10.3.5)
+    specifier: ^10.3.5
+    version: 10.3.5(@nestjs/common@10.3.4)(@nestjs/core@10.3.5)
   '@swc-node/register':
     specifier: ^1.9.0
     version: 1.9.0(@swc/core@1.4.8)(@swc/types@0.1.5)(typescript@5.4.3)
@@ -1391,8 +1391,8 @@ packages:
       swagger-ui-dist: 5.11.2
     dev: false
 
-  /@nestjs/testing@10.3.4(@nestjs/common@10.3.4)(@nestjs/core@10.3.5):
-    resolution: {integrity: sha512-g3NQnRUFBcYF+ySkB7INg5RiV7CNfkP5zwaf3NFo0WjhBrfih9f1jMZ/19blLZ4djN/ngulYks2E3lzROAW8RQ==}
+  /@nestjs/testing@10.3.5(@nestjs/common@10.3.4)(@nestjs/core@10.3.5):
+    resolution: {integrity: sha512-j30/lxH0BayeDTigapYtQn/XhMRR7CzlFsm3dHoWViWQv0qT1r2ffe3927BbBLX3N/ZzglE10OAqW06ADZV8dw==}
     peerDependencies:
       '@nestjs/common': ^10.0.0
       '@nestjs/core': ^10.0.0
