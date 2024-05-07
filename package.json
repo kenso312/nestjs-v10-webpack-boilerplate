@@ -51,7 +51,7 @@
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.1",
     "cross-env": "^7.0.3",
-    "fastify": "^4.26.2",
+    "fastify": "^4.27.0",
     "joi": "^17.13.1",
     "nestjs-pino": "^4.0.0",
     "pino": "^9.0.0",
