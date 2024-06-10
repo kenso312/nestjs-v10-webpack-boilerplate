@@ -146,8 +146,8 @@ devDependencies:
     specifier: ^15.2.5
     version: 15.2.5
   pino-pretty:
-    specifier: ^11.1.0
-    version: 11.1.0
+    specifier: ^11.2.0
+    version: 11.2.0
   prettier:
     specifier: ^3.3.1
     version: 3.3.1
@@ -6161,8 +6161,8 @@ packages:
       process-warning: 3.0.0
     dev: false
 
-  /pino-pretty@11.1.0:
-    resolution: {integrity: sha512-PjBzFL7IMSl1YkS9cSVWC+4gONmW0Fi+fvUzy74zK6RJHk4RkfW+e22NydRrGEtBRa5n6/oPNLPqjUeQrzqcLQ==}
+  /pino-pretty@11.2.0:
+    resolution: {integrity: sha512-k6VHtZBcfLDB1mB8TWPE19OyLygfNdqOgX/uACqBbVMaUK2JeXHBUTINvJ/QPs5Vazwfq4gWIDpTYDnhkfy7Jw==}
     hasBin: true
     dependencies:
       colorette: 2.0.20
