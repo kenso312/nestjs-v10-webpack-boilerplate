@@ -89,7 +89,7 @@
     "jest": "^29.7.0",
     "jsonc-eslint-parser": "^2.4.0",
     "lint-staged": "^15.2.5",
-    "pino-pretty": "^11.1.0",
+    "pino-pretty": "^11.2.0",
     "prettier": "^3.3.1",
     "rimraf": "^5.0.7",
     "sort-package-json": "^2.10.0",
