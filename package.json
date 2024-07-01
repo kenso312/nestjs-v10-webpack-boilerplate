@@ -65,7 +65,7 @@
     "@commitlint/types": "^19.0.3",
     "@nestjs/cli": "10.3.2",
     "@nestjs/schematics": "^10.1.1",
-    "@nestjs/testing": "^10.3.9",
+    "@nestjs/testing": "^10.3.10",
     "@swc-node/register": "^1.10.0",
     "@swc/cli": "^0.3.14",
     "@swc/core": "1.6.5",
