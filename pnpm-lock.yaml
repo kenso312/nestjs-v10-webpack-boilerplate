@@ -71,7 +71,7 @@ importers:
         version: 19.0.3
       '@nestjs/cli':
         specifier: 10.4.1
-        version: 10.4.1(@swc/cli@0.3.14(@swc/core@1.6.7)(chokidar@3.6.0))(@swc/core@1.6.7)
+        version: 10.4.1(@swc/cli@0.4.0(@swc/core@1.6.7)(chokidar@3.6.0))(@swc/core@1.6.7)
       '@nestjs/schematics':
         specifier: ^10.1.2
         version: 10.1.2(chokidar@3.6.0)(typescript@5.5.3)
@@ -82,8 +82,8 @@ importers:
         specifier: ^1.10.0
         version: 1.10.0(@swc/core@1.6.7)(@swc/types@0.1.9)(typescript@5.5.3)
       '@swc/cli':
-        specifier: ^0.3.14
-        version: 0.3.14(@swc/core@1.6.7)(chokidar@3.6.0)
+        specifier: ^0.4.0
+        version: 0.4.0(@swc/core@1.6.7)(chokidar@3.6.0)
       '@swc/core':
         specifier: 1.6.7
         version: 1.6.7
@@ -805,8 +805,8 @@ packages:
   '@swc-node/sourcemap-support@0.5.0':
     resolution: {integrity: sha512-fbhjL5G0YvFoWwNhWleuBUfotiX+USiA9oJqu9STFw+Hb0Cgnddn+HVS/K5fI45mn92e8V+cHD2jgFjk4w2T9Q==}
 
-  '@swc/cli@0.3.14':
-    resolution: {integrity: sha512-0vGqD6FSW67PaZUZABkA+ADKsX7OUY/PwNEz1SbQdCvVk/e4Z36Gwh7mFVBQH9RIsMonTyhV1RHkwkGnEfR3zQ==}
+  '@swc/cli@0.4.0':
+    resolution: {integrity: sha512-4JdVrPtF/4rCMXp6Q1h5I6YkYZrCCcqod7Wk97ZQq7K8vNGzJUryBv4eHCvqx5sJOJBrbYm9fcswe1B0TygNoA==}
     engines: {node: '>= 16.14.0'}
     hasBin: true
     peerDependencies:
@@ -2902,10 +2902,6 @@ packages:
     resolution: {integrity: sha512-tqNXrS78oMOE73NMxK4EMLQsQowWf8jKooH9g7xPavRT706R6bkQJ6DY2Te7QukaZsulxa30wQ7bk0pm4XiHmA==}
     engines: {node: '>=8'}
 
-  lru-cache@10.1.0:
-    resolution: {integrity: sha512-/1clY/ui8CzjKFyjdvwPWJUYKiFVXG2I2cY0ssG7h4+hwk+XOIX7ZSG9Q7TW8TW3Kp3BUSqgFWBLgL4PJ+Blag==}
-    engines: {node: 14 || >=16.14}
-
   lru-cache@10.3.0:
     resolution: {integrity: sha512-CQl19J/g+Hbjbv4Y3mFNNXFEL/5t/KCg8POCuUqd4rMKjGG+j1ybER83hxV58zL+dFI1PTkt3GNFSHRt+d8qEQ==}
     engines: {node: 14 || >=16.14}
@@ -4744,7 +4740,7 @@ snapshots:
       got: 11.8.6
       os-filter-obj: 2.0.0
 
-  '@nestjs/cli@10.4.1(@swc/cli@0.3.14(@swc/core@1.6.7)(chokidar@3.6.0))(@swc/core@1.6.7)':
+  '@nestjs/cli@10.4.1(@swc/cli@0.4.0(@swc/core@1.6.7)(chokidar@3.6.0))(@swc/core@1.6.7)':
     dependencies:
       '@angular-devkit/core': 17.3.8(chokidar@3.6.0)
       '@angular-devkit/schematics': 17.3.8(chokidar@3.6.0)
@@ -4767,7 +4763,7 @@ snapshots:
       webpack: 5.92.1(@swc/core@1.6.7)
       webpack-node-externals: 3.0.0
     optionalDependencies:
-      '@swc/cli': 0.3.14(@swc/core@1.6.7)(chokidar@3.6.0)
+      '@swc/cli': 0.4.0(@swc/core@1.6.7)(chokidar@3.6.0)
       '@swc/core': 1.6.7
     transitivePeerDependencies:
       - esbuild
@@ -4930,14 +4926,14 @@ snapshots:
       source-map-support: 0.5.21
       tslib: 2.6.3
 
-  '@swc/cli@0.3.14(@swc/core@1.6.7)(chokidar@3.6.0)':
+  '@swc/cli@0.4.0(@swc/core@1.6.7)(chokidar@3.6.0)':
     dependencies:
       '@mole-inc/bin-wrapper': 8.0.1
       '@swc/core': 1.6.7
       '@swc/counter': 0.1.3
       commander: 8.3.0
       fast-glob: 3.3.2
-      minimatch: 9.0.3
+      minimatch: 9.0.5
       piscina: 4.3.1
       semver: 7.6.0
       slash: 3.0.0
@@ -6575,7 +6571,7 @@ snapshots:
     dependencies:
       foreground-child: 3.1.1
       jackspeak: 2.3.6
-      minimatch: 9.0.3
+      minimatch: 9.0.5
       minipass: 7.0.4
       path-scurry: 1.10.1
 
@@ -7423,8 +7419,6 @@ snapshots:
 
   lowercase-keys@2.0.0: {}
 
-  lru-cache@10.1.0: {}
-
   lru-cache@10.3.0: {}
 
   lru-cache@4.1.5:
@@ -7732,7 +7726,7 @@ snapshots:
 
   path-scurry@1.10.1:
     dependencies:
-      lru-cache: 10.1.0
+      lru-cache: 10.3.0
       minipass: 7.0.4
 
   path-scurry@1.11.1:
