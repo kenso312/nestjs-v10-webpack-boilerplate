@@ -79,8 +79,8 @@ importers:
         specifier: ^10.3.10
         version: 10.3.10(@nestjs/common@10.3.10(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@10.3.10(@nestjs/common@10.3.10(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(reflect-metadata@0.2.2)(rxjs@7.8.1))
       '@swc-node/register':
-        specifier: ^1.10.2
-        version: 1.10.2(@swc/core@1.6.7)(@swc/types@0.1.9)(typescript@5.5.3)
+        specifier: ^1.10.3
+        version: 1.10.3(@swc/core@1.6.7)(@swc/types@0.1.9)(typescript@5.5.3)
       '@swc/cli':
         specifier: ^0.4.0
         version: 0.4.0(@swc/core@1.6.7)(chokidar@3.6.0)
@@ -858,8 +858,8 @@ packages:
       '@swc/core': '>= 1.4.13'
       '@swc/types': '>= 0.1'
 
-  '@swc-node/register@1.10.2':
-    resolution: {integrity: sha512-8Kz5l+T7LmqbDEcl8Ye2/Bz5YUYxfmo314VmMy+4kwBEZt+V/tt0/U7hCPMAu9fBdnIdJLRWjDgH4VtmpgXvug==}
+  '@swc-node/register@1.10.3':
+    resolution: {integrity: sha512-QSffEXDGh/A6q0SWGEmnvKOqrCY0EiOLhAaS9KGxe2+0RKSOIjuBjTDilBLKHltudNCDkEE6kBljwGz7xoAREA==}
     peerDependencies:
       '@swc/core': '>= 1.4.13'
       typescript: '>= 4.3'
@@ -4222,7 +4222,7 @@ snapshots:
       '@babel/traverse': 7.23.7
       '@babel/types': 7.23.6
       convert-source-map: 2.0.0
-      debug: 4.3.4
+      debug: 4.3.5
       gensync: 1.0.0-beta.2
       json5: 2.2.3
       semver: 6.3.1
@@ -4388,7 +4388,7 @@ snapshots:
       '@babel/helper-split-export-declaration': 7.22.6
       '@babel/parser': 7.23.6
       '@babel/types': 7.23.6
-      debug: 4.3.4
+      debug: 4.3.5
       globals: 11.12.0
     transitivePeerDependencies:
       - supports-color
@@ -4545,7 +4545,7 @@ snapshots:
   '@eslint/eslintrc@2.1.4':
     dependencies:
       ajv: 6.12.6
-      debug: 4.3.4
+      debug: 4.3.5
       espree: 9.6.1
       globals: 13.24.0
       ignore: 5.3.0
@@ -4598,7 +4598,7 @@ snapshots:
   '@humanwhocodes/config-array@0.11.14':
     dependencies:
       '@humanwhocodes/object-schema': 2.0.2
-      debug: 4.3.4
+      debug: 4.3.5
       minimatch: 3.1.2
     transitivePeerDependencies:
       - supports-color
@@ -5054,7 +5054,7 @@ snapshots:
       '@swc/core': 1.6.7
       '@swc/types': 0.1.9
 
-  '@swc-node/register@1.10.2(@swc/core@1.6.7)(@swc/types@0.1.9)(typescript@5.5.3)':
+  '@swc-node/register@1.10.3(@swc/core@1.6.7)(@swc/types@0.1.9)(typescript@5.5.3)':
     dependencies:
       '@swc-node/core': 1.13.2(@swc/core@1.6.7)(@swc/types@0.1.9)
       '@swc-node/sourcemap-support': 0.5.1
@@ -5323,7 +5323,7 @@ snapshots:
     dependencies:
       '@typescript-eslint/typescript-estree': 6.21.0(typescript@5.5.3)
       '@typescript-eslint/utils': 6.21.0(eslint@8.57.0)(typescript@5.5.3)
-      debug: 4.3.4
+      debug: 4.3.5
       eslint: 8.57.0
       ts-api-utils: 1.0.3(typescript@5.5.3)
     optionalDependencies:
@@ -5337,7 +5337,7 @@ snapshots:
     dependencies:
       '@typescript-eslint/types': 6.21.0
       '@typescript-eslint/visitor-keys': 6.21.0
-      debug: 4.3.4
+      debug: 4.3.5
       globby: 11.1.0
       is-glob: 4.0.3
       minimatch: 9.0.3
@@ -5598,7 +5598,7 @@ snapshots:
     dependencies:
       '@fastify/error': 3.4.1
       archy: 1.0.0
-      debug: 4.3.4
+      debug: 4.3.5
       fastq: 1.17.1
     transitivePeerDependencies:
       - supports-color
@@ -7070,7 +7070,7 @@ snapshots:
 
   istanbul-lib-source-maps@4.0.1:
     dependencies:
-      debug: 4.3.4
+      debug: 4.3.5
       istanbul-lib-coverage: 3.2.2
       source-map: 0.6.1
     transitivePeerDependencies:
@@ -7629,7 +7629,7 @@ snapshots:
 
   micromark@2.11.4:
     dependencies:
-      debug: 4.3.4
+      debug: 4.3.5
       parse-entities: 2.0.0
     transitivePeerDependencies:
       - supports-color
