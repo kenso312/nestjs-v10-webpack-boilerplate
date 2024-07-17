@@ -79,8 +79,8 @@ importers:
         specifier: ^10.3.10
         version: 10.3.10(@nestjs/common@10.3.10(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@10.3.10(@nestjs/common@10.3.10(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(reflect-metadata@0.2.2)(rxjs@7.8.1))
       '@swc-node/register':
-        specifier: ^1.10.8
-        version: 1.10.8(@swc/core@1.6.13)(@swc/types@0.1.9)(typescript@5.5.3)
+        specifier: ^1.10.9
+        version: 1.10.9(@swc/core@1.6.13)(@swc/types@0.1.9)(typescript@5.5.3)
       '@swc/cli':
         specifier: ^0.4.0
         version: 0.4.0(@swc/core@1.6.13)(chokidar@3.6.0)
@@ -863,8 +863,8 @@ packages:
       '@swc/core': '>= 1.4.13'
       '@swc/types': '>= 0.1'
 
-  '@swc-node/register@1.10.8':
-    resolution: {integrity: sha512-XklUNYwI//+dVOzY66tsVdknAmmOTO8qSzVEP62fNDHycFhnwZtqFNPc7UiNAhzOQuP1sRBfLZXQ0ynXlrkX7Q==}
+  '@swc-node/register@1.10.9':
+    resolution: {integrity: sha512-iXy2sjP0phPEpK2yivjRC3PAgoLaT4sjSk0LDWCTdcTBJmR4waEog0E6eJbvoOkLkOtWw37SB8vCkl/bbh4+8A==}
     peerDependencies:
       '@swc/core': '>= 1.4.13'
       typescript: '>= 4.3'
@@ -5096,7 +5096,7 @@ snapshots:
       '@swc/core': 1.6.13
       '@swc/types': 0.1.9
 
-  '@swc-node/register@1.10.8(@swc/core@1.6.13)(@swc/types@0.1.9)(typescript@5.5.3)':
+  '@swc-node/register@1.10.9(@swc/core@1.6.13)(@swc/types@0.1.9)(typescript@5.5.3)':
     dependencies:
       '@swc-node/core': 1.13.3(@swc/core@1.6.13)(@swc/types@0.1.9)
       '@swc-node/sourcemap-support': 0.5.1
