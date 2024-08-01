@@ -94,7 +94,7 @@
     "rimraf": "^6.0.1",
     "sort-package-json": "^2.10.0",
     "swc-loader": "^0.2.6",
-    "ts-jest": "^29.2.3",
+    "ts-jest": "^29.2.4",
     "ts-node": "^10.9.2",
     "tsconfig-paths-webpack-plugin": "^4.1.0",
     "typescript": "^5.5.4",
