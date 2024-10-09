@@ -97,7 +97,7 @@
     "ts-jest": "^29.2.5",
     "ts-node": "^10.9.2",
     "tsconfig-paths-webpack-plugin": "^4.1.0",
-    "typescript": "^5.6.2",
+    "typescript": "^5.6.3",
     "webpack": "^5.95.0",
     "yaml-eslint-parser": "^1.2.3"
   },
